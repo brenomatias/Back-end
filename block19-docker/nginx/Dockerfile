@@ -59,3 +59,16 @@ executar a imagem com o bash
 para ver em qual porta o a imagem é executada, neste caso 80
 
 **** toda vez que roda um docker run imageTag CRIA UM CONTAINER NOVO
+
+ACESSANDO O CONTAINER 
+(o container tem que estar startado para acessar o exec)
+
+   docker exec -it <CONTAINER ID> bash
+
+
+CRIAR UM NOVO CONTAINER CONFIGURANDO UMA PORTA JUNTO AO NOSSO HOST
+determinar uma porta especifica
+
+    docker run -d -p 500:80 14bis/hello-world (nome da imagem)
+
+EXPOR UMA PORTA NO dockerfile 
