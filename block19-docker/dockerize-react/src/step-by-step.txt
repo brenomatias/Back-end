@@ -1,0 +1,6 @@
+npm run build 
+
+surge uma pasta build 
+
+
+CRIAR DOCKERFILE NOVO
