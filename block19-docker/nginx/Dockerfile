@@ -3,7 +3,7 @@ FROM nginx:latest
 
 COPY index.html /usr/share/nginx/html
 # copiar os arquivos da máquina (index.html)
-# para dentro do container
+# para dentro do container da imagem 
 # este endereço especifico (/usr/share/nginx/html):
 
 # usar comandos para localizar a pasta (no terminal):
@@ -51,24 +51,25 @@ COPY index.html /usr/share/nginx/html
 #  CRIAR CONTAINER A PARTIR DA NOVA IMAGEM:
 
 
-executar a imagem com o bash 
+# executar a imagem com o bash 
 
-    docker run -it 14bis/hello-world bash
+#     docker run -it 14bis/hello-world bash
   
-     cat /etc/nginx/conf.d/default.conf
-para ver em qual porta o a imagem é executada, neste caso 80
+#      cat /etc/nginx/conf.d/default.conf
+# para ver em qual porta o a imagem é executada, neste caso 80
 
-**** toda vez que roda um docker run imageTag CRIA UM CONTAINER NOVO
-
-ACESSANDO O CONTAINER 
-(o container tem que estar startado para acessar o exec)
-
-   docker exec -it <CONTAINER ID> bash
+# **** toda vez que roda um docker run imageTag CRIA UM CONTAINER NOVO
 
 
-CRIAR UM NOVO CONTAINER CONFIGURANDO UMA PORTA JUNTO AO NOSSO HOST
-determinar uma porta especifica
+# ACESSANDO O CONTAINER 
+# (o container tem que estar startado para acessar o exec)
 
-    docker run -d -p 500:80 14bis/hello-world (nome da imagem)
+#    docker exec -it <CONTAINER ID> bash
 
-EXPOR UMA PORTA NO dockerfile 
+
+# CRIAR UM NOVO CONTAINER CONFIGURANDO UMA PORTA JUNTO AO NOSSO HOST
+# determinar uma porta especifica
+
+#     docker run -d -p 500:80 14bis/hello-world (nome da imagem)
+
+# EXPOR UMA PORTA NO dockerfile 
