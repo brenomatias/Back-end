@@ -1,0 +1,23 @@
+Você será capaz de:
+Modelar um banco de dados;
+Identificar entidades , atributos e relacionamentos ;
+Construir um diagrama entidade-relacionamento (diagrama ER);
+Criar um banco de dados;
+Criar e modelar tabelas com base em um diagrama ER;
+Normalizar o banco de dados, seguindo as Formas Normais .
+
+
+Database Design - Como modelar um banco de dados
+Existem alguns passos a serem seguidos durante a modelagem e criação de um banco de dados. Um fluxo bastante comum nesse processo consiste em:
+
+1)Identificar as entidades , atributos e relacionamentos com base na descrição do problema;
+
+2)Construir um diagrama entidade-relacionamento para representar as entidades encontradas no passo 1;
+
+3)Criar um banco de dados para conter suas tabelas;
+
+4)Criar e modelar tabelas tendo o diagrama do passo 2 como base.
+
+
+Entidades:
+São uma representação de algo do mundo real dentro do banco de dados. Elas normalmente englobam toda uma ideia e são armazenadas em formato de tabelas em um banco de dados.
