@@ -1,0 +1,17 @@
+Primeiro passo de uma dockerização é a construção  de uma imagem
+
+Precisamos do Dockerfile: passo a passo para execução do programa
+Dockerfile constroi o executável
+
+O case deste projeto:
+subir um servidor HTTP com Nginx e colocar conteúdo HTML dentro do container 
+para ser acessado pelo host
+
+Para o arquivo chegar no browser existe uma requisição
+
+Passo a passo:
+1) Criar o arquivo Dockerfile
+2) escolher a imagem base 
+3) criar arquivo HTML 
+4) copiar os arquivos da maquina para o container
+5) criar imagem

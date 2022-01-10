@@ -1,0 +1,26 @@
+-- BOOL 
+        providing 1 for TRUE and 0 for FALSE.
+        defaul (null)
+
+-- CHAR(size)
+	    A FIXED length string (can contain letters, numbers, and special characters). The size parameter specifies the column length in characters - can be from 0 to 255. Default is 1
+
+-- VARCHAR(size)	
+        A VARIABLE length string (can contain letters, numbers, and special characters). The size parameter specifies the maximum column length in characters - can be from 0 to 65535. (até quantidade
+        mas ocupa so espaço que foi inserido)
+
+-- TINY(SMALL/BIG...)INT(size)	
+        A very small integer. Signed range is from -128 to 127. Unsigned range is from 0 to 255. The size parameter specifies the maximum display width (which is 255)
+
+        UNSIGNED = so permite armazernar valores positivos
+        SIGNED = valores positivos ou negativos(-127 a 127)
+
+-- FLOAT(size, d)	
+        A floating point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter. This syntax is deprecated in MySQL 8.0.17, and it will be removed in future MySQL versions
+       -d=quantidade de casas decimais
+
+-- DOUBLE(size, d)
+        	A normal-size floating point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter
+
+-- DATE	
+        A date. Format: YYYY-MM-DD. The supported range is from '1000-01-01' to '9999-12-31'

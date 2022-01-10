@@ -1,0 +1,82 @@
+Relacionamentos:
+
+Os relacionamentos servem para representar como uma entidade deve estar ligada com outra(s) no banco de dados. Há três tipos de relacionamentos possíveis em um banco de dados, que são:
+
+Relacionamento Um para Um (1..1):
+Nesse tipo de relacionamento, uma linha da Tabela A deve possuir apenas uma linha correspondente na Tabela B e vice-versa.
+
+Relacionamento Um para Muitos ou Muitos para Um (1..N):
+Esse é um dos tipos mais comuns de relacionamento. Em cenários assim, uma linha na Tabela A pode ter várias linhas correspondentes na Tabela B , mas uma linha da Tabela B só pode possuir uma linha correspondente na Tabela A . Veja o exemplo abaixo:
+Nesse exemplo, uma categoria pode estar ligada a vários livros, embora um livro deva possuir apenas uma categoria.
+
+
+
+Como transformar uma ideia em um banco de dados?
+O problema - Catálogo de Álbuns
+Database Design - Como modelar um banco de dados
+O que é a Normalização?
+1ª Forma Normal
+2ª Forma Normal
+3ª Forma Normal
+Exercícios de fixação - normalização de dados
+Bônus: Transformando ideias em um modelo de banco de dados - Parte 2
+
+Quiz
+
+Vamos praticar!
+
+Exercícios
+Agora, a prática:
+Normalização
+Bônus
+
+Recursos adicionais (opcional)
+Aula ao vivo + Projeto - One For All
+Anterior
+Transformando ideias em um modelo de banco de dados
+Próximo
+Database Design - Como modelar um banco de dados
+Existem alguns passos a serem seguidos durante a modelagem e criação de um banco de dados. Um fluxo bastante comum nesse processo consiste em:
+Identificar as entidades , atributos e relacionamentos com base na descrição do problema;
+Construir um diagrama entidade-relacionamento para representar as entidades encontradas no passo 1;
+Criar um banco de dados para conter suas tabelas;
+Criar e modelar tabelas tendo o diagrama do passo 2 como base.
+A seguir você verá como realizar cada um desses passos.
+1) Identificando entidades, atributos e relacionamentos
+Primeiramente você deve identificar as entidades , atributos e relacionamentos com base na descrição do problema. Porém, antes disso é necessário entender o significado de cada um deles.
+Entidades:
+São uma representação de algo do mundo real dentro do banco de dados. Elas normalmente englobam toda uma ideia e são armazenadas em formato de tabelas em um banco de dados.
+Antes de expandir o código a seguir: Volte à descrição do problema acima e busque identificar quais objetos devem se tornar entidades. Depois expanda o código abaixo para verificar.
+Ver entidades
+Atributos:
+Os atributos são tudo aquilo que pode ser usado para descrever algo. Por exemplo, uma entidade pessoa pode ter nome, altura, peso e idade.
+Antes de expandir o código a seguir: Considerando a história anterior sobre um catálogo de álbuns musicais, tente deduzir quais propriedades descrevem cada uma das entidades encontradas anteriormente.
+Ver atributos
+Se sua interpretação foi diferente, não se preocupe, você praticará mais hoje para que melhore essa percepção.
+Álbum: `album_id`, `titulo`, `preco`, `estilo_id` e `artista_id`;
+Artista: `artista_id` e `nome`;
+Estilo Musical: `estilo_id` e `nome`;
+Canção: `cancao_id`, `nome` e `album_id`.
+Algo a ser notado aqui é que algumas informações precisam ser deduzidas, como, por exemplo, a coluna que armazena o identificador único dos registros (aqui chamado de id), que todas tabelas precisam ter.
+Relacionamentos:
+Os relacionamentos servem para representar como uma entidade deve estar ligada com outra(s) no banco de dados. Há três tipos de relacionamentos possíveis em um banco de dados, que são:
+Relacionamento Um para Um (1..1):
+Nesse tipo de relacionamento, uma linha da Tabela A deve possuir apenas uma linha correspondente na Tabela B e vice-versa. Veja o exemplo abaixo:
+
+Exemplo de relacionamento um para um
+Apesar de ser possível inserir essas informações em apenas uma tabela, esse tipo de relacionamento é usado normalmente quando se quer dividir as informações de uma tabela maior em tabelas menores, evitando que as tabelas tenham dezenas de colunas.
+Relacionamento Um para Muitos ou Muitos para Um (1..N):
+Esse é um dos tipos mais comuns de relacionamento. Em cenários assim, uma linha na Tabela A pode ter várias linhas correspondentes na Tabela B , mas uma linha da Tabela B só pode possuir uma linha correspondente na Tabela A . Veja o exemplo abaixo:
+
+Exemplo de relacionamento um para muitos ou muitos para um
+Nesse exemplo, uma categoria pode estar ligada a vários livros, embora um livro deva possuir apenas uma categoria.
+Relacionamento Muitos para Muitos (N..N):
+O relacionamento muitos para muitos acontece quando uma linha na Tabela A pode possuir muitas linhas correspondentes na Tabela B e vice-versa. Veja o exemplo abaixo:
+
+Esse tipo de relacionamento pode ser visto também como dois relacionamentos um para muitos ligados por uma tabela intermediária, como é o caso da tabela filme_ator . Pode-se chamar essa tabela intermediária de tabela de junção . Ela é usada para guardar informações de como as tabelas se relacionam entre si. Desta maneira, quando se quer demonstrar que um filme pode contar com vários atores e também que os atores podem atuar em vários filmes, surge a necessidade de um relacionamento muitos para muitos.
+
+
+Os relacionamentos identificados foram:
+Um artista pode possuir um ou mais álbuns;
+Um estilo musical pode estar contido em um ou mais álbuns;
+Um álbum pode possuir uma ou mais canções.

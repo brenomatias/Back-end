@@ -1,0 +1,141 @@
+Container(pacote):
+    O container é um processo Docker que, internamente, possui tudo aquilo que é necessário para seu funcionamento: Sistema Operacional (Binários e Bibliotecas) e recursos necessários para sua aplicação;
+    instância isolada (tem apenas uma finalidade) e compartilha dos mesmos recursos do sistema operacional hospedeiro, o que damos o nome de Virtualização a nível de Sistema Operacional (OS-level virtualization)
+
+Imagem:
+    A imagem é uma espécie de "fotografia" de um container , nós resgatamos uma imagem, quando queremos iniciar um novo container a partir de uma estrutura já conhecida.
+
+
+Dockerfile:
+    Tudo começa em um arquivo chamado Dockerfile . Este arquivo possui as instruções* necessárias para que possamos gerar uma imagem;
+
+    * Aqui vão instruções de qual sistema operacional usar, tal como quais comandos devem ser executados quando a imagem for rodada em um container .
+
+
+Os comandos do Docker funcionam no seguinte formato: 
+
+         docker <comando> <sub-comando> <parâmetros>
+
+     *Os <parâmetros> são opcionais na execução dos comandos
+
+
+ que também poderia ser escrito como:
+   
+           docker container run hello-world  
+   
+(Utilizaremos esta última forma aqui por ser mais atual e verbosa)
+
+
+O formato do comando para rodar um container é o seguinte:
+
+            docker container run <nome-da-imagem>:<tag>
+
+(Em que <tag> representa a versão daquela imagem, caso nenhuma seja passada, ele assumira que é a última versão disponível ( latest ).) 
+
+
+* se não dissermos para o container o que ele deve fazer a seguir, o container é simplesmente encerrado
+
+
+No Docker , é possível saber quais containers estão ativos com o seguinte comando:
+
+              docker container ls
+
+Mas no nosso caso, o container iniciou e parou logo em seguida, então só é possível enxergar ele se passarmos o parâmetro -a para mostrar todos os containers incluindo os inativos.
+ 
+              docker container ls -a
+
+
+*** a cada docker run image é gerado um novo container
+
+**saber somente sobre o último container criado (independente do status dele), você pode usar o parâmetro -l
+
+              docker container ls -l
+
+
+Informações do container:
+
+ 
+    CONTAINER ID: Identificador único*;
+    IMAGE: O nome da imagem utilizada para a criação do container ;
+    COMMAND: O comando executado/ em execução dentro do container ;
+    CREATED: Quando foi criado o container ;
+    STATUS: O status atual do mesmo, no nosso caso, encerrado;
+    PORT: A porta que estamos utilizando para nos comunicar com o container**;
+    NAMES: O apelido do container , como não definimos nenhum, foi criado um aleatório.
+
+
+
+     
+                  Principais comandos do CLI 
+                     (command line interface)
+
+
+Criar e rodar um container 
+
+O parâmetro --name define um <nome-da-sua-escolha> para aquele container (ao invés de um nome aleatório) :
+
+                docker container run --name <nome-da-sua-escolha> <imagem>:<tag>
+
+
+ Modo 'Cleanup': O parâmetro --rm deve garantir que o container seja removido ao final da execução (útil para testar imagens sem ficar acumulando containers novos) :
+
+                  docker container run --rm <imagem>:<tag>
+
+
+ O parâmetro -d (de --detach , desacoplado em português) rodará esse container em segundo plano*:
+
+docker container run -d <imagem>:<tag>
+
+
+
+Criar um container sem executá-lo:
+
+   Cria um container com a imagem de referência, mas não o executa imediatamente:
+
+            docker container create <parâmetros> <imagem>:<tag>
+
+
+O parâmetro -it nesse contexto, deve garantir que ao iniciar o container , ele se mantenha ativo e disponha de um terminal de acesso:
+
+               docker container create -it <imagem>:<tag>
+
+
+
+
+Iniciar, reiniciar, pausar, resumir e parar um container 
+
+   Inicia* um container usando referências de sua identificação única (campo CONTAINER ID , parcialmente ou inteiro) , ou pelo nome (campo NAMES ) que foi definido:
+
+           docker container start <CONTAINER ID || NAMES>
+
+* Note que o comando start difere do comando run . O start apenas inicia o container que já havia sido criado (mas estava inativo), enquanto o run cria e executa um novo container!
+
+
+Reinicia um container usando as referências citadas anteriormente:
+
+              docker container restart <CONTAINER ID || NAMES>
+
+Pausa um container usando as referências citadas anteriormente:
+
+               docker container pause <CONTAINER ID || NAMES>
+
+Tira um container do modo de pausa usando as referências citadas anteriormente:
+
+               docker container unpause <CONTAINER ID || NAMES>
+
+Encerra um container usando as referências citadas anteriormente:
+                docker container stop <CONTAINER ID || NAMES>
+
+
+
+
+Excluindo containers específicos
+
+Se o container não estiver ativo, esse comando deve remover o mesmo:
+
+                 docker container rm <CONTAINER ID || NAMES>
+
+Se o container estiver ativo, você deve passar o parâmetro -f (forçar) para parar sua execução e depois efetuar a remoção:
+
+                 docker container rm -f <CONTAINER ID || NAMES>
+
