@@ -1,0 +1,3 @@
+Antes de começarmos, precisamos criar nosso pacote node para incluirmos os scripts necessários em package.json :
+
+     "npm init" -> cria package.json
