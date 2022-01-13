@@ -10,12 +10,15 @@ const app = express();
 // 1) Crie uma rota GET /ping
 // Sua rota deve retornar o seguinte JSON: { message: 'pong' }
 
+app.get('/ping', pong)
 
-app.get('/ping', callback)
-
-function pong(res, req) => {
-
+function pong(req, res) {
+    res.json({message:'pong'})
 };
 
+// json object = { 
+//     message: 'lala',
+//     type: 'bebebe'
+//      }
 
-app.listen(3000, () => 'listening on port 3000');
+app.listen(3000, () => console.log('listening on port 3000'));
