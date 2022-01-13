@@ -1,0 +1,8 @@
+via query string, porém vamos imaginar que precisamos salvar dados sensíveis como uma senha, número de algum documento importante. Se enviarmos isso na URL qualquer pessoa que conseguir espiar o tráfego de rede entre o cliente e o servidor vai ter acesso a essas informações. Uma forma que o protocolo HTTP encontrou para resolver isso foi criando o tráfego através do CORPO (BODY) da requisição, praticamente o que acontece é uma compressão dos dados enviados que só serão descomprimidos do lado do back-end
+
+
+para enviar dados no body da requisição você precisa usar algum tipo específico de requisição, como por exemplo, utilizando o verbo HTTP POST 
+
+Antes disso, precisamos fazer uma pequena etapa que é instalar o pacote bodyParser . Como explicamos, os dados enviados pelo front-end são comprimidos, e para que conseguimos remontar os dados enviados precisamos parsear as informações para um formato compreensível para o back-end, esse formato no caso vai ser JSON. Para instalar esse pacote execute o comando:
+
+            npm i body-parser
