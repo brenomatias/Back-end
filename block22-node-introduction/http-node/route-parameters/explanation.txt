@@ -1,0 +1,11 @@
+ACESSAR OBJETOS ESPECÌFICOS 
+
+PARÂMETROS DE ROTAS:
+
+       /<rota>/<:parametro>
+
+
+ex:
+     app.get('/recipes/:id', (callback) {
+
+     })

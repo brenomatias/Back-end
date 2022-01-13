@@ -1,0 +1,17 @@
+
+O aspecto mais básico de uma API HTTP se dá através de suas rotas , também chamadas de ENDPOINTS . Uma rota ou endpoint é definida pelo método HTTP e caminho 
+
+app.HTTP-METHOD('/caminho', (req, res) {
+
+});
+
+Na nossa aplicação de "Hello, world!", por exemplo, registramos uma rota GET /hello
+
+
+AO REGISTRARMOS UMA ROTA, ESTAMOS DIZENDO PARA O EXPRES O QUE FAZER
+COM RQUISIÇÕES QUE CONTENHAM AQUELE MÉTODO E CAMINHO
+
+
+Voltando para a analogia da cozinha, é como se estivéssemos definindo, no nosso quadro de pedidos, que os pedidos que levam carne devem ser, primeiro, preparados pela pessoa responsável pela chapa, enquanto pedidos que sejam compostos apenas de vegetais (como saladas) devem ser preparados pela pessoa responsável pelo corte de legumes e verduras
+
+Ou seja, o roteamento consiste em "direcionar" uma requisição para que seja atendida por uma determinada parte do nosso sistema.

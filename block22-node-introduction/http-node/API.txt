@@ -1,0 +1,20 @@
+API é uma sigla para A pplication P rogramming I nterface. Ou seja, Interface de programação de aplicação .
+
+
+Isso quer dizer que uma API é, basicamente, qualquer coisa que permita a comunicação, de forma programática, com uma determinada aplicação.
+Um tipo muito comum de API são as APIs HTTP, que permitem que códigos se comuniquem com aplicações através de requisições HTTP. É desse tipo de API que boa parte da web é feita
+
+
+
+
+ENDPOINT: 
+ponta de comunicação do provedor da API entre o cliente
+
+A-ddress
+B-inding (como acessar os dados)
+C-contract (aquilo que voce pode ver dada a requisição)
+
+
+É no Back-End que os dados serão filtrados , manipulados e preparados para envio ao Front-end. Esse, por sua vez, se encarrega de apresentá-los a quem fez o pedido.
+
+Ainda na analogia da cozinha, uma API seria o quadro de pedidos que os setores de "Cozinha" e "Atendimento" usam para se comunicar:

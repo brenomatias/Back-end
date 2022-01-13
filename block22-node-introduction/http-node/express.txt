@@ -1,0 +1,12 @@
+O express é um framework Node.js criado para facilitar a criação de APIs HTTP com Node. Ele nos fornece uma série de recursos e abstrações que facilitam a vida na hora de decidir quais requisições tratar, como tratá-las, quais regras de negócio aplicar e afins.
+
+O framework foi construído pensando em um padrão de construção de APIs chamado de REST, que você vai estudar mais à frente. Seu objetivo é nos ajudar a construir APIs de forma mais fácil, essencialmente nos permitindo criar APIs altamente funcionais com metade do trabalho que teríamos para fazer isso "na mão".
+
+
+CRIANDO UMA APLICAÇÃO COM express
+
+1)npm init -y
+
+2)install Express - npm i express
+
+3) crie um arquivo index.js . Como qualquer aplicação Node.js, nossa API precisa de um entrypoint, ou seja, um ponto de partida. Por convenção, vamos utilizar o index.js .
