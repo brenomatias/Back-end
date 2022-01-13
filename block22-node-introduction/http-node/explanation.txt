@@ -1,0 +1,25 @@
+Comunication between servers and clients
+
+
+Communication protocol:
+
+A communication protocol is a system of rules that allows two or more entities of a communications system(like a browsers) to transmit information via any kind of variation of a digital quantity. The protocol defines the rules, syntax, semantics and synchronization of communication and possible error recovery methods.
+
+
+
+
+         Hypertext Transfer Protocol
+
+ HTTP gives users a way to interact with web resources such as HTML files by transmitting hypertext messages between clients and servers. HTTP clients generally use Transmission Control Protocol (TCP) connections to communicate with servers.
+
+
+O protocolo HTTP é a fundação da web moderna. Ele é a base da comunicação de boa parte do que acontece na web 
+
+Inicialmente criado para transportar documentos e mensagens simples, o HTTP hoje é responsável pelo tráfego de todo tipo de informação na internet. Boa parte do que é enviado e recebido via HTTP são requisições e respostas a APIs HTTP
+
+
+APIs são pontos de comunicação entre dois sistemas diferentes, e APIs HTTP são as mais utilizadas para comunicação na web. Para ficar nítido, imagine que você precisa que seu Front-End consulte alguns dados do seu banco de dados. Não faz sentido colocar, por exemplo, o usuário e senha do banco no meio do seu JavaScript e criar uma conexão direta, faz? Se fizéssemos algo do tipo, estaríamos, dentre outras coisas, simplesmente expondo o acesso a todo nosso banco de dados a qualquer pessoa que executasse um "Inspecionar elemento" na página.
+
+
+COMUNICAÇẪO ENTRE FRONT E BACK:
+As APIs HTTP, que são o que forma o Back-End da maioria das aplicações web, são as responsáveis por ler os dados no banco e entregá-los para o Front-End, ou por receber dados do Front-End e armazená-los no banco de dados.
