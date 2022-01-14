@@ -1,0 +1,3 @@
+no Express qualquer função passada para uma rota é um middleware
+
+um middleware é uma função que realiza o tratamento de uma request e que pode encerrar essa request, ou chamar o próximo middleware
