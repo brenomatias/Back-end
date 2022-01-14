@@ -18,11 +18,24 @@ app.get('/recipes', function (req, res) {
 
 
 
+
 app.get('/recipes/search', function (req, res) {
-  const { name, maxPrice } = req.query;
-  const filteredRecipes = recipes.filter((r) => r.name.includes(name) && r.price < parseInt(maxPrice));
-  res.status(200).json(filteredRecipes);
-});
+    const { name } = req.query;
+    const filteredRecipes = recipes.filter((r) => r.name.includes(name));
+    res.status(200).json(filteredRecipes);
+  });
+  http://localhost:3001/recipes/search?name=Macarrão
+// HOW THE QUERY SRING WORKS
+
+
+
+app.get('/recipes/search', function (req, res) {
+    const { name, maxPrice } = req.query;
+    const filteredRecipes = recipes.filter((r) => r.name.includes(name) && r.price < parseInt(maxPrice));
+    res.status(200).json(filteredRecipes);
+})
+http://localhost:3001/recipes/search?name=Macarrão&maxPrice=40
+
 
 
 
@@ -36,6 +49,7 @@ app.get('/recipes/:id', function (req, res) {
 
 
 
+
 app.post('/recipes', function (req, res) {
   const { id, name, price, waitTime } = req.body;
   recipes.push({ id, name, price, waitTime});
@@ -44,11 +58,14 @@ app.post('/recipes', function (req, res) {
 
 
 
+
 app.put('/recipes/:id', function (req, res) {
+    
   const { id } = req.params;
-//   recebe o id como parâmetro de rota,
   const { name, price, waitTime } = req.body;
+
   const recipeIndex = recipes.findIndex((r) => r.id === parseInt(id));
+//   executes the callbackFn function once for every index in the array until it finds the one where callbackFn returns a truthy value
 
   if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
 
@@ -73,12 +90,13 @@ app.delete('/recipes/:id', function (req, res) {
 
 
 
+
 app.all('*', function (req, res) {
     return res.status(404).json({ message: `Rota '${req.path}' não existe!`});
 });
 
 
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });

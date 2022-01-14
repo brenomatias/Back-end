@@ -1,3 +1,5 @@
+// um middleware é uma função que realiza o tratamento de uma request e que pode encerrar essa request, ou chamar o próximo middleware
+
 const express = require('express');
 
 const app = express();
@@ -34,3 +36,10 @@ app.post('/recipes',
          res.status(201).json({ message: 'Recipe created succesfully'});
 
 });
+
+
+// 1)Fizemos uma validação que retorna uma resposta para requisição caso seja enviada no body da requisição um nome vazio. O middleware retorna uma resposta com status 400 e um json com uma mensagem dizendo que os dados enviados foram inválidos.
+
+// 2) caso não caia no if , este middleware endereça a requisição para o próximo middleware.
+
+// 3)Esse middleware faz todo o processo de pegar os dados enviados, salvar em um array, e finalmente retornar uma mensagem de sucesso dizendo que o produto foi cadastrado.
