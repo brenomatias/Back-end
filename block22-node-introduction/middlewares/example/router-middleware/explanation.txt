@@ -1,0 +1,4 @@
+
+Você deve estar pensando: "Nossa! Mas, com tudo isso, meu arquivo principal vai ficar gigante!" 😱
+Calma! O Express tem uma solução bem interessante para organizar nossas rotas e middlewares: o Router .
+O Router é um middleware que "agrupa" várias rotas em um mesmo lugar, como se fosse uma versão mini do app do Express. Ele é depois "plugado" no "app principal".
