@@ -1,0 +1,12 @@
+Até agora, falamos de middlewares comuns, que recebem req , res e next e tratam uma request caso tudo esteja correndo bem. Acontece que existe ainda um outro tipo de middleware: o middleware de erro .
+A diferença de um middleware de erro para um middleware comum é que a assinatura dele recebe quatro parâmetros ao invés de três, ficando assim: function (err, req, res, next) {} .
+
+
+
+                    app.use(middleware1);
+                    app.get('/', */ ... */);
+
+                    
+                    app.use(function (err, req, res, next) {
+                    res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`);
+                    });
