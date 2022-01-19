@@ -7,7 +7,7 @@ USE SpotifyClone;
 CREATE TABLE plans(
     plan_id INT PRIMARY KEY AUTO_INCREMENT,
     plan_type VARCHAR(100) NOT NULL,
-    plan_price DECIMAL(3,2) 
+    plan_price DECIMAL(5, 2) 
 ) engine = InnoDB;
 
 
@@ -45,32 +45,32 @@ CREATE TABLE songs(
     FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
 ) engine = InnoDB;
 
-CREATE TABLE listening_history(
-    history_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    song_id INT,
-    rep_date DATETIME,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (song_id) REFERENCES songs(song_id)
-) engine = InnoDB;
 
+CREATE TABLE IF NOT EXISTS reproductions(
+CONSTRAINT PRIMARY KEY (user_id, song_id),
+        user_id INT NOT NULL,
+        song_id INT NOT NULL,
+        date_reproductions DATETIME,
+        FOREIGN KEY (user_id) REFERENCES users (user_id),
+        FOREIGN KEY (song_id) REFERENCES songs (song_id)
+    ) engine= InnoDB;
 
 
 CREATE TABLE followers_data(
-    follow_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    artist_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
+  CONSTRAINT PRIMARY KEY (user_id, artist_id),
+  user_id INT NOT NULL,
+  artist_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id),
+  FOREIGN KEY (artist_id) REFERENCES artists (artist_id)
 ) engine = InnoDB;
 
 
 INSERT INTO plans (plan_type, plan_price)
 VALUES
-  ('gratuito', 0),
+  ('gratuito', 0.00),
   ('familiar', 7.99),
-  ('pessoal', 6.99),
-  ('universitário',5.99);
+  ('universitário', 5.99),
+  ('pessoal', 6.99);
 
 INSERT INTO users (user_name, user_age, sign_in, plan_type)
 VALUES
@@ -82,15 +82,15 @@ VALUES
   ('Patrick', 33, '2017-01-06', 2),
   ('Vivian', 26, '2018-01-05', 3),
   ('Carol', 19, '2018-02-14', 3),
-  ('Angelina', 42, '2018-02-14', 2),
-  ('Paul', 19, '2018-02-14', 2);
+  ('Angelina', 42, '2018-04-29', 2),
+  ('Paul', 46, '2017-01-17', 2);
 
 INSERT INTO artists (artist_name)
 VALUES
-  ('Waler Phoenix'),
+  ('Walter Phoenix'),
   ('Peter Strong'),
   ('Lance Day'),
-  ('Freddie Shannon'),
+  ('Freedie Shannon'),
   ('Tyler Isle'),
   ('Fog');
   
@@ -101,17 +101,17 @@ VALUES
   ('Hallowed Steam', 2, 1995),
   ('Incandescent', 3, 1998),
   ('Temporary Culture', 4, 2001),
-  ('Library of liberty', 4, 2001),
+  ('Library of liberty', 4, 2003),
   ('Chained Down', 5, 2007),
   ('Cabinet of fools', 5, 2012),
   ('No guarantees', 5, 2015),
-  ('Aparatus', 6, 2015);
+  ('Apparatus', 6, 2015);
 
 INSERT INTO followers_data (user_id, artist_id)
 VALUES
   (1, 1),
   (1, 4),
-  (1 ,3),
+  (1, 3),
   (2, 1),
   (2, 3),
   (3, 2),
@@ -132,11 +132,10 @@ VALUES
   (10, 2),
   (10, 6);
 
-
 INSERT INTO songs (artist_id, album_id, song_name, duration)
 VALUES
     (1, 1, 'Soul For Us', 200),
-    (1, 1, 'Reflections Of Magic', 1630),
+    (1, 1, 'Reflections Of Magic', 163),
     (1, 1, 'Dance With Her Own', 116),
     (1, 2, 'Troubles Of My Inner Fire', 203),
     (1, 2, 'Time Fireworks', 152),
@@ -177,9 +176,10 @@ VALUES
     (6, 10, 'You Make Me Feel So..', 83);
 
 
-INSERT INTO listening_history (user_id, song_id, rep_date)
+INSERT INTO
+	reproductions(user_id, song_id, date_reproductions)
 VALUES
-  (1, 36, '2020-02-28 10:45:55'), 
+  (1, 36, '2020-02-28 10:45:55'),
   (1, 25, '2020-05-02 05:30:35'),
   (1, 23, '2020-03-06 11:22:33'),
   (1, 14, '2020-08-05 08:05:17'),
@@ -213,7 +213,7 @@ VALUES
   (9, 17, '2018-12-07 22:48:52'),
   (9, 8, '2021-03-14 06:14:26'),
   (9, 9, '2020-04-01 03:36:00'),
-  (10, 20,'2017-02-06 08:21:34'),
-  (10, 21,'2017-12-04 05:33:43'),
-  (10, 12,'2017-07-27 05:24:49'),
+  (10, 20, '2017-02-06 08:21:34'),
+  (10, 21, '2017-12-04 05:33:43'),
+  (10, 12, '2017-07-27 05:24:49'),
   (10, 13, '2017-12-25 01:03:57');
