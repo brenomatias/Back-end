@@ -1,0 +1,6 @@
+É A CAMADA MAIS PRÓXIMA DO BANCO DE DADOS
+ONDE VAI AS QUERIES DOSS BANCOS DE DADOS
+
+O model é onde nós manipulamos e definimos a estrutura dos nossos dados. Todo acesso aos dados deve passar por essa camada.
+
+O model é responsável por abstrair completamente os detalhes de acesso e armazenamento, fornecendo somente uma API que permita requisitar e manipular esses dados. Por exemplo, é responsabilidade da camada de models estabelecer uma conexão com o banco de dados.
