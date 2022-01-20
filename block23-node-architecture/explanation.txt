@@ -1,1 +1,16 @@
 Arquitetura é um conhecimento compartilhado por desenvolvedores experientes sobre como organizar um sistema de software.
+
+É a maneira como o sistema se organiza, quais são seus componentes, como eles conversam entre si, como as responsabilidades são distribuídas e etc. Podemos, inclusive, fazer um paralelo com a arquitetura civil.
+
+Mas uma coisa que podemos ver quase sempre, independente da arquitetura utilizada, é a divisão de responsabilidades por camadas .
+
+
+REGRAS DE NEGÓCIO EXEMPLO
+
+Imagine um sistema que permite cadastro de pessoas usuárias. 
+Estas são algumas regras de negócio que o sistema poderia ter:
+
+-Uma pessoa usuária deve necessariamente informar seu nome, sobrenome e email;
+-O email deve ser único, ou seja, não pode haver outra pessoa usuária no sistema com o mesmo email;
+-Por conter material sensível, a pessoa deve ser maior de 18 anos e declarar estar de acordo com os termos de uso da plataforma;
+-Sempre que uma nova pessoa usuária se cadastrar, um email de confirmação deve ser enviado para o email cadastrado. Novas pessoas usuárias somente poderão acessar a plataforma após serem verificadas.
