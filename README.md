@@ -1,4 +1,4 @@
-## Desenvolvimento Back-end :hourglassflowingsand:
+## Desenvolvimento Back-end 
 
 ##### Block 19: Docker
 
