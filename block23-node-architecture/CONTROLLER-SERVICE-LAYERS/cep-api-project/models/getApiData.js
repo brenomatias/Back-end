@@ -12,6 +12,4 @@ const lookupCep = async (cepToLookup) => {
   return address;
 };
 
-module.exports = {
-  lookupCep,
-};
+module.exports = { lookupCep };
