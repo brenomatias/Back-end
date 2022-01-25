@@ -11,6 +11,12 @@ app.use(express.json());
 const getPong = require('./services/services');
 app.get('/ping', getPong);
 
+// CRIA MODEL E QUERIES
+// VAI PARA SERVICES PARA REGRAS DE NEGÓCIO/RESTRIÇÕES
+// DEPOIS CONTROLLER TRATAR AS REQS
+// (MIDDLEWARES DE ERROR)
+// IMPLEMENTAR CONTROLLER NO INDEX.JS
+
 const getCep = require('./services/services');
 app.get('/cep/:cep', getCep )
 
