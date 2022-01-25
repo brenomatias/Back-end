@@ -22,8 +22,28 @@ const findAddressByCep = async (searchedCep) => {
             }
         }
     }
+
+    // BUSCA ATRAVÉS DO MODEL
+    const cep = await Cep.findAddressByCep(searchedCep);
+
+    // RETORNO DE ERRO CASO NÃO ACHE NENHUM CEP
+    if(!cep){
+        return {
+            error: {
+                code: 'notFound',
+                message: 'CEP não encontrado'
+            }
+        }
+    }
+
+    // por fim, retorna o cep correto
+    return cep;
 }
 
 module.exports = {
     getPong, 
-    getCep };
+    findAddressByCep };
+
+
+// AQUI É O SEGUNDO PASSO
+// TERCEIRO PASSO É A CAMADA DE CONTROLLER PARA DAR RESPOSTA A REQS
