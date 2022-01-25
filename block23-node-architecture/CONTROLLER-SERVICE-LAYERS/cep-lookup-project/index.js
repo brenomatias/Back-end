@@ -5,11 +5,9 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.json());
+const bodyParser = require('body-parser');
 
-
-const getPong = require('./services/services');
-app.get('/ping', getPong);
+app.use(bodyParser.json())
 
 // CRIA MODEL E QUERIES
 // VAI PARA SERVICES PARA REGRAS DE NEGÓCIO/RESTRIÇÕES
@@ -17,8 +15,13 @@ app.get('/ping', getPong);
 // (MIDDLEWARES DE ERROR)
 // IMPLEMENTAR CONTROLLER NO INDEX.JS
 
-const getCep = require('./services/services');
-app.get('/cep/:cep', getCep )
+// (IMPLEMENTAÇÃO DO CONTROLER)
+const CepController = require('./controllers/controller');
+const errorMiddleware = require('./middlewares/error');
+
+app.get('/cep/:cep', CepController.findAddressByCep);
+
+app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3000;
 

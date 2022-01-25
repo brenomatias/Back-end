@@ -3,22 +3,24 @@
 // VAI PARA SERVICES PARA REGRAS DE NEGÓCIO/RESTRIÇÕES
 // AI VEM PRA CÁ NO CONTROLLER TRATAR AS REQS
 
-const rescue = require('express-rescue');
+// controllers/Cep.js
 
+const rescue = require('express-rescue');
 const service = require('../services/services');
 
-const findAddresByCEP = rescue(async (req, res, next) => {
-    const { cep } = req.params;
+const findAddressByCep = rescue(async (req, res, next) => {
+  const { cep } = req.params;
 
-    const addres = await service.findAddressByCep(cep);
+  const address = await service.findAddressByCep(cep);
 
-    if (addres.error) {
-        return next(addres.error)
-    }
+  if (address.error) {
+    return next(address.error);
+  }
 
-    return res.status(200).json(addres);
+  return res.status(200).json(address);
 });
 
-module.exports = findAddresByCEP;
+module.exports = 
+  { findAddressByCep };
 
 // PROXIMO PASSO: MIDDLEWARE DE ERROR

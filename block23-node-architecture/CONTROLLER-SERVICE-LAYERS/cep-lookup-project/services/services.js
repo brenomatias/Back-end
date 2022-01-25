@@ -1,49 +1,38 @@
 // depois de criar a query no model vem pra ca
 
-const Cep = require('../models/model');
-
-const getPong = (req, res, next) => {
-    return res.status(200).json({message: 'pong'})
-}
+const Cep = require('../models/models');
 
 const CEP_REGEX = /\d{5}-?\d{3}/;
 
-const getCep = (req, res, next) => {
-    const { cep } = req.body;
-}
-
 const findAddressByCep = async (searchedCep) => {
-    // VALIDA O CEP 
-    if (!CEP_REGEX.test(cep)) {
-        return {
-            error : {
-                code: 'ivalidData',
-                message: 'CEP invalido'
-            }
-        }
+  // Valida o CEP e em caso dele ser falso, retorna um erro
+  if (!CEP_REGEX.test(cep)) {
+    return {
+      error: {
+        code: 'invalidData',
+        message: 'CEP inválido',
+      }
     }
 
-    // BUSCA ATRAVÉS DO MODEL
-    const cep = await Cep.findAddressByCep(searchedCep);
+  // Buscamos o CEP através do Model
+  const cep = await Cep.findAddressByCep(searchedCep);
 
-    // RETORNO DE ERRO CASO NÃO ACHE NENHUM CEP
-    if(!cep){
-        return {
-            error: {
-                code: 'notFound',
-                message: 'CEP não encontrado'
-            }
-        }
-    }
+  // Caso não encontre nenhum CEP, o service retorna um objeto de erro.
+  if (!cep) {
+    return {
+      error: {
+        code: 'notFound',
+        message: 'CEP não encontrado'
+      },
+    };
+  }
 
-    // por fim, retorna o cep correto
-    return cep;
+  // Por fim, retornamos o CEP correto
+  return cep;
 }
+};
 
-module.exports = {
-    getPong, 
-    findAddressByCep };
-
+module.exports =  findAddressByCep;
 
 // AQUI É O SEGUNDO PASSO
 // TERCEIRO PASSO É A CAMADA DE CONTROLLER PARA DAR RESPOSTA A REQS
