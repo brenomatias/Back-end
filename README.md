@@ -9,15 +9,15 @@
 ##### Block 20: SQL Introduction
 
 - 20-1: SQL database
-- 20-3: Manipulating tables, Filtering data
-- 20-4: [Project - All For One]()
+- 20-2: Manipulating tables, Filtering data
+- 20-3: [Project - All For One]()
 
 
 ##### Block 21: SQL Functions, JOINs, and Normalization
 
 - 21-1: Functions in SQL
 - 21-2: Descomplicando JOINs e UNIONs
-- 21-4: [Project - Vocabulary Booster]()
+- 21-3: [Project - Vocabulary Booster]()
 
 ##### Block 22: Introduction to Web Development with Node.js
    
