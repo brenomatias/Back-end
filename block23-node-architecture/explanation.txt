@@ -14,3 +14,27 @@ Estas são algumas regras de negócio que o sistema poderia ter:
 -O email deve ser único, ou seja, não pode haver outra pessoa usuária no sistema com o mesmo email;
 -Por conter material sensível, a pessoa deve ser maior de 18 anos e declarar estar de acordo com os termos de uso da plataforma;
 -Sempre que uma nova pessoa usuária se cadastrar, um email de confirmação deve ser enviado para o email cadastrado. Novas pessoas usuárias somente poderão acessar a plataforma após serem verificadas.
+
+
+MSC LAYERS:
+
+
+ 
+
+    -Controllers: receber e tratar os dados da requisição (middlewares)
+
+     -Services: Aplicar as regras de negócio da aplicação antes que qualquer comunicação com o banco seja realizada.(lógica/regras de negócio)
+
+    -Model:connection with database(acesso a dados)
+
+
+----LAYERS (DESC ORDER):
+
+    CLIENT  (req,res)
+    
+    API 
+      Controllers
+      Services
+      Model 
+    
+    DB
