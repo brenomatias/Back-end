@@ -47,11 +47,24 @@ const findAddressByCep = async (cepToSearch) => {
 
 
 // METODO POST
+const create = async ({ cep: rawCep, logadouro, bairro, localidade, uf}) => {
+    // Removemos o traço do CEP para armazená-lo de forma limpa
+    const cep = rawCep.replace(/-/ig, '');
+
+    const query = `INSERT INTO ceps (cep, logadouro, bairro, localidadem, uf
+      VALUES (?, ?, ?, ?, ?)`;
+
+      //execute query
+      await connection.execute(query, [cep, logadouro, bairro, localidade, uf]);
+
+      // retorna resultado
+      return { cep, logadouro, bairro, localidade, uf}
+};
 
 
 
 
 module.exports = 
-{ findAddressByCep };
+{ findAddressByCep, create };
 // PRIMEIRO PASSO AQUI: conexão e queries
 // DEPOIS VAI PARA os SERVICES

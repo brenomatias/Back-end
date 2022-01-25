@@ -21,6 +21,8 @@ const errorMiddleware = require('./middlewares/error');
 
 app.get('/cep/:cep', CepController.findAddressByCep);
 
+app.post('/cep', CepController.create);
+
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3000;
