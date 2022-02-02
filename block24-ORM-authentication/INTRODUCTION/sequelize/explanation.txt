@@ -15,3 +15,9 @@ Uma migration é uma forma de versionar o schema do banco de dados, ou seja, cad
 você escreve um código definindo como um banco de dados deve ser criado, e esse código fica salvo num arquivo na pasta migrations
 
 Desta maneira, se outra pessoa for alterar este projeto em outro computador, ela pode executar as migrations e atualizar o banco de dados local com as modificações feitas por você!
+
+
+SEEDERS:
+
+ um seeder é usado para, basicamente, alimentar o banco de dados com informações necessárias para o funcionamento mínimo da aplicação. Bom, vamos ver agora um pouco da prática de como fazer isso em código. Os seeds seguem a mesma linha das migrations.
+Primeiramente vamos precisar executar pelo CLI a criação de um novo seed

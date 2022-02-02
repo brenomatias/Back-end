@@ -80,3 +80,15 @@ executar a nossa nova migration
 16) alteramos o model user.js para incluir a nova coluna phone_num
   // aqui inserimos o datatype da coluna criada
   phone_num: DataTypes.STRING,
+
+
+17) npx sequelize seed:generate --name users 
+create seeder
+
+18) no arquivo criado em users: xxxxxx-users.js em /seeders
+passar os valores para serem povoados
+
+19) npx sequelize db:seed:all
+execute seeder
+
+(undo seeder: npx sequelize db:seed:undo:all)
