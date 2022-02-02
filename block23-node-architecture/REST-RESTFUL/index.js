@@ -1,15 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const router = require('./controllers/controller');
-
 const app = express();
 app.use(express.json());
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', router);
+app.use('/products', require('./controllers/productController'));
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("App listening on port 3000!");
 });
