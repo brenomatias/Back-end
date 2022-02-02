@@ -55,3 +55,28 @@
         };
 
         module.exports = User;
+
+11) Como fizemos no model, vamos adicionar uma coluna de email na migration da tabela Users . 
+
+Com a migration criada, devemos adicionar o que ela de fato irá fazer, tanto na execução ( up ), quanto na reversão ( down )
+
+12) npx sequelize db:migrate
+
+Com a migration criada
+
+(revert migration: npx sequelize db:migrate:undo)
+
+13) npx sequelize migration:generate --name add-column-phone-table-users
+
+Criando uma nova migration para alterar uma tabela já existente
+salvar o telefone do usuário
+
+14) nserir a função queryInterface.addColumn() no escopo Up par adicionar uma nova coluna a nossa tabela Users , e adicionar a função queryInterface.removeColumn() no escopo Down para remover a nova coluna da tabela.
+
+15) npx sequelize db:migrate
+executar a nossa nova migration
+
+
+16) alteramos o model user.js para incluir a nova coluna phone_num
+  // aqui inserimos o datatype da coluna criada
+  phone_num: DataTypes.STRING,
