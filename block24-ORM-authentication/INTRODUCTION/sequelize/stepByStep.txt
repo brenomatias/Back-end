@@ -90,5 +90,8 @@ passar os valores para serem povoados
 
 19) npx sequelize db:seed:all
 execute seeder
-
 (undo seeder: npx sequelize db:seed:undo:all)
+
+20) Criar as funçoes de interação com o banco de dados no controllers
+
+21) terminar chamando os processos no index.js na raiz do projeto
