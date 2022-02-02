@@ -20,7 +20,7 @@
     {
     "development": {
         "username": "root",
-        "password": "",
+        "password": "24049504",
         "database": "orm_example",
         "host": "127.0.0.1",
         "dialect": "mysql"
