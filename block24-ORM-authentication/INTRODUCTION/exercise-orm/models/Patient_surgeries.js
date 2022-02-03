@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       { timestamps: false },
     );
   
-    Patient_surgeries.associate = (models) => {
+    PatientSurgeries.associate = (models) => {
       models.Surgeries.belongsToMany(models.Patients, {
         as: 'patients',
-        through: Patient_surgeries,
+        through: PatientSurgeries,
         // junction table
         foreignKey: 'surgery_id',
         // foreignKey sempre se refere ao model em que chamamos belongsToMany
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 
       models.Patients.belongsToMany(models.Surgeries, {
         as: 'surgeries',
-        through: Patient_surgeries,
+        through: PatientSurgeries,
         foreignKey: 'patient_id',
         otherKey: 'surgery_id',
       });
