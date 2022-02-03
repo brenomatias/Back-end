@@ -58,6 +58,8 @@
 
 11) Como fizemos no model, vamos adicionar uma coluna de email na migration da tabela Users . 
 
+(MIGRATION CREATE: npx sequelize migration:generate --name)
+
 Com a migration criada, devemos adicionar o que ela de fato irá fazer, tanto na execução ( up ), quanto na reversão ( down )
 
 12) npx sequelize db:migrate
