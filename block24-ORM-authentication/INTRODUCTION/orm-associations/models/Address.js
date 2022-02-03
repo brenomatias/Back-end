@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       Address.belongsTo(models.Employee,
         { foreignKey: 'employee_id', as: 'employees' });
     };
-  
+    q
     return Address;
   };
 

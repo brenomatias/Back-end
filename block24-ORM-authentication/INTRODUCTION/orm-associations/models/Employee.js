@@ -17,6 +17,12 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'employee_id', as: 'addresses' });
     };
     // A função Employee.associate = (models) => {} , que criamos é onde iremos declarar as associações daquele model
+
+    //   Employee.associate = (models) => {
+      // Employee.hasMany(models.Address,     (HASMANY)
+      //   { foreignKey: 'employee_id', as: 'addresses' });
+ //   };
+ 
     return Employee;
   };
 

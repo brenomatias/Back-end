@@ -30,3 +30,6 @@
 
 9) create index.js (root)
 (create server)
+
+
+The tables association goes in the MODELS (Address/Employee)
