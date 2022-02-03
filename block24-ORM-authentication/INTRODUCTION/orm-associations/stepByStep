@@ -5,3 +5,10 @@
       npm i sequelize-cli
 
       npx sequelize-cli init
+
+2) change config.json 
+(change model index para config.js)
+
+3) create .env
+
+4) npx sequelize db:create
