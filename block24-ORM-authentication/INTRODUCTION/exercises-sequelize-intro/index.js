@@ -8,6 +8,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 
-app.use('/user', userController);
+app.use('/books', userController);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`))
