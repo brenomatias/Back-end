@@ -17,3 +17,7 @@ app.post('/book/:id', booksController.updateById);
 app.delete('/book/:id', booksController.deleteById);
 
 app.listen(PORT, () => console.log(`Ouvindo na porta ${PORT}!`));
+
+//  https://app.betrybe.com/course/back-end/nodejs-orm-autenticacao/back-end-orm-gabarito/solutions/cdcfb935-05cb-491b-bf35-0e6668986849/gabarito-dos-exercicios/59bc79b5-b052-43d1-80ed-1161fea12c71?use_case=calendar  
+
+// referencia
