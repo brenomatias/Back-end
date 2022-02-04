@@ -1,0 +1,35 @@
+1)    npm init -y
+
+      npm i express nodemon sequelize mysql2
+
+      npm i sequelize-cli
+
+      npx sequelize-cli init
+
+2) change config.json 
+(change model index para config.js)
+
+3) create .env
+
+4) npx sequelize db:create
+
+5) npx sequelize migration:generate --name ---
+(crate migration(s))
+
+6) npx sequelize db:migrate
+(generate migration(s))
+
+7) create models
+(/models/Addresss.js - /models/Employee)
+
+7) npx sequelize seed:generate --name ----
+(create seeders to test)
+
+8) npx sequelize db:seed:all
+(execute seed)
+
+9) create index.js (root)
+(create server)
+
+
+The tables association goes in the MODELS (Address/Employee)

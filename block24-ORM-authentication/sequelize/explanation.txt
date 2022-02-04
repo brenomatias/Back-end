@@ -1,0 +1,30 @@
+MODEL: 
+
+Os models são a essência do Sequelize. Um model é uma abstração que representa uma linha na tabela em seu banco de dados e diz ao Sequelize várias coisas sobre essa entidade, como o nome da tabela no banco de dados e quais colunas ela possui (e seus tipos de dados). O model pode ser definido de duas formas:
+
+Chamando pela função sequelize.define(modelName, attributes, options)
+Estendendo Model como uma classe e chamando init(attributes, options)
+
+
+
+
+MIGRATIONS:
+
+Uma migration é uma forma de versionar o schema do banco de dados, ou seja, cada migration conterá um pedaço de código que representa, no conjunto, todas as alterações feitas no histórico do nosso banco de dados
+
+você escreve um código definindo como um banco de dados deve ser criado, e esse código fica salvo num arquivo na pasta migrations
+
+Desta maneira, se outra pessoa for alterar este projeto em outro computador, ela pode executar as migrations e atualizar o banco de dados local com as modificações feitas por você!
+
+
+SEEDERS:
+
+ um seeder é usado para, basicamente, alimentar o banco de dados com informações necessárias para o funcionamento mínimo da aplicação. Bom, vamos ver agora um pouco da prática de como fazer isso em código. Os seeds seguem a mesma linha das migrations.
+Primeiramente vamos precisar executar pelo CLI a criação de um novo seed
+
+
+
+OPERATIONS:
+
+Com o model implementado, caso precisemos gravar/ler algum dado do banco de dados, conseguimos faze-lo também. Caso precisemos buscar todas as pessoas usuárias, por exemplo, basta fazermos algo parecido com o exemplo de código abaixo:
+controllers/userController.js
