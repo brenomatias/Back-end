@@ -1,0 +1,15 @@
+O roteamento consiste em "direcionar" uma requisição para que seja atendida por uma determinada parte do nosso sistema.
+
+No Express, nós registramos uma rota utilizando a assinatura 
+     app.METODO(caminho, callback) ,
+     
+ onde a função de callback recebe três parâmetros: request , response e next .
+
+
+request : comumente chamado de req ; contém as informações enviadas pelo cliente ao servidor.
+
+response : geralmente chamado de res ; permite o envio de informações do servidor de volta ao cliente.
+
+next : função que diz para o Express que aquele callback terminou de ser executado, e que ele deve prosseguir para executar o próximo callback para aquela rota. Este parâmetro é opcional e você entenderá melhor o uso do next em breve.
+
+As rotas respondem a requisições que satisfaçam a condição método HTTP + caminho .

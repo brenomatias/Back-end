@@ -1,0 +1,4 @@
+ como nem todo tipo de requisição HTTP pode ser feita diretamente pelo navegador, é recomendado utilizar algum cliente HTTP. Os mais famosos são o Postman e o Insomnia .
+
+
+ Existe uma terceira possibilidade: usar um comando chamado httpie que permite fazer uma requisição direto pelo terminal. Para instalar esse comando siga as instruções da documentação .

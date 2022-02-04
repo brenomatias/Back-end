@@ -1,0 +1,3 @@
+Temos uma aplicação que permite gerenciar uma lista de receitas disponíveis, com seus respectivos nomes, preço e tempo médio de preparo. 
+
+Essa aplicação é uma API que implementa CRUD (CREATE, REMOVE, UPDATE, DELETE), ou seja, um conjunto de endpoints que permite listar, pesquisar, cadastrar, editar e remover os itens dessa lista de receitas. Até o final do dia, vamos implementar uma API que permite fazer todas essas operações.

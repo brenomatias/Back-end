@@ -1,0 +1,11 @@
+Testes automatizados
+
+Para implementar testes no back-end iremos utilizar a dupla mocha e chai . Apesar de serem duas ferramentas diferentes, elas se completam.
+
+https://mochajs.org/
+https://www.chaijs.com/
+
+
+Para utilizarmos essas ferramentas precisamos primeiro fazer a instalação, repare que utilizaremos a flag -D . Esses módulos só serão utilizados em fase de desenvolvimento e não serão utilizados para executar nossa aplicação quando ela for publicada. Dessa forma, evitamos instalar pacotes desnecessários em nossa versão de produção
+
+                    "npm install -D mocha chai"

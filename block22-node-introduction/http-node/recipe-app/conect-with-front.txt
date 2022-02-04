@@ -1,0 +1,17 @@
+Mas o que isso significa de fato? Esse JSON que foi retornado pode ser utilizado por uma aplicação front-end para renderizar essa lista no navegador utilizando o método fetch, que foi utilizado bastante nos nossos exercícios e projetos desde o módulo de fundamentos e principalmente nos projetos de front-end. A diferença é que agora a requisição vai ser feita para uma API que você mesmo desenvolveu e que roda na sua máquina. A estrutura básica de uma requisição utilizando o fetch pode ser escrita da seguinte forma:
+
+            fetch('http://localhost:3001/recipes')
+                .then(resp => resp.json())
+
+⚠️ Observação: Para uma aplicação back-end receber requisições de uma aplicação front-end, ou qualquer outra aplicação, é preciso instalar um módulo que libera o acesso da nossa API para outras aplicações. Para isso basta instalar um módulo chamado cors usando 
+
+                npm i cors 
+
+e adicionar as seguintes linhas no seu arquivo index.js
+
+
+// const express = require('express');
+// const app = express();
+
+const cors = require('cors');
+app.use(cors());

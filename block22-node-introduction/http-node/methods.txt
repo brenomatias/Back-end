@@ -1,0 +1,15 @@
+Esses são os dados transmitidos em uma request do tipo GET . No entanto, o GET não é o único método HTTP existente. Na verdade, existem 39 métodos diferentes! Os mais comuns são cinco: GET , PUT , POST , DELETE e PATCH , além do método OPTIONS , utilizado por clientes para entender como deve ser realizada a comunicação com o servidor.
+
+Além da diferença de significado, requisições do tipo POST , PUT e PATCH carregam mais uma informação para o servidor: o corpo, ou body . É no corpo da requisição que as informações de um formulário, por exemplo, são transmitidas.
+
+Note que tanto requisições quanto respostas podem ter headers e um body. No entanto, é importante não confundir uma coisa com a outra: o body e os headers da requisição representam a informação que o cliente está enviando para o servidor . Por outro lado, o body e os headers da resposta representam a informação que o servidor está devolvendo para o cliente .
+
+
+HTTP Methods
+-GET
+-POST
+-PUT
+-HEAD
+-DELETE
+-PATCH
+-OPTIONS

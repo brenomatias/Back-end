@@ -1,0 +1,17 @@
+Isolando nossos testes
+
+ Os testes NAO DEVEM realizar operações de IO ( input / output ), ou seja, não devem acessar nem o disco, nem a rede.
+
+
+ Quando falamos de javascript no backend com Node.js, constantemente estamos realizando operações com IO, ou seja, nossa aplicação se comunica com o sistema de arquivos ou com a rede. Exemplos dessas comunicações são a leitura e escrita de arquivos, chamadas a APIs ou consultas em um banco de dados.
+
+ API É UMA ESTRUTURA COM NORMAS E DADOS PARA CONSULTA
+
+
+Sendo assim, ao escrever testes, será muito comum precisarmos testar códigos que fazem esse tipo de operação de integração , o que pode adicionar complexidade aos nossos testes.
+
+
+Dessa forma, o ideal é não permitir que nosso código realize essas operações de IO de fato, mas apenas simular que elas estão sendo realizadas. Dessa forma, isolamos o IO de nossos testes, garantindo que um banco de dados inconsistente ou um arquivo faltando na hora de executar os testes não faça com que tudo vá por água abaixo
+Para isso existe o conceito de Test Doubles , que são objetos que fingem ser o outro objeto para fins de testes.
+Com esses objetos, podemos simular, por exemplo, as funções do módulo fs . Nosso código irá pensar que está chamando as funções do fs , porém, estará chamando as nossas funções, que se comportarão da maneira que queremos, mas sem a necessidade de escrever, ler ou ter dependência de arquivo reais.
+Para nos ajudar com esse tipo de coisa, usaremos uma ferramenta chamada sinon que veremos a seguir.

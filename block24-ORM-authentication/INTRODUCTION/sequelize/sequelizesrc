@@ -1,0 +1,2 @@
+// É neste momento que entra em cena o .sequelizerc . É um arquivo de configuração, que podemos utilizar caso desejamos substituir o caminho padrão das pastas migrations , models , seeders ou config . Dessa forma, podemos construir um código com uma arquitetura mais organizada.
+// Para configurar este arquivo, primeiramente crie um arquivo com o nome .sequelizerc na raiz da aplicação com o seguinte conteúdo:

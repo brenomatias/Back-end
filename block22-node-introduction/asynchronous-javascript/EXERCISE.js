@@ -1,0 +1,68 @@
+// finally we'll send an email to this customer
+// with the list of top movies
+
+async function notifyCustomer() {
+
+    const customer = await getCustomer(1);
+    console.log('Customer: ', customer);
+
+
+    if (customer.isGold) {
+
+      const movies = await getTopMovies();
+      console.log('Top movies: ', movies);
+
+      await sendEmail(customer.email, movies);
+      console.log('Email sent...');
+      //when we're done here we have
+      // another callback function, in this function we have a simple
+      // console.log statement
+
+    }
+
+  }
+  notifyCustomer();
+  
+  
+  function getCustomer(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ 
+          id: 1, 
+          name: 'Mosh Hamedani', 
+          isGold: true, 
+          email: 'email' 
+        });
+      }, 4000);  
+    });
+  }
+  
+
+
+  
+
+  function getTopMovies() {
+
+    return new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+        resolve(['movie1', 'movie2']);
+      }, 4000);
+
+    });
+  }
+  
+
+
+
+  function sendEmail(email, movies) {
+
+    return new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+        resolve();
+      }, 4000);
+
+    });
+
+  }

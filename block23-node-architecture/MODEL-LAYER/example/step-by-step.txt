@@ -1,0 +1,7 @@
+1) npm init -y
+
+2) npm i express body-parser
+
+3) npm i mysql2 (permite executar queries do MySQL)
+
+4) create folder models -> connection.js

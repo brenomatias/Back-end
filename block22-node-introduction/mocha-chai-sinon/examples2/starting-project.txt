@@ -1,0 +1,22 @@
+mkdir examples2
+
+cd examples2
+
+mkdir io-test && cd io-test # Criando e entrando no diretório do nosso projeto
+
+npm init # Iniciando o npm
+
+npm install --save-dev mocha chai # Instalando as ferramentas de testes
+
+
+
+io-test/package.json
+
+{
+  //
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha test.js"
+  },
+  //
+}
