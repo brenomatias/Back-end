@@ -1,0 +1,35 @@
+EXERCICIO:
+
+(LOGIN ENDPOINT - RESOLUÇẪO 1) Crie um endpoint POST /login
+
+1) O endpoint deve receber os seguintes dados no corpo da requisição:
+
+{
+  "username": "someUsername",
+  "password": "somePassword"
+}
+
+2) Caso username e password sejam válidos, retorne um token que atenda às seguintes especificações:
+
+- Expira em uma hora;
+- Contém, no payload, o nome de usuário informado na request;
+- Contém, no payload, uma propriedade admin , com o valor false .
+
+3) 
+
+
+
+
+RESOLUÇẪO 1:
+
+1) Primeiro, precisamos criar um novo controller na pasta controllers . Crie o arquivo controllers/login.js :
+(UTILZIAR O JOI PARA VALIDAÇÃO)
+
+2) instalar a biblioteca de JWT que vamos utilizar:
+
+        npm i jsonwebtoken
+
+
+3) criar o token JWT 
+(CRIAR TOKEN JWT)
+(em controller/login .js/ seguir o codigo)
