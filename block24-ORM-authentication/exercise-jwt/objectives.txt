@@ -2,34 +2,58 @@ EXERCICIO:
 
 (LOGIN ENDPOINT - RESOLUÇẪO 1) Crie um endpoint POST /login
 
-1) O endpoint deve receber os seguintes dados no corpo da requisição:
+1.1) O endpoint deve receber os seguintes dados no corpo da requisição:
 
 {
   "username": "someUsername",
   "password": "somePassword"
 }
 
-2) Caso username e password sejam válidos, retorne um token que atenda às seguintes especificações:
+1.2) Caso username e password sejam válidos, retorne um token que atenda às seguintes especificações:
 
 - Expira em uma hora;
 - Contém, no payload, o nome de usuário informado na request;
 - Contém, no payload, uma propriedade admin , com o valor false .
 
-3) 
+1.3) Para retornar o token, utilize o seguinte formato no corpo da resposta:
 
+{
+  "token": "<JWT aqui>"
+}
 
+1.4) Para que username seja válido, seu valor precisa ser uma string alfanumérica de, pelo menos, 5 caracteres.
+
+1.5) Para que password seja válido, seu valor precisa ser uma string de, pelo menos, 5 caracteres.
 
 
 RESOLUÇẪO 1:
 
-1) Primeiro, precisamos criar um novo controller na pasta controllers . Crie o arquivo controllers/login.js :
+1.1) Primeiro, precisamos criar um novo controller na pasta controllers . Crie o arquivo controllers/login.js :
 (UTILZIAR O JOI PARA VALIDAÇÃO)
 
-2) instalar a biblioteca de JWT que vamos utilizar:
+1.2) instalar a biblioteca de JWT que vamos utilizar:
 
         npm i jsonwebtoken
 
 
-3) criar o token JWT 
+1.3) criar o token JWT 
 (CRIAR TOKEN JWT)
 (em controller/login .js/ seguir o codigo)
+
+1.4) Adicione a variável JWT_SECRET ao arquivo .env
+
+1.5) Adicione o controller de login ao arquivo controllers/index.js :
+
+
+
+
+
+(CHANGE LOGIN - RESOLUÇẪO 2)
+
+2.1) Altere o endpoint POST /login :
+Caso username seja admin e password seja s3nh4S3gur4??? , a chave admin no payload do token gerado deve ter o valor true
+
+
+RESOLUÇẪO 2:
+
+2.1)Precisamos adicionar uma condição especial para esse caso. Para isso, altere o arquivo controllers/login.js :
