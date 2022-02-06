@@ -142,3 +142,9 @@ RESOLUÇẪO 4
 4.3) Adicione o middleware admin ao arquivo middlewares/index.js :
 
 4.4) Agora, vamos ao controller. Crie o arquivo controllers/topSecret.js :
+
+
+4.5) Adicione o novo controller ao arquivo controllers/index.js :
+
+
+4.6) Por fim, registre o novo endpoint no arquivo index.js :

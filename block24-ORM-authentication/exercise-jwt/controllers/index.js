@@ -7,10 +7,15 @@ const login = require('./login');
 const me = require('./me');
 //3.6)
 
+//4.5)
+const topSecret = require('./topSecret');
+//4.5)
+
 //1.5)
  module.exports = {
-  login, //1.5)
   me, //3.6)
+  login, //1.5)
+  topSecret,  //4.5
 
 };
 // 1.5)
