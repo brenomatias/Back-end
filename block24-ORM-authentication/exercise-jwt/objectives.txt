@@ -121,3 +121,24 @@ RESOLUÇẪO 3
 3) Caso o token não exista, retorne o status 401 Unauthorized , com o seguinte corpo da resposta:
 
 4) Caso aconteça um erro ao validar o token, retorne o status 401 Unauthorized com o seguinte conteúdo no corpo:
+
+
+5) Caso o token seja válido, mas a propriedade admin do payload não seja true , retorne o status 403 Forbidden e o seguinte JSON:
+
+
+6) Caso o token seja válido e o payload contenha admin com o valor true , retorne o seguinte JSON:
+
+
+7) Para validar se a pessoa é admin, crie um novo middleware no arquivo middlewares/admin.js .
+
+
+RESOLUÇẪO 4 
+
+4.1) Começamos criando um middleware que verifica se o token informado é do admin. Crie o arquivo middlewares/admin.js :
+
+
+4.2) O middleware de admin deve ser executado após o middleware de autenticação. Sendo assim, vamos procurar por req.user para obter o valor da propriedade admin para aquela pessoa. Modifique o arquivo middlewares/admin.js :
+
+4.3) Adicione o middleware admin ao arquivo middlewares/index.js :
+
+4.4) Agora, vamos ao controller. Crie o arquivo controllers/topSecret.js :
