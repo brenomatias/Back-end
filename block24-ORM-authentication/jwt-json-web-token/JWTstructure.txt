@@ -1,0 +1,44 @@
+O resultado final do JWT dá-se através da assinatura criptográfica de dois blocos de JSON codificados em base64*
+
+
+
+
+FRAMEWORK 
+
+HEADER:
+
+{
+  "alg": "HS256",  = tipo do algoritmo de hash , como HMAC-SHA256 ou RSA
+  "typ": "JWT"    = o tipo do token, que é JWT
+}
+
+
+
+PAYLOAD(dados do usuário):
+são declarações sobre uma entidade
+
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+
+
+SIGNATURE:
+
+Para gerar a assinatura, você deve usar o header e o payload codificados em base64 , usando o algoritmo definido no header:
+
+
+
+
+Um exemplo de envio de um JWT via header em uma requisição HTTP:
+
+ GET /foo/bar HTTP/1.1
+ Host: www.exemplo.com
+ Authorization: Bearer (Header em base64).(Payload em base64).(Signature em base64)
+
+Ou seja, por ser algo que é transmitido via HTTP, JWT pode ser usado com qualquer linguagem que suporte os requisitos mínimos para gerar o token e enviar uma requisição HTTP, como, por exemplo, Java, C#, PHP ou Python.
+
+
+
+*Base64 é um método para codificação de dados para transferência na Internet (codificação MIME para transferência de conteúdo). É utilizado frequentemente para transmitir dados binários por meios de transmissão que lidam apenas com texto,

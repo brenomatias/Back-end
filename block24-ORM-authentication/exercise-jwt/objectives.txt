@@ -1,0 +1,150 @@
+EXERCICIO:
+
+(LOGIN ENDPOINT - RESOLUÇẪO 1) Crie um endpoint POST /login
+
+1.1) O endpoint deve receber os seguintes dados no corpo da requisição:
+
+{
+  "username": "someUsername",
+  "password": "somePassword"
+}
+
+1.2) Caso username e password sejam válidos, retorne um token que atenda às seguintes especificações:
+
+- Expira em uma hora;
+- Contém, no payload, o nome de usuário informado na request;
+- Contém, no payload, uma propriedade admin , com o valor false .
+
+1.3) Para retornar o token, utilize o seguinte formato no corpo da resposta:
+
+{
+  "token": "<JWT aqui>"
+}
+
+1.4) Para que username seja válido, seu valor precisa ser uma string alfanumérica de, pelo menos, 5 caracteres.
+
+1.5) Para que password seja válido, seu valor precisa ser uma string de, pelo menos, 5 caracteres.
+
+
+RESOLUÇẪO 1:
+
+1.1) Primeiro, precisamos criar um novo controller na pasta controllers . Crie o arquivo controllers/login.js :
+(UTILZIAR O JOI PARA VALIDAÇÃO)
+
+1.2) instalar a biblioteca de JWT que vamos utilizar:
+
+        npm i jsonwebtoken
+
+
+1.3) criar o token JWT 
+(CRIAR TOKEN JWT)
+(em controller/login .js/ seguir o codigo)
+
+1.4) Adicione a variável JWT_SECRET ao arquivo .env
+
+1.5) Adicione o controller de login ao arquivo controllers/index.js :
+
+
+
+
+
+(CHANGE LOGIN - RESOLUÇẪO 2)
+
+2.1) Altere o endpoint POST /login :
+Caso username seja admin e password seja s3nh4S3gur4??? , a chave admin no payload do token gerado deve ter o valor true
+
+
+RESOLUÇẪO 2:
+
+2.1)Precisamos adicionar uma condição especial para esse caso. Para isso, altere o arquivo controllers/login.js :
+
+
+
+
+
+
+(ENDPOINT /GET/users/me - RESOLUÇẪO 3)
+
+Crie o endpoint /GET /users/me
+
+3.1) O endpoint só pode ser acessado por pessoas autenticadas
+
+3.2) Para realizar a autenticação, a requisição deve conter o header Authorization , cujo valor deve ser um token válido
+
+3.3) Caso o token não exista, retorne o status 401 Unauthorized , com o seguinte corpo da resposta:
+      {
+        "error": {
+          "message": "Token not found"
+        }
+      }
+
+3.4) Caso aconteça um erro ao validar o token, retorne o status 401 Unauthorized com o seguinte conteúdo no corpo:
+
+3.5) Caso o token seja válido, retorne o status 200 OK e, no corpo da resposta, o nome de usuário ao qual aquele token pertence e o valor da propriedade admin , no seguinte formato:
+
+3.6) Utilize um middleware exclusivo para a autenticação. Armazene-o no arquivo middlewares/auth.js
+
+
+RESOLUÇẪO 3
+
+3.1) Vamos começar pela criação do middleware de autenticação. Crie o arquivo middlewares/auth.js
+
+
+3.2) Agora, importamos o JWT e verificamos se o token foi enviado
+
+
+3.3) Caso o token exista, precisamos verificar se ele é válido. Altere o arquivo middlewares/auth.js
+(jwt.verify)
+
+3.4) Adicione o middleware de autenticação ao arquivo middlewares/index.js :
+
+
+3.5) Middleware pronto, podemos seguir para o controller. Crie o arquivo controllers/me.js :
+
+
+3.6) Adicione o novo controller ao arquivo controllers/index.js :
+
+
+3.7) Por último, registramos o endpoint no arquivo index.js :
+
+
+
+
+
+
+(ENDPOINT GET/top-secret - RESOLUÇẪO 4)
+
+4.1) O endpoint só pode ser acessado por pessoas autenticadas.
+
+2) Apenas tokens contendo, no payload, a propriedade admin com o valor true têm autorização para acessar esse endpoint.
+
+3) Caso o token não exista, retorne o status 401 Unauthorized , com o seguinte corpo da resposta:
+
+4) Caso aconteça um erro ao validar o token, retorne o status 401 Unauthorized com o seguinte conteúdo no corpo:
+
+
+5) Caso o token seja válido, mas a propriedade admin do payload não seja true , retorne o status 403 Forbidden e o seguinte JSON:
+
+
+6) Caso o token seja válido e o payload contenha admin com o valor true , retorne o seguinte JSON:
+
+
+7) Para validar se a pessoa é admin, crie um novo middleware no arquivo middlewares/admin.js .
+
+
+RESOLUÇẪO 4 
+
+4.1) Começamos criando um middleware que verifica se o token informado é do admin. Crie o arquivo middlewares/admin.js :
+
+
+4.2) O middleware de admin deve ser executado após o middleware de autenticação. Sendo assim, vamos procurar por req.user para obter o valor da propriedade admin para aquela pessoa. Modifique o arquivo middlewares/admin.js :
+
+4.3) Adicione o middleware admin ao arquivo middlewares/index.js :
+
+4.4) Agora, vamos ao controller. Crie o arquivo controllers/topSecret.js :
+
+
+4.5) Adicione o novo controller ao arquivo controllers/index.js :
+
+
+4.6) Por fim, registre o novo endpoint no arquivo index.js :
