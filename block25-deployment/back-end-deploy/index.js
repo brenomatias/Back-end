@@ -4,6 +4,7 @@ const PORT = process.env.PORT || null;
 
 const SERVER_ENV = process.env.SERVER_ENV || null;
 // determinar qual é o ambiente
+// SERVER_ENV é padrão
 
 const app = express();
 
@@ -22,3 +23,11 @@ app.listen(PORT, () => console.log(`Listening on port ${SERVER_ENV}`));
 
 // heroku identifica que é um app node e executa npm start
 // por isso o 'script' npm start e aí o app é buildado
+
+
+// as variaveis de ambiente estão em 'settings' no app na plataforma 
+// do heroku
+// config vars
+
+// config:set SERVER_ENV=producao --app APP-NAME
+// setar variaveis pelo CLI
