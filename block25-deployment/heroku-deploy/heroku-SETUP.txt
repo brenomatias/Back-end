@@ -80,3 +80,8 @@ Em alguns casos, precisamos rodar algum script ou realizar alguma configuração
 buildpacks automatizam esses e outros processos
 
 Com um buildpack, conseguimos fazer facilmente o deploy da nossa aplicação criada em React. Faremos isso utilizando o buildpack mars/create-react-app . Além disso, ele utilizará Nginx, , o que vai prover uma otimização da performance e da segurança ao nosso app .
+
+
+        deploy react-app: 
+
+https://github.com/mars/create-react-app-buildpack#usage

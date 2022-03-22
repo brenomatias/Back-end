@@ -1,0 +1,29 @@
+1) git push HEROKU-BRANCH LOCAL-BRANCH
+
+Pronto! Acesse a URL retornada pelo Heroku e você verá que sua aplicação está no ar!
+
+Sempre que você der push na branch master do Heroku ( remote heroku ), seu último commit será publicado. Caso você dê push em qualquer outro remote adicionado, ou em outra branch que não seja o master , não terá efeito nenhum no Heroku. Sendo assim, é preciso realizar esse processo a cada vez que for feita alguma alteração na aplicação.
+
+
+*** a BRANCH DO GIT/HEROKU TEM que ser a MASTER pra funcionar  
+ou seja, se tiver outra branch tem que lançar o merge
+
+1.1) publicar uma versão que não está na branch master local
+
+            git checkout -b branch-teste
+
+DEPLOY: 
+            git push heroku branch-teste:master
+
+Isto é necessário sempre que você estiver trabalhando em uma branch que não seja 
+a sua master
+
+
+Além disso, é importante que saiba que ao setar variáveis de ambiente no front-end, essas variáveis já precisam existir no momento do build , pois a forma como elas funcionam é diferente de como funcionam no back-end
+
+No back-end, quando utilizamos process.env.ALGUMA_COISA , ele vai considerar o valor de ALGUMA_COISA que está definido na máquina atual. Já no front-end, quando se executa o comando npm start ou npm run build , ele vai pegar todos os process.env.* e irá trocar pelo valor daquela variável naquele momento.
+
+Então, caso se tenha um process.env.REACT_APP_API_URL no front-end, e 
+REACT_APP_API_URL tenha o valor "xablau" naquele momento, ele vai apagar process.env.REACT_APP_API_URL e irá substituir por "xablau" . Por esse motivo, na hora de subir o front-end no Heroku , é preciso setar as variáveis de ambiente antes de executar o comando de push , pois é no momento do push que o npm run build é executado e que os process.env.* são convertidos para os valores das variáveis.
+
+⚠️ Atenção: Quando você executa um push para o Heroku, por mais que você pare o processo utilizando Ctrl + C , o deploy não será cancelado. Uma vez iniciado o processo no Heroku, ele continuará a ser executado até o fim em background no servidor.
