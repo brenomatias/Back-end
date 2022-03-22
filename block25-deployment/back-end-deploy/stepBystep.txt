@@ -1,0 +1,7 @@
+1) definir script package.json
+   define como o app vai iniciar
+
+"scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
