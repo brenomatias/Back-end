@@ -1,0 +1,28 @@
+******GERENCIANDO OS APPS 
+
+1) Gerenciando seus apps
+
+            heroku apps
+
+2) Para ver os detalhes de um app específico, utilize o comando apps:info :
+        heroku apps:info nome-do-seu-app-12345
+
+
+**** VARIÁVEIS DE AMBIENTE 
+
+
+How do Environment variables work node?
+Environment variables are a fundamental part of developing with Node. js, allowing your app to behave differently based on the environment you want them to run in. Wherever your app needs configuration, you use environment variables
+
+Caso o seu projeto possua variáveis de ambiente, você pode setá-las utilizando o comando config:set .
+
+          heroku config:set TESTE="texto qualquer" --app nome-do-seu-app-12345
+
+listar as variáveis de ambiente:
+
+          heroku config --app nome-do-seu-app-12345
+
+
+
+
+*** LOGS
