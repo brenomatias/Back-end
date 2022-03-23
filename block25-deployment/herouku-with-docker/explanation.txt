@@ -1,0 +1,14 @@
+******* CI : Continuous integration (integração contínua)
+
+É um processo de automação
+
+Exemplos de ferramentas de integração contínua:
+Actions GitHub : ESLint, testes automatizados, automações, etc.;
+
+
+**Actions GitHub
+Segundo o próprio GitHub , com as Actions é possível "criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado .
+
+As Actions são ações propriamente ditas que realizam algum tipo de evento, antes ou depois de realizar um push por exemplo, seja ele para a branch principal ou uma branch especifica, tudo irá depender do arquivo de configuração .yml
+
+main.yml: É dentro deste arquivo que todas as Actions são descritas e configuradas
