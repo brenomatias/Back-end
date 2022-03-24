@@ -1,0 +1,87 @@
+*******EXECUTANDO PROJETO LOCALMENTE
+
+Para rodar um projeto localmente utilizando o CLI do Heroku , basta instalar as dependências do projeto e utilizar o CLI da seguinte maneira:
+
+                npm install 
+# Instalando as dependências em um exemplo NodeJs utilizando o npm.
+
+                heroku local web
+
+
+Seu projeto rodará na porta 5000 . Rodar localmente pode ajudar a garantir que seu código está pronto para o deploy .
+
+
+
+
+****** PREPARANDO um projeto para DEPLOY
+
+projeto React
+
+1) npx create-react-app deploy-heroku
+
+2) Normalmente, o comando create-react-app já inicia um projeto git, mas, caso isso não aconteça, execute o comando para iniciar o projeto:
+
+            git init
+            git add .
+            git commit -m ‘Initialize project using Create React App’
+
+3) Crie repositório remoto no github
+
+4) Vincular a sua aplicação ao repositório criado no GitHub
+
+            git remote add origin git@github.com:[SEU_USUARIO_GITHUB]/deploy-heroku.git
+
+            git remote add origin SSH 
+
+            git remote add origin git@github.com:brenoMatias/heroku-introduction.git
+
+            git remote -v
+
+
+
+
+***** HEROKU REMOTE
+
+1) remote do Heroku
+        heroku create APP-NAME
+
+* remove
+        git remote rm HEROKU-BRANCH    
+
+
+1.1) Nomeação do remote
+Por padrão, o CLI vai nomear todos os remotes criados como heroku
+
+            heroku create APP-NAME --remote HEROKU-REMOTE-NAME
+
+** rename heroku connection: git remote rename heroku NEW-NAME
+
+** como o heroku é uma conexão remota e conectada com o git, quando 
+o comando 'git remote' -v é acionado as conexões e branchs do heroku também
+são exibidas
+
+
+
+**** NOVO REMOTE 
+
+Vincular um app existente a um novo remote
+
+        heroku git:remote -a APP-NAME --remote HEROKU-BRANCH-NAME
+    
+       (-a === --app)
+
+
+
+
+*** BUILDPACKS
+
+Em alguns casos, precisamos rodar algum script ou realizar alguma configuração para publicar nosso app.
+
+buildpacks automatizam esses e outros processos
+
+Com um buildpack, conseguimos fazer facilmente o deploy da nossa aplicação criada em React. Faremos isso utilizando o buildpack mars/create-react-app . Além disso, ele utilizará Nginx, , o que vai prover uma otimização da performance e da segurança ao nosso app .
+
+
+        deploy react-app: 
+
+https://github.com/mars/create-react-app-buildpack#usage
