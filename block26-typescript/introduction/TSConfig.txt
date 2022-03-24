@@ -1,0 +1,1 @@
+O que indica se um projeto é TypeScript é a presença de um arquivo de configuração TSConfig . O arquivo tsconfig.json , possui as variáveis de configuração que dirão como o nosso código será compilado
