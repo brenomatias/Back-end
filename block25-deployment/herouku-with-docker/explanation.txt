@@ -12,3 +12,45 @@ Segundo o próprio GitHub , com as Actions é possível "criar e compartilhar a�
 As Actions são ações propriamente ditas que realizam algum tipo de evento, antes ou depois de realizar um push por exemplo, seja ele para a branch principal ou uma branch especifica, tudo irá depender do arquivo de configuração .yml
 
 main.yml: É dentro deste arquivo que todas as Actions são descritas e configuradas
+
+
+no arquivo yml:
+
+            on:
+            [push, pull_request]  
+
+    A sintaxe on configura o fluxo de trabalho de quando a action será executada. No exemplo anterior a action será executada em todos os pushs e pull requests
+
+        jobs:
+            eslint:
+                runs-on: ubuntu-18.04
+                steps:
+                - uses: actions/checkout@v2
+                - uses: actions/setup-node@v1.4.4
+
+            stylelint:
+                runs-on: ubuntu-18.04
+                steps:
+                - uses: actions/checkout@v2
+                - uses: actions/setup-node@v1.4.4
+
+            evaluator:
+                name: Evaluator Job
+                runs-on: ubuntu-18.04
+                needs: [eslint, stylelint]
+                steps:
+                - uses: actions/checkout@v2
+                - name: Evaluator step
+                    id: evaluator
+                    uses: betrybe/cypress-evaluator-action@v5
+
+    A sintaxe jobs descreve todas as ferramentas que serão executadas pelas actions, além de que cada ferramenta tem sua configuração própria, sendo possível atribuir a versão a ser executada com runs-on,
+     os steps necessários com steps e as dependências utilizando o needs , criando uma ordem de execução
+
+
+
+****** CD : Continuous delivery (entrega contínua)
+
+Está relacionado com a entrega contínua ou implantação contínua. No geral representa mudanças feitas por uma pessoa desenvolvedora, que são automaticamente testadas contra bugs e/ou falhas e carregadas a algum repositório, como o GitHub por exemplo
+
+Um exemplo de CD é o deploy automatizado de uma aplicação, ao ser realizado alguma alteração na branch principal, um novo deploy é realizado de forma automática.
