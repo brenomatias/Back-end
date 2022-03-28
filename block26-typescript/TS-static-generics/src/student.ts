@@ -19,6 +19,7 @@ type TrybePerson = {
 // Type Aliases
 
 export type Student = Person & TrybePerson;
+// criação de um novo objeto com as props dos tipos(objetos) Person e TrybePerson
 
 
 
@@ -26,10 +27,12 @@ interface IStudentModel {
     addStudent: (student: Student ) => Promise<void>,
     getStudents: () => Promise<Student[]>
 };
-
+// utilizada para declarar a forma de um objeto, nomear e parametrizar os tipos do objeto e compor tipos de objetos nomeados existentes em novos.
+// "contrato de código", ou seja, aquilo que você espera que seja implementado
 
 
 // CLASS = PROJETO PARA CRIAÇÃO DE OBJETO
+// A classe StundentModelMySQL2 pode ser reutilizada para criar qualquer quantidade de novos objetos Student
 export class StudentModelMySQL2 implements IStudentModel {
 
     connection: Pool

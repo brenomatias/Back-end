@@ -5,11 +5,13 @@ O TypeScript também nos proporciona novas estruturas de dados que não existem 
 garantir já em tempo de desenvolvimento que não teremos erros como: uma propriedade não poder ser acessada em um tipo não definido ou invocar um elemento que, na verdade, não é invocável por não ser uma função
 
 
+
 ****** ARRAY:
 
             let names: string[] = ["Mary Joe", "Alan Joe"];
 
 string= tipo (MUITA ATENÇÃO AQUI, TIPO: PODEMOS DEFINIR NOSSO PROPRIO TIPO ESPERADO ALÉM DOS PADRÕES) esperado, [] = indica que é uma array
+
 
 
 ****** TUPLAS:
@@ -24,6 +26,7 @@ Tuplas permitem declarar um conjunto de valores cuja ordem e tipo dos valores s�
             let car: [string, string, number] = ["Ford", "F400", 10];
 
 
+
 ****** Type Aliases
 
 Type Aliases (apelidos de tipos) são utilizados para declarar a forma de um objeto nomeando o tipo, o que nos permite usar o mesmo tipo mais de uma vez e nos referir a ele através de um único nome
@@ -36,6 +39,7 @@ Type Aliases (apelidos de tipos) são utilizados para declarar a forma de um obj
 Podemos dar um nome a qualquer tipo não apenas a um tipo de objeto.
 
 
+
 ************  Type Unions
 
 // A função abaixo pode receber tanto um número
@@ -43,6 +47,7 @@ Podemos dar um nome a qualquer tipo não apenas a um tipo de objeto.
                 function retornarCPF(cpf: number | string){
                 console.log("Seu CPF é: " + cpf);
                 }
+
 
 
 ******* Classes
@@ -54,3 +59,58 @@ Uma classe Person descreve os atributos de uma pessoa, por exemplo, nome, data d
 Mas a classe Person é apenas um plano para a criação de uma pessoa
 
 Você deve criar uma instância de pessoa da classe Person antes que ela se torne um objeto ao qual você possa atribuir valores de propriedade (como definir a cor dos olhos como azul) ou chamar suas ações (como falar).
+
+                enum EyeColor {
+                    Black = "Pretos",
+                    Blue = "Azuis",
+                    Green = "Verdes",
+                    Brown = "Castanhos",
+                }
+
+                class Person {
+                    name: string;
+                    birthDate: Date; // o tipo Date está presente no TypeScript assim como no JavaScript
+                    eyeColor: EyeColor; // na cor dos olhos usamos uma Enum com valores pré definidos
+
+                    constructor(name: string, birthDate: Date, eyeColor: EyeColor) {
+
+                        this.name  = name;
+                        this.birthDate  = birthDate;
+                        this.eyeColor  = eyeColor;
+                    }
+
+                    speak(): void {
+                        console.log(`${this.name} está falando.`);
+                    }
+
+                    eat(): void {
+                        console.log(`${this.name} está comendo.`)
+                    }
+
+                    walk(): void {
+                        console.log(`${this.name} está andando.`)
+                    }
+                }
+
+Também é possível dizer que uma das propriedades da nossa classe Person não é obrigatória para criarmos um objeto pessoa, podemos usar o caractere ? para marcar uma propriedade como opcional, o que faz com seu tipo seja um union type entre o tipo original e undefined . Se quiséssemos dizer que a cor dos olhos não é obrigatória nossa classe ficaria assim:
+
+                class Person {
+                    name: string;
+                    birthDate: Date;
+                    eyeColor?: EyeColor;
+
+                    constructor(name: string, birthDate: Date, eyeColor?: EyeColor) {
+                        this.name  = name;
+                        this.birthDate  = birthDate;
+                        this.eyeColor  = eyeColor;
+                    }
+
+                }
+
+
+
+******** Interfaces
+
+A Interface é utilizada para declarar a forma de um objeto, nomear e parametrizar os tipos do objeto e compor tipos de objetos nomeados existentes em novos. São uma forma eficiente de definir um "contrato de código", ou seja, aquilo que você espera que seja implementado, dentro do seu código
+
+Por exemplo, se quiséssemos criar uma interface que define as propriedades e métodos de uma pessoa funcionária, seria assim:
