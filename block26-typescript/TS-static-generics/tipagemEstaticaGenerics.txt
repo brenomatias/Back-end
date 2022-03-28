@@ -114,3 +114,15 @@ Também é possível dizer que uma das propriedades da nossa classe Person não 
 A Interface é utilizada para declarar a forma de um objeto, nomear e parametrizar os tipos do objeto e compor tipos de objetos nomeados existentes em novos. São uma forma eficiente de definir um "contrato de código", ou seja, aquilo que você espera que seja implementado, dentro do seu código
 
 Por exemplo, se quiséssemos criar uma interface que define as propriedades e métodos de uma pessoa funcionária, seria assim:
+
+            interface Employee {
+                firstName: string;
+                lastName: string;
+                fullName(): string;
+            }
+
+
+
+****** Generics
+
+Os Generics são modelos de código que você pode definir e reutilizar em toda a base de código, fornecem uma forma de informar a funções, classes ou interfaces que tipo você deseja usar ao chamá-las, além de nos ajudar a reduzir o uso do tipo any, que não é uma boa prática em TypeScript .

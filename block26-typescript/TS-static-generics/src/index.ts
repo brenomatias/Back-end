@@ -15,7 +15,7 @@ app.get('/students', async (req: Request, res: Response, next: Function): Promis
 
     const studentModel = new StudentModelMySQL2(connection);
     // usamos a palavra reservada new para criar uma instância da Classe 
-    // StudentModelMySQL2
+    // StudentModelMySQL2  
 
     // An instance is an object containing data and behavior described by the class
 
