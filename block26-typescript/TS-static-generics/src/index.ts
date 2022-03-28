@@ -50,3 +50,6 @@ app.post('/students', async (req: Request, res: Response, next: Function): Promi
 });
 
 app.listen(3000, () => console.log(`returning typescript server on port 3000`));
+
+
+// qualquer coisa exclui a pasta dist
