@@ -25,7 +25,10 @@ export type Student = Person & TrybePerson;
 
 interface IStudentModel {
     addStudent: (student: Student ) => Promise<void>,
+    // generics <>
     getStudents: () => Promise<Student[]>
+    // generics <>
+    // o tipo ou tipos que serão passados para o componente
 };
 // utilizada para declarar a forma de um objeto, nomear e parametrizar os tipos do objeto e compor tipos de objetos nomeados existentes em novos.
 // "contrato de código", ou seja, aquilo que você espera que seja implementado
