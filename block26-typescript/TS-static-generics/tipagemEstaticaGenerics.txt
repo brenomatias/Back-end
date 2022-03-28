@@ -1,0 +1,24 @@
+Maior diferencial do Typescript em relação ao Javascript: o seu sistema de tipos
+
+O TypeScript também nos proporciona novas estruturas de dados que não existem no JavaScript , que muitas vezes podem nos ajudar a resolver de uma forma melhor e mais coesa, alguns problemas que encontramos no dia a dia do desenvolvimento de software
+
+garantir já em tempo de desenvolvimento que não teremos erros como: uma propriedade não poder ser acessada em um tipo não definido ou invocar um elemento que, na verdade, não é invocável por não ser uma função
+
+
+****** ARRAY:
+
+            let names: string[] = ["Mary Joe", "Alan Joe"];
+
+string= tipo (MUITA ATENÇÃO AQUI, TIPO: PODEMOS DEFINIR NOSSO PROPRIO TIPO ESPERADO ALÉM DOS PADRÕES) esperado, [] = indica que é uma array
+
+
+****** TUPLAS:
+
+n array of known length, whose values are of a known type
+Tuplas permitem declarar um conjunto de valores cuja ordem e tipo dos valores são fixas
+
+            variableName: [type, type, ...] 
+
+            let fullName: [string, string] = ["Jane", "Doe"];
+            let person: [string, number] = ["Jane Doe", 35];
+            let car: [string, string, number] = ["Ford", "F400", 10];
