@@ -1,10 +1,8 @@
 import express, { Express, Request, Response, RequestHandler } from 'express';
 import connection from './connection';
-import { Student, StudentModelFake, StudentModelMySQL2 } from './student';
+import { Student, StudentModelMySQL2 } from './student';
 
 const app: Express = express();
-
-const dbFake: Student[] = [];
 
 app.use(express.json());
 

@@ -14,7 +14,7 @@ string= tipo (MUITA ATENÇÃO AQUI, TIPO: PODEMOS DEFINIR NOSSO PROPRIO TIPO ESP
 
 ****** TUPLAS:
 
-n array of known length, whose values are of a known type
+an array of known length, whose values are of a known type
 Tuplas permitem declarar um conjunto de valores cuja ordem e tipo dos valores são fixas
 
             variableName: [type, type, ...] 
@@ -22,3 +22,35 @@ Tuplas permitem declarar um conjunto de valores cuja ordem e tipo dos valores s�
             let fullName: [string, string] = ["Jane", "Doe"];
             let person: [string, number] = ["Jane Doe", 35];
             let car: [string, string, number] = ["Ford", "F400", 10];
+
+
+****** Type Aliases
+
+Type Aliases (apelidos de tipos) são utilizados para declarar a forma de um objeto nomeando o tipo, o que nos permite usar o mesmo tipo mais de uma vez e nos referir a ele através de um único nome
+
+                        type Point = {
+                        x: number;
+                        y: number;
+                        };
+
+Podemos dar um nome a qualquer tipo não apenas a um tipo de objeto.
+
+
+************  Type Unions
+
+// A função abaixo pode receber tanto um número
+// quanto uma string.
+                function retornarCPF(cpf: number | string){
+                console.log("Seu CPF é: " + cpf);
+                }
+
+
+******* Classes
+
+No TypeScript , as classes são uma maneira de definir a forma de um objeto, podemos considerar uma classe como PROJETO PARA CRIAÇÃO DE OBJETOS
+
+Uma classe Person descreve os atributos de uma pessoa, por exemplo, nome, data de nascimento ou cor dos olhos. Ela também descreve ações que uma pessoa pode executar, como falar, comer ou andar.
+
+Mas a classe Person é apenas um plano para a criação de uma pessoa
+
+Você deve criar uma instância de pessoa da classe Person antes que ela se torne um objeto ao qual você possa atribuir valores de propriedade (como definir a cor dos olhos como azul) ou chamar suas ações (como falar).

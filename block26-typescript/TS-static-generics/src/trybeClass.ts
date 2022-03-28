@@ -5,6 +5,7 @@ type TrybeClass = {
   students: Student[],
   module: Module | null
 };
+// Type Unions
 
 // interface TrybeClass {
 //   name: string, students: Student[]
