@@ -1,3 +1,5 @@
+// model é a camada mais proxima do banco de dados
+
 import { Pool, ResultSetHeader } from 'mysql2/promise';
 
 import Book from '../interfaces/book.interface';
@@ -34,5 +36,13 @@ export default class BookModel {
         const { insertId } = dataInserted;
         return { id: insertId, ...book };
     }
+
+    public async getById(id: number): Promise<Book> {
+        const result = await this.connection
+          .execute('SELECT * FROM books WHERE id=?', [id]);
+        const [rows] = result;
+        const [book] = rows as Book[];
+        return book;
+      }
 
 }
