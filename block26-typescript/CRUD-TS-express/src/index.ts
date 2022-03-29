@@ -14,3 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use(BooksRoutes); // coloque essa linha antes do middleware de erro!
+
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
