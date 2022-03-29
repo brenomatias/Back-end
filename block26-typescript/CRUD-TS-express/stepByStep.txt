@@ -1,0 +1,17 @@
+1) install all dependencies
+
+2) Create interface 
+
+3) create routes
+
+4) import routes/create index.ts
+
+5) create connection
+
+6) create model
+
+7) create service
+
+8) create controller
+
+9) implement controller in routes
