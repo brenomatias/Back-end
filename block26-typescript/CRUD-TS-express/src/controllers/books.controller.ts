@@ -21,7 +21,14 @@ class BooksController {
 
       res.status(StatusCodes.OK).json(book);
     };
-    
+
+    public create = async (req: Request, res: Response) => {
+      const book = req.body;
+  
+      const bookCreated = await this.bookService.create(book);
+      res.status(StatusCodes.CREATED).json(bookCreated);
+    };
+
   }
   
   export default BooksController;
