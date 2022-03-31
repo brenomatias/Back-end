@@ -1,0 +1,130 @@
+Maior diferencial do Typescript em relação ao Javascript: o seu sistema de tipos
+
+O TypeScript também nos proporciona novas estruturas de dados que não existem no JavaScript , que muitas vezes podem nos ajudar a resolver de uma forma melhor e mais coesa, alguns problemas que encontramos no dia a dia do desenvolvimento de software
+
+garantir já em tempo de desenvolvimento que não teremos erros como: uma propriedade não poder ser acessada em um tipo não definido ou invocar um elemento que, na verdade, não é invocável por não ser uma função
+
+
+
+****** ARRAY:
+
+            let names: string[] = ["Mary Joe", "Alan Joe"];
+
+string= tipo (MUITA ATENÇÃO AQUI, TIPO: PODEMOS DEFINIR NOSSO PROPRIO TIPO ESPERADO ALÉM DOS PADRÕES) esperado, [] = indica que é uma array
+
+
+
+****** TUPLAS:
+
+an array of known length, whose values are of a known type
+Tuplas permitem declarar um conjunto de valores cuja ordem e tipo dos valores são fixas
+
+            variableName: [type, type, ...] 
+
+            let fullName: [string, string] = ["Jane", "Doe"];
+            let person: [string, number] = ["Jane Doe", 35];
+            let car: [string, string, number] = ["Ford", "F400", 10];
+
+
+
+****** Type Aliases
+
+Type Aliases (apelidos de tipos) são utilizados para declarar a forma de um objeto nomeando o tipo, o que nos permite usar o mesmo tipo mais de uma vez e nos referir a ele através de um único nome
+
+                        type Point = {
+                        x: number;
+                        y: number;
+                        };
+
+Podemos dar um nome a qualquer tipo não apenas a um tipo de objeto.
+
+
+
+************  Type Unions
+
+// A função abaixo pode receber tanto um número
+// quanto uma string.
+                function retornarCPF(cpf: number | string){
+                console.log("Seu CPF é: " + cpf);
+                }
+
+
+
+******* Classes
+
+No TypeScript , as classes são uma maneira de definir a forma de um objeto, podemos considerar uma classe como PROJETO PARA CRIAÇÃO DE OBJETOS
+
+Uma classe Person descreve os atributos de uma pessoa, por exemplo, nome, data de nascimento ou cor dos olhos. Ela também descreve ações que uma pessoa pode executar, como falar, comer ou andar.
+
+Mas a classe Person é apenas um plano para a criação de uma pessoa
+
+Você deve criar uma instância de pessoa da classe Person antes que ela se torne um objeto ao qual você possa atribuir valores de propriedade (como definir a cor dos olhos como azul) ou chamar suas ações (como falar).
+
+                enum EyeColor {
+                    Black = "Pretos",
+                    Blue = "Azuis",
+                    Green = "Verdes",
+                    Brown = "Castanhos",
+                }
+
+                class Person {
+                    name: string;
+                    birthDate: Date; // o tipo Date está presente no TypeScript assim como no JavaScript
+                    eyeColor: EyeColor; // na cor dos olhos usamos uma Enum com valores pré definidos
+
+                    constructor(name: string, birthDate: Date, eyeColor: EyeColor) {
+
+                        this.name  = name;
+                        this.birthDate  = birthDate;
+                        this.eyeColor  = eyeColor;
+                    }
+
+                    speak(): void {
+                        console.log(`${this.name} está falando.`);
+                    }
+
+                    eat(): void {
+                        console.log(`${this.name} está comendo.`)
+                    }
+
+                    walk(): void {
+                        console.log(`${this.name} está andando.`)
+                    }
+                }
+
+Também é possível dizer que uma das propriedades da nossa classe Person não é obrigatória para criarmos um objeto pessoa, podemos usar o caractere ? para marcar uma propriedade como opcional, o que faz com seu tipo seja um union type entre o tipo original e undefined . Se quiséssemos dizer que a cor dos olhos não é obrigatória nossa classe ficaria assim:
+
+                class Person {
+                    name: string;
+                    birthDate: Date;
+                    eyeColor?: EyeColor;
+
+                    constructor(name: string, birthDate: Date, eyeColor?: EyeColor) {
+                        this.name  = name;
+                        this.birthDate  = birthDate;
+                        this.eyeColor  = eyeColor;
+                    }
+
+                }
+
+
+
+******** Interfaces
+
+A Interface é utilizada para declarar a forma de um objeto, nomear e parametrizar os tipos do objeto e compor tipos de objetos nomeados existentes em novos. São uma forma eficiente de definir um "contrato de código", ou seja, aquilo que você espera que seja implementado, dentro do seu código
+
+Por exemplo, se quiséssemos criar uma interface que define as propriedades e métodos de uma pessoa funcionária, seria assim:
+
+            interface Employee {
+                firstName: string;
+                lastName: string;
+                fullName(): string;
+            }
+
+
+
+****** Generics
+
+Os Generics são modelos de código que você pode definir e reutilizar em toda a base de código, fornecem uma forma de informar a funções, classes ou interfaces que tipo você deseja usar ao chamá-las, além de nos ajudar a reduzir o uso do tipo any, que não é uma boa prática em TypeScript 
+
+Os generics definem uma ou mais variáveis de tipo para identificar o tipo ou tipos que serão passados para o componente, colocados entre colchetes angulares (< >)

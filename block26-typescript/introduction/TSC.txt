@@ -1,0 +1,23 @@
+*****TSC - TypeScript Compiler
+
+O TSC é o responsável por realizar a tradução do nosso código TypeScript para código JavaScript .
+
+O TSC também é o responsável por realizar a verificação de tipo no nosso código TypeScript
+
+A extensão .ts é a extensão padrão para os arquivos TypeScript
+
+Executar: 
+
+                 tsc nomeDoArquivo.ts
+
+Obs: A melhor prática para a utilização do Typescript num projeto, é instalá-lo como uma devDependency , através do comando 
+
+            npm i -D typescript ,
+
+ e utilizá-lo através do npx . Isso garante que todas as pessoas que forem compilar o projeto, o façam utilizando a mesma versão do TypeScript, e não a versão instalada em suas máquinas.
+
+
+
+ Gerar TSConfig:
+ 
+     tsc --init
