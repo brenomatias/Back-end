@@ -1,0 +1,8 @@
+classe é a descrição do objeto. Ela 'so existe no codigo' -> descreve atributos e metodos(funcoes) que o obejto tem/pode sofrre
+classe é o modelo/outline 
+metodo esta vinculado ao objeto     (referencia com o this)
+instanciar = word 'new'
+constructor -> criar instancia do objeto com a palavra new - define o que o constructor recebe
+'this' no constructor refere ao objeto(e seus atributos definidos)
+
+objeto é a variável na aplicação real
