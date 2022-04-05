@@ -5,4 +5,42 @@ instanciar = word 'new'
 constructor -> criar instancia do objeto com a palavra new - define o que o constructor recebe
 'this' no constructor refere ao objeto(e seus atributos definidos)
 
+iniciar objeto:
+
+class MyClass {
+
+    private _param1: string;
+    private _param2: number;
+
+      constructor( param1: string, param2: number 'parametros que queremos ao construir objeto') {
+       this._param1 = param1;
+       this._param2 = param2;
+   }
+
+   // ordem no constructor importa
+}
+ 
+**** limitar edição das propr: dos objetos ('private' nos atributos)
+
+***  'GETTERS'= word 'get'   -> get é uma instancia da classe
+(_ 'underline' indicar que sao privados)
+**'get' permite acesso a visualização do parametro privado
+** o get permite acessar o atributo sem precisar passar como função = console.log(objeto())
+objeto(); = func
+
+*****SETTERS = word 'set'
+
+
+'this' = objeto referenciando a si mesmo
+
+
+atributo opcional: deve ser o ultimo parametro
+na hora de instanciar a ordem que conta é a do constructor
+(instanciar) = new ...
+
+
+
+*** no new o construtor é chamado para construir um objeto na memoria
+
 objeto é a variável na aplicação real
+objeto é a 'materialização' da classe 
