@@ -44,9 +44,16 @@ export default class Hobbit extends Race {
         // 'super' pra manter o comportamento da classe mãe ->
         // SEMPRE É NECESSÁRIO CHAMAR PARA TER ACESSO A CLASSE MÃE
 
+        // 'super.metodoDaMae'
+
         } else {
             console.log(`Inventory is full.`);
         }
     }
 
 }
+
+// super se refere a classe que esta sendo extendida
+// chama o construtor da classe mãe
+
+// 'super' permite acesso ao conteudo da classe pai

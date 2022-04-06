@@ -8,14 +8,12 @@ export default class Race {
 
     // private _name: string; ---> É O ÚNICO ATRIBUTO QUE SERÁ RECEBIDO(height, lang, inv = valor inicial padrão)
     // private: modificador de atributos
-
     private _height: number;
                   // underline '_' indicates this attibute is private(pattern)
-
     protected _languages: string[];
-    // proteced da acesso ao atributo fora da classe
-
+    // proteced da acesso ao atributo fora da classe(ser alterado)
     private _inventory: Item[]; // 'Item' é a interface
+
 
 // ********* CONSTRUCTOR ******** // 
 
@@ -75,13 +73,21 @@ export default class Race {
 
 
 
-
-
 // class ClassName {
 //     attribute1: type;
 //     attribute2: type;
 // }
 
+// constructor( atributoAserRecebido: type) {
+//     this.atributoComValorInicialDefinido = valor
+// }
+
+//  atributoAserRecebido = atributo a ser recebido na instanciação
+// 'new' ...
+
+
 // * Os atributos criados sem modificadores de visibilidade são públicos por padrão. podem ser acessados e alterados tanto dentro quanto fora da classe
 // *  principais modificadores de atributos:  public ,  private ,  protected, readonly
 // * Os atributos criados com o modificador private só podem ser lidos e modificados dentro da classe. Isso significa que se você tentar utilizar a notação objeto.atributo do lado de fora das chaves que delimitam a criação da classe
+
+
