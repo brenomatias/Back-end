@@ -7,10 +7,13 @@ export default class Race {
 // ******* ATTRIBUTES************ // 
 
     // private _name: string; ---> É O ÚNICO ATRIBUTO QUE SERÁ RECEBIDO(height, lang, inv = valor inicial padrão)
+    // private: modificador de atributos
+
     private _height: number;
-        // private: modificador de atributos
-    private _languages: string[];
-          // underline '_' indicates this attibute is private(pattern)
+                  // underline '_' indicates this attibute is private(pattern)
+
+    protected _languages: string[];
+    // proteced da acesso ao atributo fora da classe
 
     private _inventory: Item[]; // 'Item' é a interface
 
@@ -20,8 +23,9 @@ export default class Race {
     constructor(
         private _name: string,
         min: number = 0.6,
-        max: number = 2.1,) {
+        max: number = 2.1,)
 
+    {
         this._height = this.getRandomHeight(min, max);
         // define o valor padrão de height inicial (this refere ao proprio atributo do objeto)
         this._languages = ['westron'];

@@ -20,9 +20,10 @@ export default class Hobbit extends Race {
         super(name, 0.6, 1.2); // construir a base da classe mãe
         // super inicializa o constructor da classe base
 
-        // 'this.name' seria a forma de acessar o métod e get name()
+        // 'this.name' seria a forma de acessar o método  'get name()'
 
-        this._languages.push('hobbitês')
+        this._languages.push('hobbitês');
+        // se '_languages' não estive como protected, seria nessário criar uma nova função na classe mãe que adiciona uma lingua
     }
 
 
@@ -40,6 +41,8 @@ export default class Hobbit extends Race {
         if (currentLoad + item.weight <= this._maxLoad) {
             super.pickUpItem(item);
         // se o peso for menor, apenas chama o método original e acrescenta o item
+        // 'super' pra manter o comportamento da classe mãe ->
+        // SEMPRE É NECESSÁRIO CHAMAR PARA TER ACESSO A CLASSE MÃE
 
         } else {
             console.log(`Inventory is full.`);
