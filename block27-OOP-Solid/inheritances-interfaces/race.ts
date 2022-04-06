@@ -1,7 +1,5 @@
-interface Item {
-    name: string,
-    weight: number,
-}
+import { Item } from "./interfaces";
+
 // interface serve como 'contrato' para como o objeto deve ser preenchido
 
 
@@ -12,8 +10,9 @@ export default class Race {
     private _height: number;
         // private: modificador de atributos
     private _languages: string[];
+          // underline '_' indicates this attibute is private(pattern)
+
     private _inventory: Item[]; // 'Item' é a interface
-      // underline '_' indicates this attibute is private(pattern)
 
 // ********* CONSTRUCTOR ******** // 
 
@@ -32,7 +31,7 @@ export default class Race {
     }
 
 // ****** SUGAR SINTATIC
-// acessar attributos fora da classe    
+// acessar attributos fora da classe -> deixa attributos disp. fora das classes 
 
     get name() { return this._name; }
     get height() { return this._height; }
