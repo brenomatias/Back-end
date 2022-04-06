@@ -9,3 +9,8 @@ Objeto é uma instancia da classe
 
 2) Aplicação e instaciação da classe em index.ts
 importaçãp da classe
+
+3) ESPECIALIZAR A CLASSE
+   EXTENDER A CLASSE
+
+  3.1) Especializar classe Race criando uma subclasse Hobbit
