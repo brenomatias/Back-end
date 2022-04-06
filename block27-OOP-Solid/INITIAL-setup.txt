@@ -1,5 +1,7 @@
 1) npm init -y
 
+2) npm i -D typescript
+
 2) npm install -D @tsconfig/node14
 
 3) touch tsconfig.json
