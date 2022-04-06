@@ -1,5 +1,6 @@
 import Hobbit from './hobbit';
-// import Race from './race';
+import Player from './player';
+import Race from './race';
 
 // const player = new Race('Breno');
 // // 'new' é o método pra instanciar a classe -> é o que usa pra criar 
@@ -7,7 +8,7 @@ import Hobbit from './hobbit';
 // 
 // // PRIMEIRO PASSO NA CLASSE BASE
 
-const player = new Hobbit('Frodo', 1, 10);
+const hobbit = new Hobbit('Frodo', 1, 10);
 // contructor de Hobbit 
         // constructor(
 
@@ -15,6 +16,8 @@ const player = new Hobbit('Frodo', 1, 10);
         //     private _stealth: number, // NOVOS atributos
         //     private _maxLoad: number, // NOVOS atributos    
         // ) { 
+
+const player = new Player<Race>(100, 10, hobbit);
 console.log( `${player}`);
 
 
