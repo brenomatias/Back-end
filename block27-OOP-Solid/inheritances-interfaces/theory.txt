@@ -15,4 +15,4 @@ importaçãp da classe
 
   3.1) Especializar classe Race criando uma subclasse Hobbit
 
-4) Cria nova classe 'Player'
+4) Cria nova classe 'Player' usando 'COMPOSIÇÃO'
