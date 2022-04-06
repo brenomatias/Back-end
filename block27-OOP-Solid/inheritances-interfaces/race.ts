@@ -31,7 +31,9 @@ export default class Race {
         // [{ name: 'rock', weight: 0.1 }] = CONTRATO QUE O ITEM TEM QUE RESPEITAR ( A INTERFACE )
     }
 
-// ****** SUGAR 
+// ****** SUGAR SINTATIC
+// acessar attributos fora da classe    
+
     get name() { return this._name; }
     get height() { return this._height; }
     get languages() { return this._languages; }
@@ -60,7 +62,7 @@ export default class Race {
         );
     }
 
-// método para impressão da frase desejada ao instanciar
+// método para impressão da frase desejada ao instanciar a classe
         public toString(): string {
             return `${this._name} speaks ${this._languages} and has height ${this._height}`;
         }
