@@ -1,0 +1,6 @@
+Objeto é uma instancia da classe
+
+1) Create class Race (Race.ts)
+
+   1.1) create attibutes
+   1.2) iniciar atributos da classe com o CONSTRUCTOR
