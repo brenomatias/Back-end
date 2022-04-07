@@ -11,10 +11,10 @@ export default class Margheritta extends Pizza {
         // adiciona ing especificos
     }
 
-    // method
+    // method -> SOBRESCREVE O método 'bake' da classe mãe
     public bake(graus: number) {
         Pizza._count++;
-        
+
         console.log(`Assando a pizza à ${graus} celsius com ingredientes: `, this._ingredients);
         
         // adiciona manjericão depois que a pizza esta assada

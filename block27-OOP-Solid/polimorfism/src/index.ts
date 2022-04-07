@@ -22,13 +22,23 @@ const margherittaLarge = new Margheritta(PizzaSize.LARGE);
 
 
 // **** POLIMORFISMO
+
 const bakePizza = (obj: Pizza, temperature: number) => {
   obj.bake(temperature);
+  // ESTE OBJETO TEM QUE TER O METODO 'bake' -> deve ser passado para ele
+  // varia para cada classe
   console.log(`Pizza será vendida a: `, obj.getPrice());
 }
+// SIGNIFICA QUE NO LUGAR QUE ESTAMOS ESPERAMOS 'Pizza', podemos passar qualquer classe 
+// QUE SEJA 'Pizz' OU EXTENDA 'Pizza'
+// 'obj' -> e do tipo 'Pizza'
+// Pepperoni, Margheritta SÃO 'Pizza'
+
 // **** POLIMORFISMO
 
-bakePizza(pepperoni, 180.0);
+// Polimorfismo por SUBTIPAGEM -> aplicação do polimorfismo
+bakePizza(pizzaGeneric, 180.0)
+bakePizza(pepperoni, 180.0); // -> aceita objeto do tipo 'pepperoni'  
 bakePizza(margheritta, 220.0);
 bakePizza(margherittaLarge, 220.0);
 
