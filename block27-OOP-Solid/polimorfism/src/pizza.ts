@@ -66,12 +66,15 @@ export default abstract class Pizza {
         return this._size;
     }
 
-    // quando uma foo não faz referencia ao this, pode ser static
+
+    // quando uma foo (FUNÇÃO) não faz referencia ao this, pode ser static
     public static getRandomHeight() {
         // não faz referencia ao this dentro da foo
+        // NÃO FAZ REFERENCIA AO OBJETO ENTAO PODE SER STATICO
         return 5.0;
     }
     
+
     // acessar o preço da pizza
     public getPrice(): number {
         return this._pricePerSize.get(this._size) || 50.0;
