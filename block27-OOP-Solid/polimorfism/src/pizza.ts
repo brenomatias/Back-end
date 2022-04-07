@@ -34,6 +34,9 @@ export default abstract class Pizza {
 
     // method para assar pizza
     public abstract bake(graus: number): void ;
+    // METODO ABSTRATO -> obrigatoriamente PARA quem for herdar de pizza
+    // SUBCLASSE VAI TER QUE IMPLEMENTAR ESTE MÉTODO
+    // metodo nao implementado, apenas declarado (tipo uma interface)
 
     public bakeLog(graus: number): void{
         console.log(`Assando pizza a ${graus} celsius com ingredients:`,
@@ -70,3 +73,5 @@ export default abstract class Pizza {
 // ************* abstract class -> NAO PERMITE 'new' a partir de uma classe abstrata
 // proibe construçao do objeto diretamente
 // e obrigatorio usar a herança (a partir de uma subclasse) da classe para criar objetos
+
+// classe abstrata e um tipo de interface
