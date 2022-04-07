@@ -5,14 +5,14 @@ export enum PizzaSize {
 }
 // preços pre definidos das pizza
 
-// classe pizza define como será uma pizza -> Pizza genérica
+// classe pizza define como será uma pizza -> Pizza genérica - descrever pizza
 export default abstract class Pizza {
 
 // *** Atributes
     public static _count: number = 0;
     protected _ingredients: string[]; // array de ingredients
     private _pricePerSize: Map<PizzaSize, number>;
-    // preço por pizza -> é um array de objetos
+    // preço por pizza -> é um array de objetos - 'PizzaSize' vem do enum
 // *** Atributes
 
 
@@ -26,7 +26,7 @@ export default abstract class Pizza {
             [ PizzaSize.MEDIUM, 35.00 ],
             [ PizzaSize.LARGE, 40.00 ],
         ])
-        // preço da pizza é baseado no tamanho
+        // preço da pizza é baseado no tamanho -> 'PizzaSize' vem do enum
     }
 // *** Constructor 
 
@@ -35,9 +35,16 @@ export default abstract class Pizza {
     // method para assar pizza
     public abstract bake(graus: number): void ;
 
+    public bakeLog(graus: number): void{
+        console.log(`Assando pizza a ${graus} celsius com ingredients:`,
+        this._ingredients);
+    }
+    
+    // ESSE É UM SET PARA INGREDIENTES CASO 'INGREDIENT' FOSSEM PRIVADOS
     public addIngredient(ing: string) {
         this._ingredients.push(ing);
     }
+    // adicionar ing novo no array
     
     // method -> get size
     // so vai setar o tamanho da pizza uma vez
