@@ -39,4 +39,4 @@ export default class Pepperoni extends Pizza {
 
 // *size poderia ser qualquer nome aqui porque o que importa é o 
 // tipo do argumento 'PizzaSize'
-// *** size : nome do arumento
+// *** size : Argumento -> define o tipo da variavel size
