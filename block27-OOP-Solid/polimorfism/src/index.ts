@@ -9,6 +9,7 @@ pizzaGeneric.bake(240.0);
 console.log(`Pizza será vendida a :`, pizzaGeneric.getPrice());
 // impressão genérica da pizza sem antes aplicar o abstract na classe
 // COM CLASSE ABSTRATAS NAO É POSSIVEL ISNTANCIAR OBJETOS DIRETAMENTE
+// so pode dar 'new' em quem for filha
 
 
 const pepperoni = new Pepperoni();
@@ -51,5 +52,5 @@ bakePizza(margherittaLarge, 220.0);
 // este o polimorfismo de subtipagem
 
 
-
-console.log(`Foram assadas ${Pizza._count} pizzas`);
+// acessa atributo estatico dentro da CLASSE
+console.log(`Foram assadas ${Pizza.COUNT} pizzas`);

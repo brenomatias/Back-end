@@ -13,6 +13,7 @@ abstract class ClasseAbstrata {
 
     abstract contract(): void;
     //  UM 'CONTRATO' DA CLASSE ABSTRATA (TEM QUE USAR 'ABSTRACT')
+    // nao implementar o metodo MAS OBRIGA A FILHA IMPLEMENTAR ESTE MODO E DE FORMA ESPECIFICA
 
     public foo() { return this.attrPrivate }
 }

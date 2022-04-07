@@ -25,7 +25,11 @@ export default class Pepperoni extends Pizza {
     // SOBSCREVE O METODO BAKE DA CLASSE MAE 'Pizza'
     public bake(temperature: number): void {
         console.log(`Assando por 40 minutos`);
-        Pizza._count++;
+    
+    // metodo de acessar o 'count' da classe base 'Pizza'
+        Pizza.COUNT++;
+    // toda vez que esta classe for chamada acrescenta +1 no 'count'
+        // que e um atributo da classe mãe Pizza(sempre que assar a pizza)
     }
 }
 

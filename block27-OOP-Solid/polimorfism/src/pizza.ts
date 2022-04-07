@@ -6,10 +6,19 @@ export enum PizzaSize {
 // preços pre definidos das pizza
 
 // classe pizza define como será uma pizza -> Pizza genérica - descrever pizza
+
 export default abstract class Pizza {
 
+
 // *** Atributes
-    public static _count: number = 0;
+    public static COUNT: number = 0;
+    // contar o numero de pizza assadas: NUMERO DE 'new' Pizza
+    // vai somar isso nas classes filhas 
+    // é 'STATIC' TUDO QUE É ESTATICO EXISTE APENAS EM UM LUGAR
+    // TA NA DESCRIÇAO DA CLASSE E NAO NO OBJETO INSTANCIADO
+    // 'existe um 'count' para todos objetos do tipo pizza'
+    // nao acessa com 'this'
+
     protected _ingredients: string[]; // array de ingredients
     private _pricePerSize: Map<PizzaSize, number>;
     // preço por pizza -> é um array de objetos - 'PizzaSize' vem do enum
@@ -37,6 +46,7 @@ export default abstract class Pizza {
     // METODO ABSTRATO -> obrigatoriamente PARA quem for herdar de pizza
     // SUBCLASSE VAI TER QUE IMPLEMENTAR ESTE MÉTODO
     // metodo nao implementado, apenas declarado (tipo uma interface)
+    // nao tem como implementar a contagem aqui de pizzas porque é abstract
 
     public bakeLog(graus: number): void{
         console.log(`Assando pizza a ${graus} celsius com ingredients:`,
@@ -51,6 +61,7 @@ export default abstract class Pizza {
     
     // method -> get size
     // so vai setar o tamanho da pizza uma vez
+    // deixa publico o metodo de definer o tamanho da pizza
     public get size(): PizzaSize {
         return this._size;
     }
