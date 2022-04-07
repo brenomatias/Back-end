@@ -8,6 +8,8 @@ const pizzaGeneric = new Pizza(PizzaSize.LARGE);
 pizzaGeneric.bake(240.0);
 console.log(`Pizza será vendida a :`, pizzaGeneric.getPrice());
 // impressão genérica da pizza sem antes aplicar o abstract na classe
+// COM CLASSE ABSTRATAS NAO É POSSIVEL ISNTANCIAR OBJETOS DIRETAMENTE
+
 
 const pepperoni = new Pepperoni();
 pepperoni.bake(180.0);

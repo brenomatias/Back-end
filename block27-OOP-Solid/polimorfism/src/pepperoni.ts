@@ -17,11 +17,12 @@ export default class Pepperoni extends Pizza {
         // adiciona os atributos da subclasse
     }
    
-    // preço a mais da pizza: preço especifico
+    // preço a mais da pizza: preço especifico -> sobscreve 'getPrice' da classe mãe
     public getPrice(): number {
         return 50.0;
     }
-
+    
+    // SOBSCREVE O METODO BAKE DA CLASSE MAE 'Pizza'
     public bake(temperature: number): void {
         console.log(`Assando por 40 minutos`);
         Pizza._count++;

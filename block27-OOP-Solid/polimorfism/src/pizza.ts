@@ -65,3 +65,8 @@ export default abstract class Pizza {
 // *** Methods
 
 }
+
+
+// ************* abstract class -> NAO PERMITE 'new' a partir de uma classe abstrata
+// proibe construçao do objeto diretamente
+// e obrigatorio usar a herança (a partir de uma subclasse) da classe para criar objetos
