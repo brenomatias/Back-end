@@ -22,4 +22,7 @@ export default class Margheritta extends Pizza {
 
         console.log(`Assando a pizza à ${graus} celsius com ingredientes: `, this._ingredients);
     }
+
+
+    // public bake(graus: number, maxTemp: number): void; -
 }
