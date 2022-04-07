@@ -1,0 +1,6 @@
+***** Polimorfismo
+
+- base de criação para diferente tipos
+- um mesmo tipo pode assumir tipos diferentes
+- um tipo pode ser passado como argumento quando estamos esperando outro tipo
+- typescript: subtipagem -> basicamente uma herança
