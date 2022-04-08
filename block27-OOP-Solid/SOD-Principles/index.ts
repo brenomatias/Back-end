@@ -17,6 +17,7 @@ if (process.env.ENV === `devel`) {
 
 
 app.post('/users', new UserController(new MockedConnection()).createUser);
+// 'new' isntanciando um objeto utilizando o método 'createUser' do controller
 
 const PORT = process.env.PORT || 3000;
 

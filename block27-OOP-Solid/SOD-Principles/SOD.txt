@@ -1,5 +1,6 @@
 *** S ingle responsibility principle ( Princípio da responsabilidade única ): uma entidade (classe, método, função, etc) deve ter apenas uma única responsabilidade;
-
+'SO PODE TER UM MOTIVO PARA MUDAR' seu comportamento
+        se tem mais um motivo, fere o principio S
 'o que é uma coisa só'?
 
 
