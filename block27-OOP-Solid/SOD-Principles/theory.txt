@@ -1,4 +1,5 @@
 ** começar a aprender sobre os cinco princípios que abrangem o SOLID
+**  classe abstrata -> nao pode ser instanciada 
 
 Esses princípios, ou boas práticas, ditam como seu código deve ser escrito e como ele deve ser organizado para otimizar manutenção, legibilidade e testabilidade.
 

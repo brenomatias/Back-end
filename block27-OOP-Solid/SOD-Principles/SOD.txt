@@ -1,0 +1,11 @@
+*** S ingle responsibility principle ( Princípio da responsabilidade única ): uma entidade (classe, método, função, etc) deve ter apenas uma única responsabilidade;
+
+'o que é uma coisa só'?
+
+
+
+
+
+**** O pen/Closed principle ( Princípio aberto/fechado ): entidades de software devem ser abertas para extensão, mas fechadas para modificação;
+
+*** D ependency inversion principle ( Princípio da inversão da dependência ): entidades de alto nível não devem depender de entidades de baixo nível. Ambos devem depender de abstrações.
