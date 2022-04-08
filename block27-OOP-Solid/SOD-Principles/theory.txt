@@ -1,0 +1,11 @@
+** começar a aprender sobre os cinco princípios que abrangem o SOLID
+
+Esses princípios, ou boas práticas, ditam como seu código deve ser escrito e como ele deve ser organizado para otimizar manutenção, legibilidade e testabilidade.
+
+- S ingle responsibility principle ( Princípio da responsabilidade única ): uma entidade (classe, método, função, etc) deve ter apenas uma única responsabilidade;
+O pen/Closed principle ( Princípio aberto/fechado ): entidades de software devem ser abertas para extensão, mas fechadas para modificação;
+
+- L iskov substitution principle ( Princípio de substituição de Liskov ): objetos em um programa devem ser substituíveis por instâncias de seus subtipos, sem alterar a funcionalidade do programa; (Ah, não se assuste com esse nome, ele faz apenas uma referência à autora do paper que o descreveu pela primeira vez em 1994, Barbara Liskov)
+
+- I nterface segregation principle ( Princípio da segregação da interface ): muitas interfaces de clientes específicas são melhores do que uma para todos os propósitos;
+D ependency inversion principle ( Princípio da inversão da dependência ): entidades de alto nível não devem depender de entidades de baixo nível. Ambos devem depender de abstrações.
