@@ -24,11 +24,13 @@ export default abstract class UserValidations {
     static validateRole = (role: string): boolean => {
         return role === 'admin' || role === 'user';
     }
-    // ta ruim isso! NAO É ESCALÁVEL
-    // sempre que surgir um papel novo no sistema essa funçao deve ser modificada -> 
+    // ta ruim isso! NAO É ESCALÁVEL -
+    // sempre que surgir um papel novo no sistema essa funçao deve ser modificada -> esta aberto pra modificaçao. Por exemplo, role pode ser adicionado de mais um 'admin', 'user', 'lala'
 
+
+    // AGREGADO DE VALIDAÇÃO PARA OBEDECER OS PRINCIPIOS DE SO
     static validateUser = (user: IUser): boolean => {
-        return UserValidations.validateEmail(user.email)
+        return UserValidations.validateEmail(user.email) // RETORNA A CLASSE
             && UserValidations.validatePassword(user.password)
             && UserValidations.validateRole(user.role);
     }
