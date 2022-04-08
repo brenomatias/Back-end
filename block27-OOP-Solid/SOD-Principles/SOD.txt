@@ -8,5 +8,7 @@
 
 
 **** O pen/Closed principle ( Princípio aberto/fechado ): entidades de software devem ser abertas para extensão, mas fechadas para modificação;
+'uma classe, um metodo, ou um modulo podem ser extender mas nao ser modificado' -> a funçao deve estar fechada para modificaçao
+
 
 *** D ependency inversion principle ( Princípio da inversão da dependência ): entidades de alto nível não devem depender de entidades de baixo nível. Ambos devem depender de abstrações.
