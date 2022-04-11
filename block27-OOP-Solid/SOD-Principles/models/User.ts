@@ -7,6 +7,8 @@ export default abstract class User {
 // iniciar usuário
   public static initUser(user: IUser): IUser {
     const { id, username, email, password, role } = user;
+
+    // IUser = interface
     const newUser: IUser = {
       id,
       username,

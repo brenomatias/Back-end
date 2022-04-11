@@ -22,8 +22,11 @@ export default class UserController {
   createUser = async (req: Request, res: Response) => {
 
     if (UserValidations.validateUser(req.body as IUser)) {
+      // req.body as IUser -> 'IUser' interface = regras de negocio
 
       await User.create(req.body as IUser, this.connection);
+      // destrutura o 'req.body' -> COERSÃO DE 'req.body' para User
+
       res.status(200).json({
         message: 'Usuário criado com sucesso!',
       });

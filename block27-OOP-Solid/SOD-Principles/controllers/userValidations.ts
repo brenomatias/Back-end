@@ -1,4 +1,5 @@
 import { IUser } from "../models/IUser";
+import User from "../models/User";
 
 // CLASSE PARA VALIDAÇÃO
 // tipo de uso dessa classe: validação
@@ -33,5 +34,12 @@ export default abstract class UserValidations {
         return UserValidations.validateEmail(user.email) // RETORNA A CLASSE
             && UserValidations.validatePassword(user.password)
             && UserValidations.validateRole(user.role);
+            // && ... 'extensão da função'
     }
 }
+
+// tudo que e estatico aparece sem a necessidade de 'new' 
+// todo os metodos que sao estaticos
+// tudo que e estatico ja esxite na classe sem dar 'new'
+// se nao for estatico so acessa o metodo se user o 'new'
+UserValidations.validateEmail;
