@@ -9,6 +9,8 @@ import IConnection from '../models/IConnection';
 export default class UserController {
 
   constructor(private connection: IConnection) { }
+  // RESOLUÇAO DO PRINCIPIO DE INVERSAO DE MODULOS
+  
   
 
 // 'Função 'createUser'
@@ -38,6 +40,5 @@ export default class UserController {
   };
 
 // UserValidation
-
 
 }

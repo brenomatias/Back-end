@@ -42,4 +42,4 @@ export default abstract class UserValidations {
 // todo os metodos que sao estaticos
 // tudo que e estatico ja esxite na classe sem dar 'new'
 // se nao for estatico so acessa o metodo se user o 'new'
-UserValidations.validateEmail;
+            // UserValidations.validateEmail; -> é estático (nao precisa de new pra acessar na classe para acessar)

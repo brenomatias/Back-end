@@ -11,4 +11,15 @@
 'uma classe, um metodo, ou um modulo podem ser extender mas nao ser modificado' -> a funçao deve estar fechada para modificaçao
 
 
-*** D ependency inversion principle ( Princípio da inversão da dependência ): entidades de alto nível não devem depender de entidades de baixo nível. Ambos devem depender de abstrações.
+*** D ependency inversion principle ( Princípio da inversão da dependência ): entidades de alto nível não devem depender de entidades de baixo nível. Ambos devem depender de abstrações
+
+-> módulos mais externos nao podem depender de modulos mais internos
+   * MODULO INTERNO
+   * MODULO EXTERNO
+
+   (o que define é a profundidade do programa)
+
+   modulo mais externo: index.ts
+   *** modulo = qualquer arquivo .ts
+
+-> módulos devem depender de ABSTRAÇÕES E NAO DE IMPLEMENTAÇÕES

@@ -1,2 +1,2 @@
 ******* PARA RODAR a aplicação:
-    npm run
+    npm run dev 
