@@ -29,6 +29,9 @@ export default abstract class Mobile implements IMobile {
         return `${this.number} calling --> ${other.number}`;
     }
 
+
+    // cancelar a linha(numero)
+    // pode cancelar numero? sim ou nao
     public cancelLine(): boolean {
         console.log(`Cancelling line ${this.number}`);
 

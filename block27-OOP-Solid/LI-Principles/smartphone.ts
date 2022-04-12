@@ -31,6 +31,8 @@ class Composicao implements Interface {
     }
 }
 
+
+// A HERANÇA TEM QUE FAZER TUDO QUE A MÃE FAZ E APENAS EXTENDER OS COMPORTAMENTOS (OU FAZER TUDO QUE A MAE FAZ MAS DE UM JEITO DIFERENTE)
 export default class SmartPhone extends Mobile implements ITakePicture, IRecordVideo {
     // recebe a herança da classe 'Mobile' (extends 'Mobile')
 
@@ -71,9 +73,20 @@ export default class SmartPhone extends Mobile implements ITakePicture, IRecordV
         console.log(`Setting volume to ${vol}`);
     }
 
+    // aqui a ideia é NAO PODER CANCELAR A LINHA
+    // 'cancelLine' é um método da classe mãe 'Mobile'
+    // na classe 'Mobile' permite cancelar linha
+    // muda comportamento para nao cancelar mais 
+
+    // O COMPORTAMENTO ESPECIFICO TEM QUE EXPANDIR('super') E PODE MODIFICAR a classe mae (ou fazer de um jeito diferente)
+    // com o super chama o metodo da mãe para extender e modificar
     public cancelLine(): boolean {
         console.log(`Waiting forever....`);
 
         return super.cancelLine();
+        // REPETE O MÉTODO 'cancelLine' da classe mãe
+        // se mudar comportamento, chamar o super (fazer o que a classe base faz)
     }
+    // nao pode implementar novos parametros por ex, pode modificar com base no que existe
+
 }

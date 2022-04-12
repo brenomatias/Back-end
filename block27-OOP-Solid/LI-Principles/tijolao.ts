@@ -27,10 +27,10 @@ export default class Tijolao extends Mobile implements ITakePicture {
     // sobscreve o metodo 'call' da mãe (que retorna 'string')
     // FERE LISKOV (o comportamento é diferente na mae e filha -> mae espera 'string' e não 'void'). 'void' para 'string' rola
 
-    call(other: Mobile): void {
-        console.log('00010000100101010');
-    }
-    
+            // call(other: Mobile): void {
+            //     console.log('00010000100101010');
+            // }
+            
     // typscript nao roda porqe a prop que tenta sobscrever, nao pode
     // a classe mae retorna string
     // ai o typscript crash
