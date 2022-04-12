@@ -3,6 +3,7 @@ import { IMobile } from "./interfaces";
 // Primeira classe feita
 // 
 export default abstract class Mobile implements IMobile {
+    // Mobile enxerga apenas Interfaces()
     public number: string; // e publico para nao ter getter e setter
 
     constructor(
@@ -49,4 +50,4 @@ export default abstract class Mobile implements IMobile {
     // RESOLVE COM INTERFACES para desacoplar todos os comportamentos acumuldos na classe
     // extrai comportamentos(METODOS) para INTERFACES ESPECIFICAS (interfaces.ts):
 
-    // ITakePicture, IRecordVideo, 
+    // ITakePicture, IRecordVideo, IMobile, 

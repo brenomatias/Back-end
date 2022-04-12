@@ -1,10 +1,18 @@
 import { IMobile } from "./interfaces";
 import SmartPhone from "./smartphone";
 import Tijolao from "./tijolao";
+import Mobile from "./mobile";
+
+
+// const callBetween = (A: Mobile, B: Mobile)
+// 'Mobile' é uma classe implementação
+// interface segregation: garante manutençao do codigo(outros modulos nao enxergam a implementaçao)
+
 
 const callBetween = (A: IMobile, B: IMobile): void => {
     // recebe os numeros prontos(nao instancia objeto)
     // recebe argumentos do tipo mobile
+    // recebe interfaces, e nao implementaçẽs (classe)
 
     console.log(A.call(B));
     // 'call' esta na classe base

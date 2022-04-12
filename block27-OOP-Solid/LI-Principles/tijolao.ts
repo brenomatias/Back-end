@@ -6,6 +6,8 @@ export default class Tijolao extends Mobile implements ITakePicture {
     // implementa a INTERFACE/METODO ESPECIFICA 'ITakePicture'
     // significa que esta subclasse  TEM QUE IMPLEMENTAR O METODO DE 
     // ITakePicture ('takePicture(cam: string): void;')
+    
+    // o modulo tem que conversar com interfaces
 
     constructor(
         num: string,
