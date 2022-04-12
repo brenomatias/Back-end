@@ -1,0 +1,17 @@
+****** O Princípio de Substituição de Liskov diz que:
+
+Objetos em um programa devem ser substituíveis por instâncias de seus subtipos, sem alterar a funcionalidade do programa.
+
+Isso quer dizer que se você possui uma superclasse A e uma subclasse B , onde quer que A seja esperada, se B for passada seu programa deve se comportar da mesma forma.
+
+Podemos estender isso para uma interface (já que uma interface pode ser vista como uma classe abstrata com todos os métodos e elementos públicos, e nenhum método implementado): se A é uma interface, e B é uma classe que implementa A , onde quer que seja esperada algo do tipo A , se B for passada seu programa deve se comportar da mesma forma.
+
+
+
+
+****** Interface Segregation Principle - ISP
+
+O Princípio da Segregação de Interface afirma que:
+Nenhum cliente deve ser forçado a depender de métodos que não utiliza
+
+Isso quer dizer que devemos separar as interfaces e as compor conforme for necessário, fazendo com que uma entidade (classe) não precise implementar coisas que ela não vai usar.
