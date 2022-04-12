@@ -3,13 +3,23 @@ import SmartPhone from "./smartphone";
 import Tijolao from "./tijolao";
 
 const callBetween = (A: IMobile, B: IMobile): void => {
+    // recebe os numeros prontos(nao instancia objeto)
+    // recebe argumentos do tipo mobile
+    
     console.log(A.call(B));
+    // 'call' esta na classe base
 }
+// ESTABELECE CONEXÃO ENTRE DOIS NÚMEROS E FAZ A LIGAR PARA B
 
 const Jorge = new Tijolao('78459567', 'Nokia', '0.3mp')
+// instancia um novo 'Tijolao'(subclasse de 'Mobile')
+
 const Eric = new Tijolao('41449537', 'Ericsson', '0.4mp')
+
+// instancia um novo 'Smartphone'(subclasse de 'Mobile')
 const Isaac = new SmartPhone('91459597', 'Apple', '12mp', '24mp')
 
+// chamada da funçao que faz conexão entre dois numeros
 callBetween(Jorge, Isaac);
 callBetween(Isaac, Eric);
 
@@ -20,6 +30,9 @@ const cancelMobile = (obj: IMobile) => {
 let arr = [Jorge, Eric, Isaac];
 
 arr.forEach(p => cancelMobile(p));
+
+
+// ***** CHAMANDO (acessar) OS METODOS DAS CLASSES PARA SEREM APLICADOS NOS OBJETOS INSTANCIADOS
 
 // Jorge.call(Eric);
 // Eric.call(Isaac);

@@ -6,3 +6,9 @@
 2) modela a subclasse de 'Mobile' 'Smartphone' (smartphone.ts)
 
 3) modela a subclasse de 'Tijolao' (tijolao.ts)
+
+4) index.ts  
+
+    const callBetween = (A: IMobile, B: IMobile): void => {
+    console.log(A.call(B));
+       }

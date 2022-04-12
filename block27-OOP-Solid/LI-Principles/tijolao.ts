@@ -10,6 +10,7 @@ export default class Tijolao extends Mobile implements ITakePicture {
         private cam: string,
     ) {
         super(num, brand); // inicia classe mae
+        // nao precisa do super se for usar o construtor da classe base
     }
 
     // metodo especifico
@@ -20,4 +21,19 @@ export default class Tijolao extends Mobile implements ITakePicture {
     takePicture(): void {
         console.log(`Taking picture with cam ${this.cam}`);
     }
+    
+    
+    // todo mundo que herda de 'Mobile' tem este método
+    // sobscreve o metodo 'call' da mãe (que retorna 'string')
+    // FERE LISKOV (o comportamento é diferente na mae e filha -> mae espera 'string' e não 'void'). 'void' para 'string' rola
+
+    call(other: Mobile): void {
+        console.log('00010000100101010');
+    }
+    
+    // typscript nao roda porqe a prop que tenta sobscrever, nao pode
+    // a classe mae retorna string
+    // ai o typscript crash
+
+
 }

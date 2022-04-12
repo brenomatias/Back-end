@@ -25,7 +25,7 @@ Podemos estender isso para uma interface (já que uma interface pode ser vista c
             // 'foo' teoricamente recebe B em sua base, mas pode receber A também porque é uma classe filha
 
 
-
+TYPESCRIPT NAO COMPILA: 
 
 ****** Interface Segregation Principle - ISP
 
