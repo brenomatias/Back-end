@@ -11,7 +11,8 @@ export default class UserController {
   constructor(private connection: IConnection) { }
   // RESOLUÇAO DO PRINCIPIO DE INVERSAO DE MODULOS
   // controller tambem nao depende da connection, 'alguem' manda pra ele
-  
+  // recebe a connection de quem esta mais externo
+  // modulo recebe INTERFACE EM VEZ DE UMA IMPLEMENTAÇAO
 
 // 'Função 'createUser'
   // pra que que alguem vai usar esta funçao? FINALIDADE - CASO DE USO
@@ -43,4 +44,5 @@ export default class UserController {
 
 }
 
-// 1:21
+// INVERSÃO DE DEPENDENCIAS PARTE 2: (NAO LIDA COM IMPLEMENTAÇOES, LIDA COM INTERFACE)
+// nao pode depender da implementação, tem que depender de uma interface

@@ -16,7 +16,7 @@ class MySQLConnection {
 export default MySQLConnection;
 
 // connection mocked
-export class MockedConnection implements IConnection<any> {
+export class MockedConnection implements IConnection {
   async execute(query: string, values: any): Promise<any> {
     console.log('MOCKED CONNECTION: Executando query: ', query, values);
   }

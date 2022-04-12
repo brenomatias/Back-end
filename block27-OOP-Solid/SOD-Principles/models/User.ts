@@ -23,7 +23,15 @@ export default abstract class User {
   }
 
   // criar usuário no banco
-  public static async create(newUser: IUser, connection: IConnection): Promise<void> {
+  // NAO QUERO DEPENDER TO TIPO 'POOL' DO MYSQL, ENTAO USA INTERFACE PARA CONECTAR NO BANCO DE DADOS
+
+  public static async create(newUser: IUser, connection: IConnection):
+  // desacoplar: criar interface (IConnection)
+  // esta interface terá o metodo 'pool'
+  // se tiver que mudar o tipo do database, nao precisa mudar aqui
+  // o codigo so recebe interface (IConnection: generalizaçao)
+
+  Promise<void> {
     await connection.execute(
       'INSERT INTO solid_example.users (username, email, password, role) VALUES (?,?,?,?)',
       [newUser.username, newUser.email, newUser.password, newUser.role],
