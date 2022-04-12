@@ -10,11 +10,15 @@ app.use(express.json());
 
 let conn: IConnection;
 if (process.env.ENV === `devel`) {
+  // se esta em ambiente de desenvolvimento
   conn = new MockedConnection();
 } else {
+  // se esta em ambiente de contrução
+  // para usar conexão do banco de dados
   conn = MySQLConnection.conn;
-}
-
+} 
+// incializar a conexão
+// 'mockedConnection' -> conexao fake para testes
 
 app.post('/users', new UserController(new MockedConnection()).createUser);
 // 'new' isntanciando um objeto utilizando o método 'createUser' do controller

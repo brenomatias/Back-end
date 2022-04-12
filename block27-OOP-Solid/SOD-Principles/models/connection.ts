@@ -16,6 +16,8 @@ class MySQLConnection {
 export default MySQLConnection;
 
 // connection mocked
+// usado para fazer testes
+// para nao rodar o banco(para rodar banco na memoria)
 export class MockedConnection implements IConnection {
   async execute(query: string, values: any): Promise<any> {
     console.log('MOCKED CONNECTION: Executando query: ', query, values);
