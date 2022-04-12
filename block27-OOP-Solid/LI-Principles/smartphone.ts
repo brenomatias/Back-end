@@ -35,6 +35,7 @@ class Composicao implements Interface {
 // A HERANÇA TEM QUE FAZER TUDO QUE A MÃE FAZ E APENAS EXTENDER OS COMPORTAMENTOS (OU FAZER TUDO QUE A MAE FAZ MAS DE UM JEITO DIFERENTE)
 export default class SmartPhone extends Mobile implements ITakePicture, IRecordVideo {
     // recebe a herança da classe 'Mobile' (extends 'Mobile')
+    // 'Smartfone' tem que implementar as interfaces ITakePicture, IRecordVideo 
 
     // 'constructor' com suas caracteristicas unicas
     constructor(
@@ -57,13 +58,13 @@ export default class SmartPhone extends Mobile implements ITakePicture, IRecordV
         console.log(`Opening betrybe.com`);
     }
 
-    // funcionalidade(método) especifico da subclasse 'Smartphone'
+    // funcionalidade classe mãe (respeita o contrato da classe base)
     takePicture(cam: string): void {
         // recebe por parametro a camera 'cam' que ele vai user
         console.log(`Taking picture with cam ${cam}`);
     }
 
-    // funcionalidade(método) especifico da subclasse 'Smartphone'
+    // funcionalidade classe mãe (respeita o contrato da classe base)
     recordVideo(cam: string): void {
         console.log(`Recording video com ${cam}`)
     }

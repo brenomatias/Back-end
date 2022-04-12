@@ -25,7 +25,7 @@ Podemos estender isso para uma interface (já que uma interface pode ser vista c
             // 'foo' teoricamente recebe B em sua base, mas pode receber A também porque é uma classe filha
 
 
-TYPESCRIPT NAO COMPILA: 
+
 
 ****** Interface Segregation Principle - ISP
 
@@ -33,6 +33,9 @@ O Princípio da Segregação de Interface afirma que:
 Nenhum cliente deve ser forçado a depender de métodos que não utiliza
 
 Isso quer dizer que devemos separar as interfaces e as compor conforme for necessário, fazendo com que uma entidade (classe) não precise implementar coisas que ela não vai usar.
+
+
+
 
 
 // S - SRP - PRA QUÊ ESTOU UTILIZANDO O MEU MÉTODO? CADA METODO/CLASSE/MODULO TEM UM CASO DE USO.

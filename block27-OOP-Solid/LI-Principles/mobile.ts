@@ -1,6 +1,7 @@
 import { IMobile } from "./interfaces";
 
 // Primeira classe feita
+// 
 export default abstract class Mobile implements IMobile {
     public number: string; // e publico para nao ter getter e setter
 
@@ -17,7 +18,6 @@ export default abstract class Mobile implements IMobile {
         if (!num.startsWith('9')) {
             return `9${num}`;
         }
-
         return num;
     }
     
@@ -37,5 +37,16 @@ export default abstract class Mobile implements IMobile {
 
         return true;
     }
+    
 }
 
+    // MÉTODO QUE NAO POSSUEM IMPLEMENTAÇAO -> para ter metodo abstrato, classe tambem deve ser
+    // TEM QUE IMPLEMENTAR ESTES MÉTODOS
+
+                // abstract takePicture(cam: string): void
+                // abstract recordVideo(cam: string): void
+
+    // RESOLVE COM INTERFACES para desacoplar todos os comportamentos acumuldos na classe
+    // extrai comportamentos(METODOS) para INTERFACES ESPECIFICAS (interfaces.ts):
+
+    // ITakePicture, IRecordVideo, 

@@ -3,11 +3,15 @@ import Mobile from "./mobile";
 
 export default class Tijolao extends Mobile implements ITakePicture {
     // recebe herança (extends) a classe mãe Mobile
+    // implementa a INTERFACE/METODO ESPECIFICA 'ITakePicture'
+    // significa que esta subclasse  TEM QUE IMPLEMENTAR O METODO DE 
+    // ITakePicture ('takePicture(cam: string): void;')
 
     constructor(
         num: string,
         brand: string,
-        private cam: string,
+        private cam: string, // so tem uma camera
+        // cria o constutor para receber 'cam'
     ) {
         super(num, brand); // inicia classe mae
         // nao precisa do super se for usar o construtor da classe base
@@ -17,10 +21,14 @@ export default class Tijolao extends Mobile implements ITakePicture {
     throw(someone: string) {
         console.log(`Throwing tijolao on ${someone}`);
     }
+    
 
+    // mesma função em duas classes diferentes('Smartphone' & 'Tijolao')
     takePicture(): void {
         console.log(`Taking picture with cam ${this.cam}`);
     }
+    // como obrigar as classes filhas a implementar esta funçao?
+    // transforma 'Mobile' para abstract e passa os metodos
     
     
     // todo mundo que herda de 'Mobile' tem este método
@@ -37,3 +45,7 @@ export default class Tijolao extends Mobile implements ITakePicture {
 
 
 }
+
+// TIJOLÃO NAO CONSEGUE LANÇAR VIDEO 
+// com metodos abstracts, tijolao nao grava videos mas recebe o metodo 'recordVideo' da classe mãe (depende de metodo que nao usa)
+// como resolver? INTERFACE
