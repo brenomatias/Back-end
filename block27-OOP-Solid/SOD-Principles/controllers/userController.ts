@@ -10,7 +10,7 @@ export default class UserController {
 
   constructor(private connection: IConnection) { }
   // RESOLUÇAO DO PRINCIPIO DE INVERSAO DE MODULOS
-  
+  // controller tambem nao depende da connection, 'alguem' manda pra ele
   
 
 // 'Função 'createUser'
@@ -42,3 +42,5 @@ export default class UserController {
 // UserValidation
 
 }
+
+// 1:21

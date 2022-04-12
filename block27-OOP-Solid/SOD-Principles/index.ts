@@ -19,6 +19,8 @@ if (process.env.ENV === `devel`) {
 app.post('/users', new UserController(new MockedConnection()).createUser);
 // 'new' isntanciando um objeto utilizando o método 'createUser' do controller
 // connection no controlador e a connection passa para o 'createUser'
+// quem manda essa connection é o modulo que se centraliza TUDO
+// injeta todas as dependencias (manda a connection pro controlador)
 
 const PORT = process.env.PORT || 3000;
 
