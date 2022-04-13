@@ -20,7 +20,7 @@ class MyClass {
    // ordem no constructor importa
 }
  
-**** limitar edição das propr: dos objetos ('private' nos atributos)
+**** limitar edição das propr: d  os objetos ('private' nos atributos)
 
 ***  'GETTERS'= word 'get'   -> get é uma instancia da classe
 (_ 'underline' indicar que sao privados)

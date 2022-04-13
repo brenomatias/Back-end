@@ -1,0 +1,18 @@
+Objeto é uma instancia da classe
+
+1) Create class Race (Race.ts)
+
+   1.1) create attibutes
+   1.2) iniciar atributos da classe com o CONSTRUCTOR
+   1.3) cria INTERFACE para objetos que serão recebidos em atributos
+   1.4) criar metodos
+
+2) Aplicação e instaciação da classe em index.ts
+importaçãp da classe
+
+3) ESPECIALIZAR A CLASSE
+   EXTENDER A CLASSE
+
+  3.1) Especializar classe Race criando uma subclasse Hobbit
+
+4) Cria nova classe 'Player' usando 'COMPOSIÇÃO'
