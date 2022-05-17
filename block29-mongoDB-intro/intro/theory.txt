@@ -1,0 +1,9 @@
+PQ NOSQL?
+
+performance, escalonamento, multiplas req ao mesmo tempo -> escalabilidade
+performance: escrita e leitura distribuidas
+nao estruturado. quando voce nao faz ideia de como sao seus dados, tipo json gigante
+tolerancia a falha. se falha uma trhead tem as secundarias
+softstate -> consistencia eventual
+
+sql -> trava uma thread ja era. da erro
