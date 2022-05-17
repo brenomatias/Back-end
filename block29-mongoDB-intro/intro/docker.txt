@@ -29,6 +29,27 @@ para ver se o container existe
 nao tem camada de segurança por padrão
 
 
+5) conectar extensão mongo
+
+
+6) do lado esquerdo tem uma folhinha, clicar na folhinha para 
+
+ADICIONAR CONEXÃO
+
+->
+        Advanced
+        Connection Settings
+
+            PORT: porta que foi mapeada fora pro container
+
+7) clicou no '+' da conexão criada
+entrou no mongodb
+
+8) nunca mais preocupar com servidor
+
+todas as queries podem ser dentro do documerno
+
+
 *** ferramenta docker: ctop
 https://github.com/bcicen/ctop
 

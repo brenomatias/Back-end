@@ -1,0 +1,39 @@
+                use bancoDeDados
+
+****** 'db.' referencia o banco do 'use'
+
+db.inventory = dentro da tabela, 'coleção', 'ivenvetory' ('iventory' é uma tabela dentro do banco 'commerce')
+
+
+******** db.inventory.find();
+
+listar tudo o que tem na tabela desejadda
+
+
+
+****** tem que executar os códigos juntos e com ';'
+
+**** insertOne({ 
+    objeto javaScript: json
+})  
+
+-> o 'id' é criado automaticamente
+
+
+********** show collections;
+
+mostras as collections, tabelas do banco de dados
+
+
+***** insertMany([
+{
+
+},
+{
+
+},
+]);
+
+recebe um array
+
+recebe os ids que foram gerados
