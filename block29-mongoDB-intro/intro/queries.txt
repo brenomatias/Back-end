@@ -8,7 +8,7 @@ db.inventory = dentro da tabela, 'coleção', 'ivenvetory' ('iventory' é uma ta
 ******** db.inventory.find();
 
 listar tudo o que tem na tabela desejadda
-
+find vazio é um select all
 
 
 ****** tem que executar os códigos juntos e com ';'
@@ -37,3 +37,16 @@ mostras as collections, tabelas do banco de dados
 recebe um array
 
 recebe os ids que foram gerados
+
+
+*********** db.inventory.find({item: 'bike2'});
+
+buscar item especifico
+match tem que ser exato. comportamento '==='
+
+lista TODOS OS DOCUMENTOS QUE DA MATCH com a busca
+
+
+******** db.inventory.find({item: 'bike2', price: 500});
+
+busca item especifico com mais especificação (bike2 AND price como parametros de consulta -> match tem que ser completo)
