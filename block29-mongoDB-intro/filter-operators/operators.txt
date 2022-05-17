@@ -1,0 +1,13 @@
+***Operador $lt
+
+O operador $lt seleciona os documentos em que o valor do atributo filtrado é menor do que (<) o valor especificado.
+
+
+
+
+
+*****com NOsql:
+
+ganha performance, disp, facilidade
+
+perde acidez, confiabilidade, 
