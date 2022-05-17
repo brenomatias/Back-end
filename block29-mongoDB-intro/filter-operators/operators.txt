@@ -1,8 +1,13 @@
-***Operador $lt
+DOCUMENTANTION
+https://www.mongodb.com/docs/manual/reference/operator/query/
+
+** $lt
 
 O operador $lt seleciona os documentos em que o valor do atributo filtrado é menor do que (<) o valor especificado.
 
+** $eq
 
+Specifies equality condition. The $eq operator matches documents where the value of a field equals the specified value.
 
 
 
@@ -10,4 +15,5 @@ O operador $lt seleciona os documentos em que o valor do atributo filtrado é me
 
 ganha performance, disp, facilidade
 
-perde acidez, confiabilidade, 
+perde acidez, confiabilidade,
+

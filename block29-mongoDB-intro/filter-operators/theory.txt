@@ -1,0 +1,6 @@
+** CRTL + s to save a file as .mongodb
+
+1) carregar arquivo de dados dentro do 'container'
+usando um caso de um JSON muito grande, nao e o caso do exemplo mas aqui é uma simulação
+
+*** em caso de data sets muito grandes.
