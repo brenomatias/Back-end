@@ -19,7 +19,7 @@ como o arquivo é js, ele vai executar uma query
 2) 'ctop '
 (e) exec
 
-executa o container do mongo e abre o shell
+executa o container do 'mongo' e abre o shell
 
 3) 'mongosh dataset.js'
 

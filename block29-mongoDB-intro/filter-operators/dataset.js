@@ -1,4 +1,4 @@
-use('test');
+use('test'); // 'db' name
 
 db.films.insertMany([
     {
