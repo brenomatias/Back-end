@@ -59,3 +59,88 @@ db.films.find({
       $lte: 2005
       }
 });
+
+
+
+// listar filmes ENTRE 1993 E 2005 (incluindo os dois anos) E tiveram mais de 5 avaliações positivas
+db.films.find({ 
+  Year: { 
+      $gte: 1993,
+      $lte: 2005
+      },
+      "Avaliacao.bom": {
+        $gt: 5
+      }
+});
+
+// por padrão '.find' é um 'E'
+
+
+
+// OPERADOR 'E' 'AND' -> ARRAY DE CONDIÇOES
+// tem que ESTAR NO NÍVEL MAIS ALTO (gt, lte por exemplo estao DENTRO de uma propriedade)
+// '$and' recebe um array de TODAS as condições que TEM QUE SER VERDADEIRAS, e cada condiçao é um objeto
+
+db.films.find({
+  $and: [
+    {
+      Year: { 
+      $gte: 1993,
+      $lte: 2005
+      }
+    }, // condição 1
+    { 
+      "Avaliacao.bom": {
+        $gt: 5
+       }
+    } // condiçao 2
+  ]
+});
+
+// filmes tarantino que tem PELO MENOS 6 avaliações ruins
+
+// com '$and'
+db.films.find({
+  $and: [
+    diretor: "Quentin Tarantino", // condição 1
+    { 
+      "Avaliacao.ruim": {
+        $gte: 6
+       }
+    } // condiçao 2
+  ]
+});
+
+// sem '$and'
+db.films.find({
+    diretor: "Quentin Tarantino",
+    "Avaliacao.ruim": {
+        $gte: 6
+       }
+});
+
+// todos filmes que tem pelos menos 6 avaliações ruins mas que NÃO sao do Quentin Tarantino
+db.films.find({
+    diretor: {
+      $ne: "Quentin Tarantino"
+    },
+    "Avaliacao.ruim": {
+        $gte: 6
+       }
+});
+// $ne = not equal
+
+
+
+// $in
+// listar todos os filmes que foram lançados em anos pares
+
+const arr = [ 2000, 2002, 2004]
+// força bruta, tentar lançar um loop dos anos 
+
+db.films.find({
+  Year: {
+    $in: arr
+  }
+})
+// $in Matches any of the values specified in an array.
