@@ -1,2 +1,61 @@
 use('test');
 db.films.find();
+
+db.dropDatabase()
+
+// .find( { filtro}, { projeção } );
+
+// omit 'id'
+db.films.find(
+    {}, // filtro
+    {
+      _id: false, // projeção
+      Title: true,
+      Year: true,
+      Released: true
+    } 
+);
+
+// listar filmes que foram lançados antes dos anos 2008 (até 2007)
+db.films.find(
+    { Year: { $lte: 2008 }}, // filtro
+    {
+      _id: false, // projeção
+      Title: true,
+      Year: true,
+    } 
+);
+// $lte: Matches values that are less than OR equal to a specified value.
+
+// $lt Matches values that are less than a specified value.
+use('test');
+db.films.find(
+    { Year: { $lt: 2008 }}, // filtro
+);
+
+// listar filmes que tiveram no máximo 5 a avaliações positivas 'bom' -> exemplo em 'otherExamples'
+
+db.films.find(
+  { "Avaliacao.bom": { $lte: 5 }}, // filtro
+  {} // projeção
+);
+
+
+
+// listar filmes DEPOIS de 1993 e que tiveram NO MAXIMO 5 avaliação 5
+
+db.films.find({
+  "Avaliacao.bom": { $lte: 5 },
+  Year: { $gt: 1993}
+}, {});
+// $gt Matches values that are greater than a specified value.
+
+
+// listar filmes ENTRE 1993 E 2005 (incluindo os dois anos)
+
+db.films.find({ 
+  Year: { 
+      $gte: 1993,
+      $lte: 2005
+      }
+});

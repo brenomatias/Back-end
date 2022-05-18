@@ -32,3 +32,10 @@ entra no mongo de novo pelo shell
 5) 'show dbs;'
 
 pra conferir se rolou
+
+
+****** para construir um db:
+
+dentro do container(shell) do mongo,
+executar 'mongosh fileName.js', onde 'fileName' é
+a inserção do json

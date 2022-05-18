@@ -1,0 +1,11 @@
+    {
+        "Title": "Avatar testes",
+        "Year": 2009,
+        "Rated": "PG-13",
+        "Released": "18 Dec 2009",
+        "Avaliacao": {
+            "bom": 2,
+            "medio": 7,
+            "ruim": 4,
+        }
+     },
