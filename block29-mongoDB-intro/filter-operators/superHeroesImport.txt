@@ -1,0 +1,15 @@
+Coloca o 'json' para ser rodado no container do mongo
+
+1) docker cp superheroes.json mongo:/superheroes.json
+
+2) ctop (acessar o container do mongo via shell)
+   
+    -> exec
+
+
+    'll' para listar o que esta no container
+
+3) mongoimport -d test -c superheroes superheroes.json
+
+'test' nome do db
+'superheroes' nome da coleçao que voce esta criando

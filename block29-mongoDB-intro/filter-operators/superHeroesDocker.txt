@@ -1,3 +1,0 @@
-Coloca o 'json' para ser rodado no container do mongo
-
-1) docker cp superheroes.sjon mongo:/superheroes.json

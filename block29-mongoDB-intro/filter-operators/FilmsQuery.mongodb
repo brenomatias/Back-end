@@ -144,3 +144,53 @@ db.films.find({
   }
 })
 // $in Matches any of the values specified in an array.
+
+
+
+// listar filmes SOMENTE do(director) "stanley" e "peter"
+
+db.films.find({
+  director: {
+    $in: ["Stanley", "peter"]
+  }
+}, { director: true });
+
+
+
+
+// OU 'OR'
+// filmes extremos OU 9 DE BOM PRA CIMA OU 9 DE RUIM PRA BAIXO (avaliacao)
+// retorna so resultados verdadeiros
+db.films.find({
+  $or: [
+    { "Avaliacao.bom": { $gte: 9 } },
+    { "Avaliacao.ruim": { $gte: 9 } }
+  ]
+}, { Avaliacao: true});
+
+
+// 'NOR' 
+// nenhuma dos argumentos podem ser verdadeiros
+// retorna todo o resto
+db.films.find({
+  $nor: [
+    { "Avaliacao.bom": { $gte: 9 } },
+    { "Avaliacao.ruim": { $gte: 9 } }
+  ]
+}, { Avaliacao: true});
+
+
+
+
+// listar filmes que NAO sao do "Quentin Tarantino" E NAO tem avaliaçao 'bom' menor que 7
+db.films.find({
+  director: { $ne: { "Quentin Tarantino"} },
+  "avaliacao.bom": { $not: { $gt: 7 }}
+})
+
+db.films.find({
+  $nor: [
+    { director: "Quentin Tarantino" },
+    { "Avaliacao.bom": { $lt: 7 } }
+  ]
+}, { Avaliacao: true});
