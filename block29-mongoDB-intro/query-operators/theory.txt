@@ -1,0 +1,22 @@
+DOCUMENTATION
+
+https://www.mongodb.com/docs/manual/reference/operator/query/]
+
+
+
+****** colocar arquivo 'json' para rodar dentro do container do mongodb
+
+    docker cp file.json mongo:/pfile.json
+
+****** ctop
+
+exec container
+
+
+
+***** importar a collection
+
+    mongoimport --jsonArray -d test -c products file.json
+
+    'test' = banco de dados
+    'products' = nome da collection

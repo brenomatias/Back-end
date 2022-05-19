@@ -9,7 +9,7 @@ Coloca o 'json' para ser rodado no container do mongo
 
     'll' para listar o que esta no container
 
-3) mongoimport -d test -c superheroes superheroes.json
+3) mongoimport --jsonArray -d test -c superheroes superheroes.json
 
 'test' nome do db
 'superheroes' nome da coleçao que voce esta criando
