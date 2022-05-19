@@ -1,0 +1,14 @@
+{
+    "_id": 2,
+    "tags": [
+        "apple",
+        "lime"
+    ],
+    "quantidade": [
+        105,
+        95
+    ],
+    "valor_entrada_itens": 200,
+    "valor_saida_itens": 50,
+    "categoria": "Frutas"
+}
