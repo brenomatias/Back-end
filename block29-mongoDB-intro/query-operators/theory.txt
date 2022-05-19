@@ -20,3 +20,4 @@ exec container
 
     'test' = banco de dados
     'products' = nome da collection
+    'jsonArray' = tem que ter essa tag se o documento for um array de json
