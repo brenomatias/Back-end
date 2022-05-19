@@ -97,4 +97,80 @@ db.products.find({
 // $regex
 // Selects documents where values match a specified regular expression.
 
-// descobrir todos os publisher de 'superheroes' collection
+// descobrir todos os 'publisher' de 'superheroes' collection
+// todos os 'publisher' distintos
+db.heroes.distinct("publisher"); // lista de todos os publisher
+
+// lista todos os super herois que tem 'comics' no atributo 'publisher'
+// 'tem a palavrar "comics" em "publisher"'
+db.heroes.find({
+    publisher: {
+        $regex: /Comics/i
+    }
+})
+// 'publisher' tem que respeitar uma expressao regular (regex)
+//      / /i -> case insensitive
+
+
+// descobrir heroi ONDE O NOME TERMINA COM 'ge'
+// final da string com 'ge'
+db.heroes.find({
+    name: {
+        $regex: /ge$/
+    }
+})
+// '$' significa que a string acabou -> esta relacionado so a 'regex'
+
+
+// TODOS NOMES QUE SÃO COMPOSTO
+// 2 'nomes'
+db.heroes.find({
+    name: {
+        $regex: /(.*)( |-)(.*)$/
+    }
+}, { name: true}).toArray();
+// 'toArray' para pegar tudo
+
+
+// TODOS NOMES COMPOSTOS QUE COMEÇAM COM A LETRA A
+// '^A'
+db.heroes.find({
+    name: {
+        $regex: /^A(.*)( |-)(.*)$/
+    }
+}, { name: true}).toArray();
+
+// TODOS NOMES COMPOSTOS QUE COMEÇAM COM A LETRA A E 'gender' female
+// '^A'
+db.heroes.find({
+    name: {
+        $regex: /^A(.*)( |-)(.*)$/
+    },
+    gender: "Female"
+}, { name: true}).toArray();
+
+
+
+
+// banco de TWEETS (MONGORESTORE)
+// 'tweets.bson' -> (é um binário)('dump' -> representaçao do estado)
+// 'json' ->  mongoimport 
+
+//          'docker cp tweets.bson mongo:/tweets.bson'
+// dentro do shell 
+// para restaurar um 'dump' (bson)
+//           'mongorestore -d -test -c tweets tweets.bson'
+
+
+// DATA
+// descobrir todos tweets do fimd de semana
+// COMEÇA COM 'sun' ou 'saturday' (Sun/Sat)
+db.tweets.find({
+    created_at: {
+        $regex: /^(Sun[Sat])/i
+    }
+}).toArray();
+// retorna só sundays and saturdays
+
+// tweets entre 15:30 e 15:59
+// tweet sexta (friday) 15:30
