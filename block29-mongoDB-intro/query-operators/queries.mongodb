@@ -45,3 +45,56 @@ db.products.count({
     }
 })
 // db.collection.count(query, options)
+
+
+// mostrar so array de 'tags' e 'categoria' / itens com 20 qtd ou mais
+db.products.find({
+    quantidade: {
+        $elemMatch: {
+            $gte: 20,
+        }
+    }
+}, { tags: true, categoria: true});
+
+
+// $size
+// Selects documents if the ARRAY field is a specified size.
+// encontrar produtos que POSSUEM SOMENTE DUAS 'TAGS'
+// match de tamanho de array
+db.products.find({
+   tags: {
+       $size: 2
+   }
+});
+
+
+// '$expr' -> rodar uma expressao dentro do documento
+// Allows use of aggregation expressions within the query language.
+// descobrir itens com valor de entrada com valor maior do que de saida
+// 'so produtos que dao lucro' -> expressao de comparação de campos
+db.products.find({
+    $expr: {
+        $gt: ["$valor_entrada_itens", "$valor_said_intens"]
+    }
+});
+// referencia campo do documento -> conteudo DENTRO DO CAMPO -> '$'
+// valor do campo -> '$' para o mongo nao entender como uma string, e sim um campo
+
+
+
+// $mod
+// Performs a modulo operation on the value of a field and selects documents with a specified result.
+// descobrir todos produtos onde o valor de entrada seja multiplo de 5
+// x/5 = 0 -> checar resto da divisão
+db.products.find({
+    valor_entrada_itens: {
+        $mod: [5, 0] // [ divisor, resto ]
+   }
+})
+
+
+// REGEX
+// $regex
+// Selects documents where values match a specified regular expression.
+
+// descobrir todos os publisher de 'superheroes' collection
