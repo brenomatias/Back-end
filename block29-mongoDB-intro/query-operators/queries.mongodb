@@ -1,1 +1,47 @@
-// listar produtos com apple na tag
+// listar produtos com 'apple' na tag
+db.products.find({
+    tags: "apple"
+})
+// 'tags' é um array -> se qualquer produto bater com essa tag, retorna os que possuem
+
+
+// todos produtos com 'tags' 'orange' E 'lemon' (as duas tags obrigatoriamente)
+db.products.find({
+    tags: "orange",
+    tags: "lemon"
+})
+
+// orange, apple, lemon -> AO MESMO TEMPO EM TODOS OS PRODUTOS
+// OPERADOR '$all'
+// Matches ARRAT that contain ALL ELEMENTS specified in the query.
+db.products.find({
+    tags: {
+        $all: ["orange", "lemon", "apple"]
+    }
+});
+
+
+// fazer filtro olhando para cada elemento do array
+// LISTAR PRODUTOS QUE TENHAN PELO MENOS 70 UNIDADES E NO MÁXIMO 100
+// '$elemMatch'
+// Selects documents if element in the array field matches all the specified $elemMatch conditions.
+db.products.find({
+    quantidade: {
+        $elemMatch: {
+            $gte: 70,
+            $lte: 100
+        }
+    }
+})
+
+
+// contar quantos produtos que TEM QUANTIDADE MAIOR QUE 20
+// pelos menos um elemento em 'quantidade' maior que 20
+db.products.count({
+    quantidade: {
+        $elemMatch: {
+            $gte: 20,
+        }
+    }
+})
+// db.collection.count(query, options)
