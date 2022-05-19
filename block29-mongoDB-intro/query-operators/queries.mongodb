@@ -172,5 +172,11 @@ db.tweets.find({
 }).toArray();
 // retorna só sundays and saturdays
 
+
 // tweets entre 15:30 e 15:59
 // tweet sexta (friday) 15:30
+db.tweets.find({
+    created_at: {
+        $regex: /^Fri(.*)15:[3-5]/i
+    }
+}).toArray();
