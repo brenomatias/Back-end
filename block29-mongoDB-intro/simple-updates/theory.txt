@@ -6,9 +6,15 @@ https://www.tutorialspoint.com/mongodb/mongodb_update_document.htm#:~:text=Mongo
 
 *** ObjectId:
 
-notação: hexadecimal
+notação: hexadecimal // 16 simbolos -> passou do 9, manda letras
 
 '_id' (example): 628788fe8477ca7265cc1c1f
 
 how ObjectId workds:
 https://www.mongodb.com/docs/manual/reference/method/ObjectId/ 
+
+'628788' - estes primeiros numeros sao o timestamp
+
+'fe8477ca72' - 5 bytes ou 10 caracteres valor aleatorio
+
+'cc1c1f' - 3 bytes ou 6 caracteres finais: contador

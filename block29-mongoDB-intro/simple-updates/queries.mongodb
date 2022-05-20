@@ -11,3 +11,28 @@ db.students.find({}, {_id: true});
 
 // ObjectId:
 ObjectId("628788fe8477ca7265cc1c1f").getTimestamp();
+
+// 'updateOne'
+// '$set'
+// The $set operator replaces the value of a field with the specified value.
+// atualizar UM documento em que 'school' de 'Escola do Futuro' para 'Trybe'
+db.students.updateOne({
+    school: "Escola do futuro" // filtro
+}, {
+    $set: {
+        school: "Trybe"
+    }
+});
+
+// 'updateOne' so atualiza 1 documento, e vai na ordem que o documento foi criado
+
+
+// 'updateMany'
+// atualizar muitos
+db.students.updatMany({
+    school: "Escola do futuro" // filtro
+}, {
+    $set: {
+        school: "Trybe"
+    }
+});
