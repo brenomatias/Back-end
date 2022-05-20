@@ -9,3 +9,9 @@ db.students.insertMany(
      { name: "Patricia", school: "Escola do Futuro", bestScore: 10.0 }
     ]
 );
+
+// definir id na hora de inserir dataset:
+
+db.students.insertOne(
+ { _id:1, name: "Isaac", school: "Escola do futuro", bestScore: 10 }
+);

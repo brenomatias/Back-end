@@ -1,0 +1,13 @@
+use('updates');
+
+db.students.find();
+
+// como o Mongo gera o 'id' -> ObjectId
+// rec: deixa o mongo cuidar ou usa uma biblioteca que tem uma logica para gerenciar id
+// library js: uuid
+
+// printar so 'ids':
+db.students.find({}, {_id: true});
+
+// ObjectId:
+ObjectId("628788fe8477ca7265cc1c1f").getTimestamp();

@@ -4,4 +4,11 @@ https://www.tutorialspoint.com/mongodb/mongodb_update_document.htm#:~:text=Mongo
 
 
 
-*** ObjectID
+*** ObjectId:
+
+notação: hexadecimal
+
+'_id' (example): 628788fe8477ca7265cc1c1f
+
+how ObjectId workds:
+https://www.mongodb.com/docs/manual/reference/method/ObjectId/ 
