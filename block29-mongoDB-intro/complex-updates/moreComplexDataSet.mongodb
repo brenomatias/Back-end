@@ -150,4 +150,24 @@ db.flights.updateOne({ vooId: 743216 }, {
 });
 
 
+// ARRAY FILTERS
 // pecorrer array e atualizar apenas elementos que nos queremos
+// filtro do documento nao filtra array que esta dentro do documento
+// poder filtrar array que esta dentro do documento:
+// TERCEIRO PARAMETRO DO 'UPDATEONE'
+// QUEREMOS FILTRAR: BEBIDA, ITEM: CAFE
+// quando o elemento tiver 'café', altera 'quantidade' para 150
+
+db.flights.updateOne({}, {
+    $set: {
+        "servicoDeBordo.$[x].quantidade": 150 // no elemento x seta a quantidade
+    }
+}, {
+    arrayFilters: [
+        { "x.item": "cafe" }   // filtrar elementos especificos
+    ]
+});
+
+
+// "x.item" -> é o filtro "x" seria onde tem 'café'
+// elemento x tem que ter item = café
