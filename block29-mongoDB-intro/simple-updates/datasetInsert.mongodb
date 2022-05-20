@@ -1,0 +1,11 @@
+use('updates');
+
+db.students.insertMany(
+    [
+     { name: "Maria", school: "Escola do Futuro" , bestScore: 9.8 },
+     { name: "Joao", school: "Escola do Futuro" , bestScore: 7.2 },
+     { name: "Pedro", school: "Escola do Futuro", bestScore: 6.8 },
+     { name: "Paulo", school: "Escola do Futuro", bestScore: 4.5 },
+     { name: "Patricia", school: "Escola do Futuro", bestScore: 10.0 }
+    ]
+);
