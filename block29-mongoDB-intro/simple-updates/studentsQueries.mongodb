@@ -36,3 +36,20 @@ db.students.updatMany({
         school: "Trybe"
     }
 });
+
+
+// fazer update de algo que nao existe
+db.students.updateOne(
+    {
+         name: "NickName"
+    },
+    {
+    $set: {
+        bestScore: 7.1
+    }
+    }, 
+    { 
+      upsert: true 
+    }
+);
+// { upsert: true } inserir caso documento nao exista, mas tem que definir todas as propriedades

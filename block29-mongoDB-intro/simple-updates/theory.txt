@@ -18,3 +18,12 @@ https://www.mongodb.com/docs/manual/reference/method/ObjectId/
 'fe8477ca72' - 5 bytes ou 10 caracteres valor aleatorio
 
 'cc1c1f' - 3 bytes ou 6 caracteres finais: contador
+
+
+
+
+*** se atualizar o documento e ele nao existe, o MONGO CRIA UM DOCUMENTO COM OS ATRIBUTOS DESCRITOS
+
+****** Retorno ao atualizar um documento:
+
+upsertedcount = 
