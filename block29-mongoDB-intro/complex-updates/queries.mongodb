@@ -1,0 +1,8 @@
+use('updates');
+
+db.students.insertOne({
+    name: "Alex",
+    projects: [
+        { name }
+    ]
+})
