@@ -49,3 +49,60 @@ db.products.updateOne({
        quantity: 50 // se quisesse remover, numero negativo
     }
 });
+
+
+// setar a data que atualizei, 
+// setar a razao por ter atualizado
+// neste formato : { data, razão }
+// adicionar 40 no estoque
+
+
+db.products.updateOne({
+    _id: 100
+}, {
+    $currentDate: {
+        "updated_at.date": true,
+    },
+    $set: {
+        "updated_at.reason": "Atualização de estoque"
+    },
+    $inc: {
+        quantity: 40
+    }
+})
+// $currentDate
+// The $currentDate operator sets the value of a field to the current date, either as a Date or a timestamp.
+
+
+// atualizar 'details' para 'info'
+// $rename
+// The $rename operator updates the name of a field 
+// 'rename' detela e copia o campo, este campo vai para baixo
+db.products.updateOne({
+    _id: 100
+}, {
+    $rename: {
+        details: "info"
+    }
+});
+
+
+// atualizar 'update_at.reason' para 'updated_at.motive'
+db.products.updateOne({
+    _id: 100
+}, {
+    $rename: {
+        "updated_at.reason": "updated_at.motive"
+    }
+});
+
+// $unset
+// The $unset operator deletes a particular field
+// deletar campo 'tags'
+db.products.updateOne({
+    _id: 100
+}, {
+    $unset: {
+        tags: ""
+    }
+});

@@ -78,5 +78,4 @@ db.students.updateMany({}, {
     }
 });
 
-
 // $min: x -> limita por alto, passou de certo numero, seta para o numero maximo decidido
