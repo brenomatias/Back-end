@@ -1,0 +1,51 @@
+use('updates');
+db.products.find();
+
+// Produto Singular:
+
+// setar 'quantidade' '500'
+// setar 'details.make' para 'aaa'
+// setar 'tags' (segunda tag) para 'winter' -> 'tag.2' -> na posiçao 2 do array
+use('updates');
+db.products.updateOne({
+    _id: 100
+}, {
+    $set: {
+        quantity: 500,
+        "details.make": "aaa",
+        "tags.2": "Winter"
+    }
+});
+
+// setar um price no produto
+db.products.updateOne({
+    _id: 100
+}, {
+    $set: {
+       price: 12.0
+    }
+});
+
+
+// $mul
+// Multiply the value of a field by a number. 
+// desconto de 40% no preço
+db.products.updateOne({
+    _id: 100
+}, {
+    $mul: {
+       price: 0.6
+    }
+});
+
+
+// $inc
+// The $inc operator increments a field by a specified value
+// adicionar 50 em 'quantity'
+db.products.updateOne({
+    _id: 100
+}, {
+    $inc: {
+       quantity: 50 // se quisesse remover, numero negativo
+    }
+});
