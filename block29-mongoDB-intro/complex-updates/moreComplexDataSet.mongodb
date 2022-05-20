@@ -37,3 +37,38 @@ db.flights.updateOne(
      }
     }
 });
+
+
+// ordernar por cartegoria, e depois por ordem alfabetica
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [
+               { categoria: "bebida", item: "coca-ina",  quantidade: 520 },
+               { categoria: "bebida", item: "sprit",  quantidade: 40 }
+               
+        ],
+        $sort: {
+            categoria: 1, // ordem alfabetica
+            quantidade: 1 // ordem crescente
+        }
+     }
+    }
+});
+
+
+// ordenar por nome do item
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [],
+            $sort: {
+               item: 1, // 1 = ordem alfabetica
+       }
+     }
+    }
+});
