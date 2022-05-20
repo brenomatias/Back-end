@@ -31,7 +31,7 @@ db.flights.updateOne(
                { categoria: "lazer", item: "ps5",  quantidade: 1 },
                { categoria: "lazer", item: "porn",  quantidade: 3 },
                { categoria: "lazer", item: "livro",  quantidade: 0 },
-               { categoria: "comida", item: "pao",  quantidade: 0 },
+               { categoria: "comida", item: "macarrao",  quantidade: 0 },
                { categoria: "comida", item: "mendoin",  quantidade: 0 },
         ]
      }
@@ -92,4 +92,62 @@ db.flights.updateOne(
         locale: "pt"
     }
 }
-); 
+);
+
+
+
+// '$pul' -> tira um elemento de um array
+// TIRAR DO SERVIÇO DE BORDO: MACARRÃO
+db.flights.updateOne({ vooId: 743216 }, {
+    $pull: {
+        servicoDeBordo: {
+            item: "macarrao"
+        }
+    }
+})
+
+
+// remover todas as 'bebidas' que tem 'quantidade' menor ou igual 60
+// tem que dar match nessas duas regras
+db.flights.updateOne({ vooId: 743216 }, {
+    $pull: {
+        servicoDeBordo: {
+            categoria: "bebida",
+            quantidade: {
+                $lte: 60
+            }
+        }
+    }
+});
+
+
+
+// REMOVER ULTIMO ITEM DE serviço de bordo
+db.flights.updateOne({ vooId: 743216 }, {
+    $pop: {
+        servicoDeBordo: -1
+    }
+});
+
+
+// adicionar item novo e depois atualizar 'agua'
+// 'addToSet' para nao inserir repetido
+db.flights.updateOne({ vooId: 743216 }, {
+    $addToset: {
+        $each: [
+            {
+                categoria: "bebida",
+                item: "cafe",
+                quantidade: 200
+            },
+            {
+                categoria: "comida",
+                item: "carne",
+                quantidade: 180
+            }
+        ]
+    }
+});
+
+
+// pecorrer array e atualizar apenas elementos que nos queremos

@@ -1,0 +1,37 @@
+db.store.insertMany(
+    [
+        {
+            _id: 1,
+            fruits: ["apples", "pears", "oranges", "grapes", "bananas"],
+            vegetables: ["carrots", "celery", "squash", "carrots"]
+        },
+                {
+            _id: 2,
+            fruits: ["plums", "kwis", "oranges", "lala", "bananas"],
+            vegetables: ["carrots", "celery", "onions", "etc"]
+        },
+    ]
+);
+
+
+// NOTE QUE 'CARROTS' SE REPETE NO PRIMEIRO OBJETO
+
+
+// '$pull' -> remove um elemento (QUALQUER ELEMENTO DA REGRA)
+// quantos e quais elementos devem ser removidos nos definimos na regra
+// remove 'apples' e 'oranges' de TODOS OS ARRAYS 'FRUITS'
+db.stores.updateMany({}, {
+    $pull: {
+        fruits: {
+            $in: ["apples", "oranges"]
+        }
+    }
+});
+
+
+// tirar 'carrots' dos vegetais;
+db.stores.updateMany({}, {
+    $pull: {
+        vegetables: "carrots"
+    }
+});
