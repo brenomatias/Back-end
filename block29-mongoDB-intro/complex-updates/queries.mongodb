@@ -3,6 +3,53 @@ use('updates');
 db.students.insertOne({
     name: "Alex",
     projects: [
-        { name }
+        { name: "TFC", score: 80 },
+        { name: "LALA and LILI", score: 90 }
     ]
-})
+});
+
+db.students.find();
+
+// atualizar nota 'TFC'
+db.students.updateOne({
+    name: "Alex" // filtro
+}, {
+   $set: {
+       "projects.1.score": 95
+   }
+});
+// ESTE MÉTODO É RUIM
+
+
+// $push
+// The $push operator appends a specified value to an array.
+// inserir um documento em um array
+db.students.updateOne({
+    name: "Alex"
+}, {
+   $push: { // inserir um dado na array de 'projects'
+       projects: { name: "Another", score: 90 }
+   }
+});
+
+// adicionar mais de um elemento com o 'push'
+// usar 'each'
+db.students.updateOne({
+    name: "Alex"
+}, {
+   $push: { 
+       projects: {
+         $each: [
+            { name: "Another2 d", score: 71 },
+            { name: "Another3", score: 50 },
+            { name: "Another4 as", score: 10 },
+            { name: "Another5 ", score: 0 },
+        ]   
+    }
+   }
+});
+// 'each' reebe o array de objetos que serão adicionados
+
+
+// adicionar mais 3 projetos no "Alex"
+// ao mesmo tempo

@@ -1,0 +1,39 @@
+// banco teorico 'fligths'
+
+// adicionar em um voo('vooId'), um cardapio 'servicoDeBordo' (cardapio e um array)
+// este array nao existe ainda
+
+db.flights.updateOne({
+    vooId: 743216
+}, {
+    $push: {
+        servicoDeBordo: {
+            categoria: "bebida",
+            item: "coca-cola",
+            quantidade: 50
+        }
+    }
+});
+// mongo vai criar array e adicionar este item
+// se array nao existe o 'push' cria um
+
+
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [
+               { categoria: "bebida", item: "coca-cola",  quantidade: 50 },
+               { categoria: "bebida", item: "coca",  quantidade: 40 },
+               { categoria: "bebida", item: "agua",  quantidade: 30 },
+               { categoria: "bebida", item: "uisque",  quantidade: 3 },
+               { categoria: "lazer", item: "ps5",  quantidade: 1 },
+               { categoria: "lazer", item: "porn",  quantidade: 3 },
+               { categoria: "lazer", item: "livro",  quantidade: 0 },
+               { categoria: "comida", item: "pao",  quantidade: 0 },
+               { categoria: "comida", item: "mendoin",  quantidade: 0 },
+        ]
+     }
+    }
+});
