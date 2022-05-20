@@ -53,3 +53,30 @@ db.students.updateOne(
     }
 );
 // { upsert: true } inserir caso documento nao exista, mas tem que definir todas as propriedades
+
+
+
+db.students.find({},
+{ name: true, bestScore: true, _id: false});
+
+// normalizar as notas das pessoas estudantes
+// para todo mundo que tirou no máximo 7, eu quero que a nota seja 7
+// ou seja, se a pessoa tirou 2, vai pra 7 a nota
+db.students.updateMany({}, {
+    $max: {
+        bestScore: 5
+    }
+});
+// $max
+// The $max operator updates the value of the field to a specified value if the specified value is greater than the current value of the field. The $max operator can compare values of different types
+
+
+// setar valor minimo
+db.students.updateMany({}, {
+    $min: {
+        bestScore: 9
+    }
+});
+
+
+// $min: x -> limita por alto, passou de certo numero, seta para o numero maximo decidido
