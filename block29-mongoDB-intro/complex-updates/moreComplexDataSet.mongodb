@@ -67,8 +67,29 @@ db.flights.updateOne(
         servicoDebordo: {
             $each: [],
             $sort: {
-               item: 1, // 1 = ordem alfabetica
+               item: 1 // 1 = ordem alfabetica
        }
      }
     }
-});
+}); 
+// aqui nao deu completamente certo porque um item é 'água'. O ´ (acento), confunde o mongo
+
+// resolver problemaas tipo acento: COLLATION
+// https://www.mongodb.com/docs/manual/reference/collation/
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [],
+            $sort: {
+               item: 1 // 1 = ordem alfabetica
+       }
+     }
+    }
+}, {
+    collation: { // ordenar corretamente em portugues
+        locale: "pt"
+    }
+}
+); 
