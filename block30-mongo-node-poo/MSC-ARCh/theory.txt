@@ -1,5 +1,8 @@
 ****ODM
 
+https://mongoosejs.com/
+
+https://mongoosejs.com/docs/guide.html
 
 Doctrine MongoDB ODM is a library that provides object mapping functionality for MongoDB.
 

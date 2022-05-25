@@ -1,0 +1,22 @@
+1) Defining your SCHEMA (formato)
+
+tudo no mongoose começa no schema (mapear coleção mongodb)
+schema define formato de documentos da coleção
+
+
+
+2) MODEL
+
+MODEL mongoose -> nao é a camada de model do msc
+
+cria uma api que deixa os metodos disponiveis(create, delet, etc)
+
+*** transformar o schema em um model  -> retorna uma classe
+
+
+**** por padrao mongodb cria '_id'
+
+
+
+
+WORK:
