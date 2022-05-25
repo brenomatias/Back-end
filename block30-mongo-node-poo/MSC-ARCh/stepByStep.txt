@@ -19,4 +19,6 @@ cria uma api que deixa os metodos disponiveis(create, delet, etc)
 
 
 
-WORK:
+*****WORK:
+
+1) SEMPRE COMEÇAR COM O SCHEMA
