@@ -22,3 +22,12 @@ cria uma api que deixa os metodos disponiveis(create, delet, etc)
 *****WORK:
 
 1) SEMPRE COMEÇAR COM O SCHEMA
+
+2) MODEL 
+  2.1) connection
+  2.2) model
+
+  **** VAI TER UMA CAMADA DE MODEL E 
+  TAMBEM VAI USAR O MODEL DO PROPRIO MONGOOSE
+
+  *no 'sequelize'(sql) nao tem camada de model
