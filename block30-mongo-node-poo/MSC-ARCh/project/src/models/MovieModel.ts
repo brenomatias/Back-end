@@ -52,3 +52,6 @@ export default class MovieModel {
 /// https://www.typescriptlang.org/docs/handbook/utility-types.html
 
 // retornar 'void' para validar erros
+
+
+// metodos staticos sao usados quando nao vamos utilizar o 'this'
