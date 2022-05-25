@@ -2,7 +2,7 @@
 
 import express from 'express';
 import createConnection from './models/connection';
-import routes from './routes';
+import routes from './routes/routes';
 
 class App {
   public express: express.Application;
