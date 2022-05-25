@@ -2,3 +2,14 @@
 
 as variavies vão para o 'docker-compose' -> subir container:
                  'docker-compose up -d'
+
+
+2) 'npm start' -> roda o script do 'package.json'
+
+
+3) criação de interfaces
+
+4) camada de models
+  4.1) 'connection'
+  4.2) model do mongo -> 'index.ts' (define como vao ser os dados no mongo)
+  usar generics so quando necessario -> faz o codigo e depois deixa ele generico
