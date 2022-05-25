@@ -1,3 +1,4 @@
 1) Primeiro configurar .env
 
-as variavies vão para o   'docker-compose'
+as variavies vão para o 'docker-compose' -> subir container:
+                 'docker-compose up -d'
