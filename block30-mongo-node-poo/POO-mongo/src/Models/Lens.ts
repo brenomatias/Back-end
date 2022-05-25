@@ -1,3 +1,4 @@
+// MESMA IDEA DO 'Frame'
 import { Schema, model as createModel, Document } from 'mongoose';
 import Lens from '../Interfaces/Lens';
 import MongoModel from './MongoModel';

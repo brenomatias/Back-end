@@ -13,3 +13,6 @@ as variavies vão para o 'docker-compose' -> subir container:
   4.1) 'connection'
   4.2) model do mongo -> 'index.ts' (define como vao ser os dados no mongo)
   usar generics so quando necessario -> faz o codigo e depois deixa ele generico
+  4.3) 'MongoModel' -> implementa a interface de 'index.ts'
+
+

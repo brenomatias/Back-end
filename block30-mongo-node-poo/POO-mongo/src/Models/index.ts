@@ -8,5 +8,9 @@ interface Model<T> { // generics, vai servir para qualquer objeto
 //  '<T>' -> garante que a interface deve receber um tipo(nao importa caso pq e generics)
 // este tipo vai ser substituido nas requisições
 // isso garante a assinatura dos models
+// essa interface funciona como um contrato
+// quem for usar essa interface, PRECISA seguir essa forma de aplicação
+// certeza de implementação de métodos
+// depender de interfaces, nao implementaçaoes
   
   export default Model;
