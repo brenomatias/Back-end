@@ -16,3 +16,5 @@ as variavies vão para o 'docker-compose' -> subir container:
   4.3) 'MongoModel' -> implementa a interface de 'index.ts'
 
 
+
+

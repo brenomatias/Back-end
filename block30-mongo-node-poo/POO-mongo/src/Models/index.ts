@@ -1,3 +1,5 @@
+// essa interface é um contrato (o que e como deve ser aplicado)
+
 interface Model<T> { // generics, vai servir para qualquer objeto
     create(obj: T): Promise<T>,
     read(): Promise<T[]>,
