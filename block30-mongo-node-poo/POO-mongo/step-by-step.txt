@@ -16,5 +16,6 @@ as variavies vão para o 'docker-compose' -> subir container:
   4.3) 'MongoModel' -> implementa a interface de 'index.ts'
 
 
-
+5) Service
+   Também serve como contrato (regra de negocios) -> o que receber, como e o que aplicar
 

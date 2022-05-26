@@ -55,10 +55,11 @@ class FrameController extends Controller<Frame> {
     res: Response<Frame | null | ResponseError>,
   ): Promise<(typeof res) | void> {
     const { id } = req.params;
-
+    
+    // se nao tiver 'id' retorna error
     if (!id) return res.status(400).json({ error: this.errors.badRequest });
 
-    const { body } = req;
+    const { body } = req; // body inteiro
 
     const updated = await this.service.update(id, body);
 

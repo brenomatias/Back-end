@@ -47,7 +47,7 @@ abstract class Controller<T> {
 
   abstract update( 
     req: Request<{ id: string }>,
-    res: Response<T | null>
+    res: Response<T | null> // caso nao econtre retorna null
   ): Promise<Response<T | null> | void>;
 }
 export default Controller;

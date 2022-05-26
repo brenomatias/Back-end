@@ -18,6 +18,7 @@ abstract class MongoModel<T> implements Model<T> { // '<T>' é repassado para im
   readOne = async (id: string): Promise<T | null> =>
     this.model.findOne({ id });
   
+  // update by id
   async update(id: string, data: T): Promise<T | null> {
     return this.model.findByIdAndUpdate(id, data, { new: true });
   }
@@ -32,3 +33,6 @@ export default MongoModel;
 
 
 /// **** UTILIZA ESSA CLASSE NOS DEMAIS MODELS(exceto index.ts)
+// todos estes methods vem de ' Model<T>'
+
+// 'this.model' -> usa o MODEL do proprio MONGO e nao da estrutura msc

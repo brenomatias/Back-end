@@ -1,6 +1,8 @@
 import { ZodError } from 'zod';
 import Model from '../Models';
 
+// service tambem funciona como contrato (regra de negocio)
+// 'this'  se refere a propria classe, na instancia de um objeto da classe
 export interface ServiceError {
   error: ZodError;
 }
