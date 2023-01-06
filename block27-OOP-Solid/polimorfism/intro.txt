@@ -1,0 +1,13 @@
+***** Polimorfismo
+
+- base de criação para diferente tipos
+- um mesmo tipo pode assumir tipos diferentes
+- um tipo pode ser passado como argumento quando estamos esperando outro tipo
+- typescript: subtipagem -> basicamente uma herança
+
+
+
+**** HERANÇA ABSTRATA
+- SE voce reescreve muito os metodos da classe mae significa que nao 
+esta usando herança -> implementaçao base nao precisa existir
+- Classe abstrata: voce nao pode dar 'new' nao pode instanciar classe abstrata

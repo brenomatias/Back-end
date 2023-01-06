@@ -1,0 +1,90 @@
+1) npm init -y
+
+2) suporte ao TypeScript ao nosso projeto
+
+    npm install -D typescript
+
+Lembrando que em produção sempre iremos usar o código compilado de TypeScript para JavaScript , por isso utilizamos como dependência de desenvolvimento
+
+* Por que fazemos isso, ao invés de usarmos o pacote instalado globalmente em nossas máquinas ou como um executável npx ? Porque com isso conseguimos garantir que todas as pessoas que vão trabalhar nesse projeto estejam sempre executando uma mesma versão, evitando possíveis incompatibilidades, caso uma tenha uma versão diferente da outra
+
+3) create tsconfig.json
+
+4) config tsconfig.json
+
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "rootDir": "./",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "strict": true
+    }
+}
+
+5) pacote npm de declarações de tipos para os módulos padrões do Node.
+
+        npm install -D @types/node
+
+DECLARAÇÕES DE TIPOS: Arquivos que descrevem tipos de várias APIs JavaScript para o compilador TypeScript 
+
+
+6) install ts-node-dev
+
+        npm install -D ts-node-dev
+
+* tira a necessidade de compilarmos o código em JavaScript
+lém de reiniciar o servidor a cada alteração que fizermos, sem a necessidade de encerrarmos o processo e o iniciarmos novamente
+
+
+
+****** INSTALAÇÕES COM UM ÚNICO COMANDO
+
+        npm install -D typescript @types/node ts-node-dev
+
+
+7) isntall express 
+
+            npm install express
+
+8) declarações de tipos do Express :
+  
+    npm install -D @types/express
+
+9) instalar a lib http-status-codes que nos permite lidar com os status HTTP de uma forma mais simples
+
+      npm install http-status-codes
+
+10) touch index.ts
+
+11) add scripts in package.json
+
+
+"scripts": {
+    "start": "npm run build && node ./dist/index.js",
+    "dev": "tsnd index.ts",
+    "build": "tsc"
+ },
+...
+
+start: executa o build da aplicação e depois roda o arquivo compilado dentro da pasta dist;
+
+dev: executa a aplicação em modo de desenvolvimento utilizando o ts-node-dev;
+
+build: executa a compilação do projeto utilizando o TSC.
+
+
+12) npm start
+
+
+13) disparar diretamente o middleware de erro sem a nescessidade de colocar try/catch ao longo do seu código.
+
+            npm install express-async-errors
+
+
+14) outras libs de error:
+
+            npm install restify-errors @types/restify-errors
+
+15) npm i mysql2

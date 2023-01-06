@@ -1,0 +1,19 @@
+1) npm init -y (start node app)
+
+2) definir script package.json
+   define como o app vai iniciar
+
+"scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+
+***** SE nao for um app git, usar git init
+
+3) heroku create 
+
+4) push no app 
+        git push HEROKU-BRANCH LOCAL-BRANCH(master)
+
+se nao tiver na master
+        git push heroku branch-teste:master

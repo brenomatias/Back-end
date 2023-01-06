@@ -1,0 +1,25 @@
+*** S ingle responsibility principle ( Princípio da responsabilidade única ): uma entidade (classe, método, função, etc) deve ter apenas uma única responsabilidade;
+'SO PODE TER UM MOTIVO PARA MUDAR' seu comportamento
+        se tem mais um motivo, fere o principio S
+'o que é uma coisa só'?
+
+
+
+
+
+**** O pen/Closed principle ( Princípio aberto/fechado ): entidades de software devem ser abertas para extensão, mas fechadas para modificação;
+'uma classe, um metodo, ou um modulo podem ser extender mas nao ser modificado' -> a funçao deve estar fechada para modificaçao
+
+
+*** D ependency inversion principle ( Princípio da inversão da dependência ): entidades de alto nível não devem depender de entidades de baixo nível. Ambos devem depender de abstrações
+
+-> módulos mais externos nao podem depender de modulos mais internos
+   * MODULO INTERNO
+   * MODULO EXTERNO
+
+   (o que define é a profundidade do programa)
+
+   modulo mais externo: index.ts
+   *** modulo = qualquer arquivo .ts
+
+-> módulos devem depender de ABSTRAÇÕES E NAO DE IMPLEMENTAÇÕES
