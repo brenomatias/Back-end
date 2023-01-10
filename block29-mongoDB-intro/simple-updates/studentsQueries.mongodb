@@ -1,0 +1,81 @@
+use('updates');
+
+db.students.find();
+
+// como o Mongo gera o 'id' -> ObjectId
+// rec: deixa o mongo cuidar ou usa uma biblioteca que tem uma logica para gerenciar id
+// library js: uuid
+
+// printar so 'ids':
+db.students.find({}, {_id: true});
+
+// ObjectId:
+ObjectId("628788fe8477ca7265cc1c1f").getTimestamp();
+
+// 'updateOne'
+// '$set'
+// The $set operator replaces the value of a field with the specified value.
+// atualizar UM documento em que 'school' de 'Escola do Futuro' para 'Trybe'
+db.students.updateOne({
+    school: "Escola do futuro" // filtro
+}, {
+    $set: {
+        school: "Trybe"
+    }
+});
+
+// 'updateOne' so atualiza 1 documento, e vai na ordem que o documento foi criado
+
+
+// 'updateMany'
+// atualizar muitos
+db.students.updatMany({
+    school: "Escola do futuro" // filtro
+}, {
+    $set: {
+        school: "Trybe"
+    }
+});
+
+
+// fazer update de algo que nao existe
+db.students.updateOne(
+    {
+         name: "NickName"
+    },
+    {
+    $set: {
+        bestScore: 7.1
+    }
+    }, 
+    { 
+      upsert: true 
+    }
+);
+// { upsert: true } inserir caso documento nao exista, mas tem que definir todas as propriedades
+
+
+
+db.students.find({},
+{ name: true, bestScore: true, _id: false});
+
+// normalizar as notas das pessoas estudantes
+// para todo mundo que tirou no máximo 7, eu quero que a nota seja 7
+// ou seja, se a pessoa tirou 2, vai pra 7 a nota
+db.students.updateMany({}, {
+    $max: {
+        bestScore: 5
+    }
+});
+// $max
+// The $max operator updates the value of the field to a specified value if the specified value is greater than the current value of the field. The $max operator can compare values of different types
+
+
+// setar valor minimo
+db.students.updateMany({}, {
+    $min: {
+        bestScore: 9
+    }
+});
+
+// $min: x -> limita por alto, passou de certo numero, seta para o numero maximo decidido

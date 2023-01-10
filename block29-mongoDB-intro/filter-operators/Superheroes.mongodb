@@ -1,0 +1,28 @@
+use('test');
+
+db.superheroes.find();
+
+// duas produtoras especificias / ou marvel ou dc
+// .find({ filtro }, { projecao })
+
+db.superheroes.find({
+
+    publisher: {
+        $in: ["DC", "Marvel"]
+    }
+
+},
+
+ { _id: false }
+ 
+);
+
+// NOT IN $nin
+
+db.superheroes.find({
+    publisher: {
+        $nin: ["DC", "Marvel"]
+    }
+},
+ { _id: false }
+);

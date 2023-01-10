@@ -1,0 +1,41 @@
+** CRTL + s to save a file as .mongodb
+
+how to implement the db through docker
+
+
+1) carregar arquivo de dados dentro do 'container'
+usando um caso de um JSON muito grande, nao e o caso do exemplo mas aqui é uma simulação
+
+*** em caso de data sets muito grandes.
+**'dataset.js' funciona como uma query a ser rodada dentro do mongo do container
+
+como o arquivo é js, ele vai executar uma query
+
+      docker cp ./dataset.js mongo:/dataset.js
+
+" copia o arquivo 'dataset' para dentro do container 'mongo' na raiz do arquivo 'dataset.js'
+
+
+2) 'ctop '
+(e) exec
+
+executa o container do 'mongo' e abre o shell
+
+3) 'mongosh dataset.js'
+
+-> para executar o arquivo(dataset.js) dentro do container e criar o banco 
+
+4) 'mongosh'
+
+entra no mongo de novo pelo shell
+
+5) 'show dbs;'
+
+pra conferir se rolou
+
+
+****** para construir um db:
+
+dentro do container(shell) do mongo,
+executar 'mongosh fileName.js', onde 'fileName' é
+a inserção do json

@@ -1,0 +1,182 @@
+// listar produtos com 'apple' na tag
+db.products.find({
+    tags: "apple"
+})
+// 'tags' é um array -> se qualquer produto bater com essa tag, retorna os que possuem
+
+
+// todos produtos com 'tags' 'orange' E 'lemon' (as duas tags obrigatoriamente)
+db.products.find({
+    tags: "orange",
+    tags: "lemon"
+})
+
+// orange, apple, lemon -> AO MESMO TEMPO EM TODOS OS PRODUTOS
+// OPERADOR '$all'
+// Matches ARRAT that contain ALL ELEMENTS specified in the query.
+db.products.find({
+    tags: {
+        $all: ["orange", "lemon", "apple"]
+    }
+});
+
+
+// fazer filtro olhando para cada elemento do array
+// LISTAR PRODUTOS QUE TENHAN PELO MENOS 70 UNIDADES E NO MÁXIMO 100
+// '$elemMatch'
+// Selects documents if element in the array field matches all the specified $elemMatch conditions.
+db.products.find({
+    quantidade: {
+        $elemMatch: {
+            $gte: 70,
+            $lte: 100
+        }
+    }
+})
+
+
+// contar quantos produtos que TEM QUANTIDADE MAIOR QUE 20
+// pelos menos um elemento em 'quantidade' maior que 20
+db.products.count({
+    quantidade: {
+        $elemMatch: {
+            $gte: 20,
+        }
+    }
+})
+// db.collection.count(query, options)
+
+
+// mostrar so array de 'tags' e 'categoria' / itens com 20 qtd ou mais
+db.products.find({
+    quantidade: {
+        $elemMatch: {
+            $gte: 20,
+        }
+    }
+}, { tags: true, categoria: true});
+
+
+// $size
+// Selects documents if the ARRAY field is a specified size.
+// encontrar produtos que POSSUEM SOMENTE DUAS 'TAGS'
+// match de tamanho de array
+db.products.find({
+   tags: {
+       $size: 2
+   }
+});
+
+
+// '$expr' -> rodar uma expressao dentro do documento
+// Allows use of aggregation expressions within the query language.
+// descobrir itens com valor de entrada com valor maior do que de saida
+// 'so produtos que dao lucro' -> expressao de comparação de campos
+db.products.find({
+    $expr: {
+        $gt: ["$valor_entrada_itens", "$valor_said_intens"]
+    }
+});
+// referencia campo do documento -> conteudo DENTRO DO CAMPO -> '$'
+// valor do campo -> '$' para o mongo nao entender como uma string, e sim um campo
+
+
+
+// $mod
+// Performs a modulo operation on the value of a field and selects documents with a specified result.
+// descobrir todos produtos onde o valor de entrada seja multiplo de 5
+// x/5 = 0 -> checar resto da divisão
+db.products.find({
+    valor_entrada_itens: {
+        $mod: [5, 0] // [ divisor, resto ]
+   }
+})
+
+
+// REGEX
+// $regex
+// Selects documents where values match a specified regular expression.
+
+// descobrir todos os 'publisher' de 'superheroes' collection
+// todos os 'publisher' distintos
+db.heroes.distinct("publisher"); // lista de todos os publisher
+
+// lista todos os super herois que tem 'comics' no atributo 'publisher'
+// 'tem a palavrar "comics" em "publisher"'
+db.heroes.find({
+    publisher: {
+        $regex: /Comics/i
+    }
+})
+// 'publisher' tem que respeitar uma expressao regular (regex)
+//      / /i -> case insensitive
+
+
+// descobrir heroi ONDE O NOME TERMINA COM 'ge'
+// final da string com 'ge'
+db.heroes.find({
+    name: {
+        $regex: /ge$/
+    }
+})
+// '$' significa que a string acabou -> esta relacionado so a 'regex'
+
+
+// TODOS NOMES QUE SÃO COMPOSTO
+// 2 'nomes'
+db.heroes.find({
+    name: {
+        $regex: /(.*)( |-)(.*)$/
+    }
+}, { name: true}).toArray();
+// 'toArray' para pegar tudo
+
+
+// TODOS NOMES COMPOSTOS QUE COMEÇAM COM A LETRA A
+// '^A'
+db.heroes.find({
+    name: {
+        $regex: /^A(.*)( |-)(.*)$/
+    }
+}, { name: true}).toArray();
+
+// TODOS NOMES COMPOSTOS QUE COMEÇAM COM A LETRA A E 'gender' female
+// '^A'
+db.heroes.find({
+    name: {
+        $regex: /^A(.*)( |-)(.*)$/
+    },
+    gender: "Female"
+}, { name: true}).toArray();
+
+
+
+
+// banco de TWEETS (MONGORESTORE)
+// 'tweets.bson' -> (é um binário)('dump' -> representaçao do estado)
+// 'json' ->  mongoimport 
+
+//          'docker cp tweets.bson mongo:/tweets.bson'
+// dentro do shell 
+// para restaurar um 'dump' (bson)
+//           'mongorestore -d -test -c tweets tweets.bson'
+
+
+// DATA
+// descobrir todos tweets do fimd de semana
+// COMEÇA COM 'sun' ou 'saturday' (Sun/Sat)
+db.tweets.find({
+    created_at: {
+        $regex: /^(Sun[Sat])/i
+    }
+}).toArray();
+// retorna só sundays and saturdays
+
+
+// tweets entre 15:30 e 15:59
+// tweet sexta (friday) 15:30
+db.tweets.find({
+    created_at: {
+        $regex: /^Fri(.*)15:[3-5]/i
+    }
+}).toArray();

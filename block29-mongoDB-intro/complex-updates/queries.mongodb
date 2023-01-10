@@ -1,0 +1,125 @@
+use('updates');
+
+db.students.insertOne({
+    name: "Alex",
+    projects: [
+        { name: "TFC", score: 80 },
+        { name: "LALA and LILI", score: 90 }
+    ]
+});
+
+db.students.find();
+
+// atualizar nota 'TFC'
+db.students.updateOne({
+    name: "Alex" // filtro
+}, {
+   $set: {
+       "projects.1.score": 95
+   }
+});
+// ESTE MÉTODO É RUIM
+
+
+// $push
+// The $push operator appends a specified value to an array.
+// inserir um documento em um array
+db.students.updateOne({
+    name: "Alex"
+}, {
+   $push: { // inserir um dado na array de 'projects'
+       projects: { name: "Another", score: 90 }
+   }
+});
+
+// adicionar mais de um elemento com o 'push'
+// usar 'each'
+db.students.updateOne({
+    name: "Alex"
+}, {
+   $push: { 
+       projects: {
+         $each: [
+            { name: "Another2 d", score: 71 },
+            { name: "Another3", score: 50 },
+            { name: "Another4 as", score: 10 },
+            { name: "Another5 ", score: 0 },
+        ]   
+    }
+   }
+});
+// 'each' reebe o array de objetos que serão adicionados
+
+
+// adicionar mais 3 projetos no "Alex"
+// ao mesmo tempo ordernar da maior para menor
+// e pegar as 3 melhores notas
+// sempre que adicionar, deve baixar a lista do documentos para apenas 3 'projects'
+db.students.updateOne({
+    name: "Alex"
+}, {
+   $push: { 
+       projects: {
+         $each: [
+            { name: "other2 d", score: 7 },
+            { name: "other3", score: 5 }
+        ], // outro operador
+        $sort: { 
+          score: -1
+        },
+        $slice: 3
+    }
+   }
+});
+// '$sort'
+// The $sort modifier orders the elements of an array during a $push operation.
+// 'sort' ordena por um campo  / 1 = maneira crecente, - 1 = maneira decrecente
+// 'slice' determina quantidade de dados que devem ser exibidos
+// quando aplica os 'slice', o resto dos dados sao 'jogados fora'
+
+// orderna TODOS OS ARRAYS DEPOIS DO PUSH
+
+
+
+// apenas reordenar em ordem crescente
+// na verdade isso nao funciona (sem o 'each')
+// PORQUE 'SORT' SO PODE SER USADO COM 'EACH'
+db.students.updateOne({
+    name: "Alex"
+}, {
+    $push: {
+        projects: {
+            $each: [],
+            $sort: {
+                score: 1
+            }
+        }
+    }
+})
+
+// '$pop'
+// The $pop operator removes the first or last element of an array
+db.students.updateOne({
+    name: "Alex"
+}, {
+    $pop: {
+        projects: 1 // tira o ultimo elemento do array 
+    }
+})
+// pop: -1, tira o primeiro / pop: 1, tira o ultimo elemento
+
+
+// ordernar por nome
+// SORT: ORDENAR, TEM QUE SER EM UM PUSH e 'each' vazio
+db.students.updateOne({
+    name: "Alex"
+}, {
+    $push: {
+        projects: {
+            $each: [],
+            $sort: {
+                name: 1
+            }
+        }
+    }
+});

@@ -1,0 +1,173 @@
+// banco teorico 'fligths'
+
+// adicionar em um voo('vooId'), um cardapio 'servicoDeBordo' (cardapio e um array)
+// este array nao existe ainda
+
+db.flights.updateOne({
+    vooId: 743216
+}, {
+    $push: {
+        servicoDeBordo: {
+            categoria: "bebida",
+            item: "coca-cola",
+            quantidade: 50
+        }
+    }
+});
+// mongo vai criar array e adicionar este item
+// se array nao existe o 'push' cria um
+
+
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [
+               { categoria: "bebida", item: "coca-cola",  quantidade: 50 },
+               { categoria: "bebida", item: "coca",  quantidade: 40 },
+               { categoria: "bebida", item: "agua",  quantidade: 30 },
+               { categoria: "bebida", item: "uisque",  quantidade: 3 },
+               { categoria: "lazer", item: "ps5",  quantidade: 1 },
+               { categoria: "lazer", item: "porn",  quantidade: 3 },
+               { categoria: "lazer", item: "livro",  quantidade: 0 },
+               { categoria: "comida", item: "macarrao",  quantidade: 0 },
+               { categoria: "comida", item: "mendoin",  quantidade: 0 },
+        ]
+     }
+    }
+});
+
+
+// ordernar por cartegoria, e depois por ordem alfabetica
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [
+               { categoria: "bebida", item: "coca-ina",  quantidade: 520 },
+               { categoria: "bebida", item: "sprit",  quantidade: 40 }
+               
+        ],
+        $sort: {
+            categoria: 1, // ordem alfabetica
+            quantidade: 1 // ordem crescente
+        }
+     }
+    }
+});
+
+
+// ordenar por nome do item
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [],
+            $sort: {
+               item: 1 // 1 = ordem alfabetica
+       }
+     }
+    }
+}); 
+// aqui nao deu completamente certo porque um item é 'água'. O ´ (acento), confunde o mongo
+
+// resolver problemaas tipo acento: COLLATION
+// https://www.mongodb.com/docs/manual/reference/collation/
+db.flights.updateOne(
+    {vooId: 743216}, 
+    {
+    $push: {
+        servicoDebordo: {
+            $each: [],
+            $sort: {
+               item: 1 // 1 = ordem alfabetica
+       }
+     }
+    }
+}, {
+    collation: { // ordenar corretamente em portugues
+        locale: "pt"
+    }
+}
+);
+
+
+
+// '$pul' -> tira um elemento de um array
+// TIRAR DO SERVIÇO DE BORDO: MACARRÃO
+db.flights.updateOne({ vooId: 743216 }, {
+    $pull: {
+        servicoDeBordo: {
+            item: "macarrao"
+        }
+    }
+})
+
+
+// remover todas as 'bebidas' que tem 'quantidade' menor ou igual 60
+// tem que dar match nessas duas regras
+db.flights.updateOne({ vooId: 743216 }, {
+    $pull: {
+        servicoDeBordo: {
+            categoria: "bebida",
+            quantidade: {
+                $lte: 60
+            }
+        }
+    }
+});
+
+
+
+// REMOVER ULTIMO ITEM DE serviço de bordo
+db.flights.updateOne({ vooId: 743216 }, {
+    $pop: {
+        servicoDeBordo: -1
+    }
+});
+
+
+// adicionar item novo e depois atualizar 'agua'
+// 'addToSet' para nao inserir repetido
+db.flights.updateOne({ vooId: 743216 }, {
+    $addToset: {
+        $each: [
+            {
+                categoria: "bebida",
+                item: "cafe",
+                quantidade: 200
+            },
+            {
+                categoria: "comida",
+                item: "carne",
+                quantidade: 180
+            }
+        ]
+    }
+});
+
+
+// ARRAY FILTERS
+// pecorrer array e atualizar apenas elementos que nos queremos
+// filtro do documento nao filtra array que esta dentro do documento
+// poder filtrar array que esta dentro do documento:
+// TERCEIRO PARAMETRO DO 'UPDATEONE'
+// QUEREMOS FILTRAR: BEBIDA, ITEM: CAFE
+// quando o elemento tiver 'café', altera 'quantidade' para 150
+
+db.flights.updateOne({}, {
+    $set: {
+        "servicoDeBordo.$[x].quantidade": 150 // no elemento x seta a quantidade
+    }
+}, {
+    arrayFilters: [
+        { "x.item": "cafe" }   // filtrar elementos especificos
+    ]
+});
+
+
+// "x.item" -> é o filtro "x" seria onde tem 'café'
+// elemento x tem que ter item = café

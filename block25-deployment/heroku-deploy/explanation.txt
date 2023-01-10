@@ -1,0 +1,26 @@
+*** DEPLOY 
+O processo de publicar uma aplicação em um servidor, tornando-a disponível para ser acessada local ou externamente.
+
+******* HEROKU
+
+ O Heroku é um PaaS (Platform as a Service), o que significa que ele provém de uma plataforma em nuvem para configurarmos e realizarmos nosso deploy de maneira simples e fácil.
+
+ O Heroku executa e gerencia aplicações escritas em Node.js , Ruby , Java , Python , Clojure , Scala , Go e PHP . Por ser uma plataforma "poliglota", ele vai se comportar de maneira similar, independente da linguagem.
+
+
+**** BUILD
+Um termo importante para ter na ponta da língua é build . No contexto de deploys , o build é como chamamos todo o processo em que o código é preparado para posteriormente ser executado. Por exemplo, é durante o build que se executa o npm install para instalar as dependências do projeto
+
+
+*** COMO FUNCIONA
+
+Para fazer um deploy com o Heroku , não é necessário realizar muitas alterações no projeto. O mais importante é o Heroku saber qual linguagem está sendo utilizada na sua aplicação e, caso esteja utilizando algum, qual o framework.
+
+A partir dessas informações, o Heroku saberá, por exemplo, que é um projeto em Node.js e que, para executá-lo, ele terá que efetuar o comando descrito no campo scripts.start dentro do package.json (mais conhecido por npm start ).
+
+
+***** DYNOS
+
+O Heroku utiliza o conceito de container , em que as responsabilidades de gerenciar máquinas virtuais ou físicas são abstraídas. Isso significa que, em vez de se preocupar com a máquina onde você irá rodar seu código, você pode focar em desenvolver aplicações mais poderosas.
+
+Ao fazer o deploy no Heroku, você estará colocando sua aplicação dentro de um "container". O container é um ambiente isolado e leve que provê os recursos necessário de CPU, memória RAM, um sistema operacional (Linux, no caso do Heroku) e um sistema temporário de arquivos para rodar seu código. No Heroku, os "containers" são chamados de "dynos" .

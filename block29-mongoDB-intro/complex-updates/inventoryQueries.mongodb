@@ -1,0 +1,45 @@
+use('updates');
+
+db.inventory.insertOne({
+    _id: 1,
+    product: "camera lens",
+    tags: ["eletronics", "camera"]
+});
+
+// adicioanr uma 'tag' REPETIDA
+db.inventory.updateOne({_id: 1}, {
+    $push: {
+        tags: "camera"
+    }
+});
+
+// remover tag repetida
+use('inventory');
+db.inventory.updateOne({_id: 1}, {
+    $pop: {
+        tags: 1
+    }
+});
+
+
+// adicionar itens que nao estao na lista
+// so adiciona quando o item NAO TIVER NA ARRAY
+// SO ADICIONA SE NAO TIVER LA
+db.inventory.updateOne({_id: 1}, {
+    $addToSet: {
+        tags: "camera"
+    }
+});
+
+
+// adicionar mais de uma tag ao mesmo tempo
+// se nao usar each: adiciona um array inteiro
+// para funcionar corretamenta é neessario usar o 'each'
+// 'addToSet' nao remove elementos que ja existem na array
+db.inventory.updateOne({_id: 1}, {
+    $addToSet: {
+        tags: {
+            $each: ["camera", "acessories", "lala"]
+    }
+  }
+});

@@ -1,0 +1,57 @@
+Criar servidor mongo pc
+
+1) docker pull mongo 
+
+***How to use this image
+
+         docker run --name container-name -d mongo:tag
+
+... where some-mongo is the name you want to assign to your container and tag is the tag specifying the MongoDB version you want (-d desaclopado do terminal, mongo(imagem))
+
+2)           docker run --name container-name -p 27017:27017 -d mongo
+
+(-p: mapeamento de portas) -> mongo escuta interno(dentro do container): 27017
+                           -> mongo atende fora(minha maquina)):27017
+ 
+
+3) ctop a 
+
+            ctop e -> ctop excute shell 
+(entrar na sheel do conatiner do mongo)
+
+para ver se o container existe
+
+
+4) mongosh   -> criar server mongo    
+
+(entrar no shell do mongo) 
+
+nao tem camada de segurança por padrão
+
+
+5) conectar extensão mongo
+
+
+6) do lado esquerdo tem uma folhinha, clicar na folhinha para 
+
+ADICIONAR CONEXÃO
+
+->
+        Advanced
+        Connection Settings
+
+            PORT: porta que foi mapeada fora pro container
+
+7) clicou no '+' da conexão criada
+entrou no mongodb
+
+8) nunca mais preocupar com servidor
+
+todas as queries podem ser dentro do documerno
+
+
+*** ferramenta docker: ctop
+https://github.com/bcicen/ctop
+
+
+*****8 https://www.codegrepper.com/code-examples/shell/kill+port+27017 --> find a specific port and kill it

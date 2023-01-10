@@ -1,0 +1,24 @@
+****TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
+
+Tipagem Estática:
+
+Não permite a pessoa desenvolvedora alterar o tipo após declarado e geralmente a verificação de tipo é feita em tempo de compilação.
+A tipagem utilizada na linguagem TypeScript tem essa característica e vamos aprender sobre o seu compilador mais à frente.
+
+Tipagem Dinâmica:
+
+Está ligada à habilidade da linguagem de programação em “escolher o tipo de dado” de acordo com o valor atribuído à variável em tempo de execução dinamicamente.
+
+Tipagem Forte:
+
+Linguagens fortemente tipadas não realizam conversões automaticamente, ou seja, não é possível realizar operações entre valores de diferentes tipos sendo necessário que a pessoa desenvolvedora faça a conversão para um dos tipos caso seja possível.
+A tipagem utilizada na linguagem TypeScript também possui essa característica.
+
+Tipagem Fraca:
+
+A tipagem fraca está ligada a característica da linguagem de realizar conversões automaticamente entre tipos diferentes de dados, ou seja, operações entre valores de tipos diferentes podem acontecer sem a necessidade de uma conversão explícita de tipo. Porém, o resultado pode não ser o esperado e erros podem ocorrer durante a execução.
+
+
+*****TSC - TypeScript Compiler
+
+O TSC é o responsável por realizar a tradução do nosso código TypeScript para código JavaScript .

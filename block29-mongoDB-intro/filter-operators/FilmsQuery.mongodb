@@ -1,0 +1,196 @@
+use('test');
+db.films.find();
+
+db.dropDatabase()
+
+// .find( { filtro}, { projeção } );
+
+// omit 'id'
+db.films.find(
+    {}, // filtro
+    {
+      _id: false, // projeção
+      Title: true,
+      Year: true,
+      Released: true
+    } 
+);
+
+// listar filmes que foram lançados antes dos anos 2008 (até 2007)
+db.films.find(
+    { Year: { $lte: 2008 }}, // filtro
+    {
+      _id: false, // projeção
+      Title: true,
+      Year: true,
+    } 
+);
+// $lte: Matches values that are less than OR equal to a specified value.
+
+// $lt Matches values that are less than a specified value.
+use('test');
+db.films.find(
+    { Year: { $lt: 2008 }}, // filtro
+);
+
+// listar filmes que tiveram no máximo 5 a avaliações positivas 'bom' -> exemplo em 'otherExamples'
+
+db.films.find(
+  { "Avaliacao.bom": { $lte: 5 }}, // filtro
+  {} // projeção
+);
+
+
+
+// listar filmes DEPOIS de 1993 e que tiveram NO MAXIMO 5 avaliação 5
+
+db.films.find({
+  "Avaliacao.bom": { $lte: 5 },
+  Year: { $gt: 1993}
+}, {});
+// $gt Matches values that are greater than a specified value.
+
+
+// listar filmes ENTRE 1993 E 2005 (incluindo os dois anos)
+
+db.films.find({ 
+  Year: { 
+      $gte: 1993,
+      $lte: 2005
+      }
+});
+
+
+
+// listar filmes ENTRE 1993 E 2005 (incluindo os dois anos) E tiveram mais de 5 avaliações positivas
+db.films.find({ 
+  Year: { 
+      $gte: 1993,
+      $lte: 2005
+      },
+      "Avaliacao.bom": {
+        $gt: 5
+      }
+});
+
+// por padrão '.find' é um 'E'
+
+
+
+// OPERADOR 'E' 'AND' -> ARRAY DE CONDIÇOES
+// tem que ESTAR NO NÍVEL MAIS ALTO (gt, lte por exemplo estao DENTRO de uma propriedade)
+// '$and' recebe um array de TODAS as condições que TEM QUE SER VERDADEIRAS, e cada condiçao é um objeto
+
+db.films.find({
+  $and: [
+    {
+      Year: { 
+      $gte: 1993,
+      $lte: 2005
+      }
+    }, // condição 1
+    { 
+      "Avaliacao.bom": {
+        $gt: 5
+       }
+    } // condiçao 2
+  ]
+});
+
+// filmes tarantino que tem PELO MENOS 6 avaliações ruins
+
+// com '$and'
+db.films.find({
+  $and: [
+    diretor: "Quentin Tarantino", // condição 1
+    { 
+      "Avaliacao.ruim": {
+        $gte: 6
+       }
+    } // condiçao 2
+  ]
+});
+
+// sem '$and'
+db.films.find({
+    diretor: "Quentin Tarantino",
+    "Avaliacao.ruim": {
+        $gte: 6
+       }
+});
+
+// todos filmes que tem pelos menos 6 avaliações ruins mas que NÃO sao do Quentin Tarantino
+db.films.find({
+    diretor: {
+      $ne: "Quentin Tarantino"
+    },
+    "Avaliacao.ruim": {
+        $gte: 6
+       }
+});
+// $ne = not equal
+
+
+
+// $in
+// listar todos os filmes que foram lançados em anos pares
+
+const arr = [ 2000, 2002, 2004]
+// força bruta, tentar lançar um loop dos anos 
+
+db.films.find({
+  Year: {
+    $in: arr
+  }
+})
+// $in Matches any of the values specified in an array.
+
+
+
+// listar filmes SOMENTE do(director) "stanley" e "peter"
+
+db.films.find({
+  director: {
+    $in: ["Stanley", "peter"]
+  }
+}, { director: true });
+
+
+
+
+// OU 'OR'
+// filmes extremos OU 9 DE BOM PRA CIMA OU 9 DE RUIM PRA BAIXO (avaliacao)
+// retorna so resultados verdadeiros
+db.films.find({
+  $or: [
+    { "Avaliacao.bom": { $gte: 9 } },
+    { "Avaliacao.ruim": { $gte: 9 } }
+  ]
+}, { Avaliacao: true});
+
+
+// 'NOR' 
+// nenhuma dos argumentos podem ser verdadeiros
+// retorna todo o resto
+db.films.find({
+  $nor: [
+    { "Avaliacao.bom": { $gte: 9 } },
+    { "Avaliacao.ruim": { $gte: 9 } }
+  ]
+}, { Avaliacao: true});
+
+
+
+
+// listar filmes que NAO sao do "Quentin Tarantino" E NAO tem avaliaçao 'bom' menor que 7
+db.films.find({
+  director: { $ne: { "Quentin Tarantino"} },
+  "avaliacao.bom": { $not: { $gt: 7 }}
+})
+
+db.films.find({
+  $nor: [
+    { director: "Quentin Tarantino" },
+    { "Avaliacao.bom": { $lt: 7 } }
+  ]
+}, { Avaliacao: true});

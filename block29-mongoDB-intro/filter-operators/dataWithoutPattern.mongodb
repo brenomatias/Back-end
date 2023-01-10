@@ -1,0 +1,11 @@
+// $exists força a existencia do dado. se nao tiver nao entra na resposta
+
+db.records.find({
+    country: {
+    $ne: "Brazil",
+    $ne: 0,
+    $ne: null, // diferente de 'null'
+    $exists: true
+}
+
+}, { _id: false})

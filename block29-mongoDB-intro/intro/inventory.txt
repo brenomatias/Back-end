@@ -1,0 +1,66 @@
+show dbs
+
+use('commerce');
+db.inventory.insertOne({
+  item: 'bike', 
+  qty: 25, 
+  dimensions: { 
+    w: 1.5,
+    h: 1,
+    u: 'cm'
+},
+  price: 500
+});
+
+db.inventory.find();
+
+show collections;
+
+db.inventory.drop();
+
+db.inventory.insertMany([
+{
+  item: 'bike1', 
+  qty: 25, 
+  dimensions: { 
+    w: 1.5,
+    h: 1,
+    u: 'cm'
+},
+  price: 500
+},
+{
+  item: 'bike2', 
+  qty: 25, 
+  dimensions: { 
+    w: 1.5,
+    h: 1,
+    u: 'cm'
+},
+  price: 500
+},
+{
+  item: 'bike3', 
+  qty: 25, 
+  dimensions: { 
+    w: 1.5,
+    h: 1,
+    u: 'cm'
+},
+  price: 500
+},
+{
+  item: 'bike4', 
+  qty: 25, 
+  dimensions: { 
+    w: 1.5,
+    h: 1,
+    u: 'cm'
+},
+  price: 500
+},
+]);
+
+db.inventory.find({item: 'bike2'});
+
+db.inventory.find({item: 'bike2', price: 500});

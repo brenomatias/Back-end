@@ -1,0 +1,13 @@
+npm init -y
+npm i express
+      nodemon
+      sequelize 
+      mysql2
+      sequelize-cli
+      express-rescue
+      dotenv
+      joi
+npm i jsonwebtoken
+
+npm install --save-dev sequelize-cli
+npx sequelize-cli init
